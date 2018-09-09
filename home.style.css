@@ -1,13 +1,25 @@
 /* Dead Of Night Studios Home Page Styles */
 
-.company-logo {
+.home-page {
   width: 100%;
   height: 100%;
+  display: inline-block;
+  font-family: "Arial", sans-serif;
 }
 
 .company-logo-container {
-  width: 50%;
-  height: 50%;
+  width: 40%;
+  height: 40%;
   background-color: WHITE;
-  margin: auto;
+  display: inline-block;
+  margin: 2em;
+}
+
+.company-about-container {
+  width: 40%;
+  height: 40%;
+  display: inline-block;
+  text-align: left;
+  margin: 1em;
+  vertical-align: top;
 }

@@ -3,7 +3,6 @@
   width: 100%;
   margin: 0;
   text-align: center;
-  overflow: hidden;
   background-color: BLACK;
   padding: 2em;
   font-family: "Arial", sans-serif;
@@ -38,12 +37,16 @@
   background-color: BLACK;
   color: WHITE;
   font-family: "Arial", sans-serif;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 /* Character Functions */
 
 .character-functions {
   margin: 0 0 1em 0;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .character-functions-hidden {
