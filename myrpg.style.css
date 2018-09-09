@@ -1,0 +1,341 @@
+/* Style sheet used for MyRPG  */
+.myrpg-border {
+  text-align: center;
+  overflow: hidden;
+  font-size: 1.25em;
+  padding: 2em;
+  font-family: "Arial", sans-serif;
+}
+
+/* Character Info  */
+
+.character-info {
+  margin: 0em;
+  width: 100%;
+  display: inline-block;
+}
+
+.character-info-right {
+  float: right;
+  width: 50%;
+}
+
+.character-info-left {
+  float: left;
+  width: 50%;
+}
+
+.character-info-left label {
+  width: 20%;
+  text-align: left;
+  float: left;
+}
+
+.character-info-right label {
+  width: 20%;
+  text-align: left;
+  float: left;
+}
+
+.character-info input {
+  width: 60%;
+  text-align: left;
+  float: left;
+  margin: 0.25em;
+}
+
+/* Character Stats */
+
+.character-stats {
+  margin: 1em 0 0 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Character Attributes */
+
+.character-attributes {
+  float: left;
+  text-align: left;
+  width: 40%;
+}
+
+.character-attribute {
+  margin: 0.5em;
+}
+
+.character-attributes input {
+  float: right;
+  text-align: center;
+  width: 3em;
+  margin: 0 0 0 1em;
+}
+
+.attributes-label {
+  float: none;
+  text-align: center;
+  font-weight: bold;
+}
+
+.mod-label {
+  font-weight: bold;
+  float: right;
+  text-align: center;
+  margin: 0 0 0 1.25em;
+}
+
+/* Character Traits */
+
+.character-traits {
+  width: 40%;
+  float: right;
+  margin: 2em;
+}
+
+.character-traits-title {
+  font-weight: bold;
+  font-size: 1.25em; 
+  float: none;
+  text-align: center;
+  width: 100%;
+}
+
+.character-traits div {
+  width: 100%;
+  float: left;
+}
+
+.character-traits-label {
+  width: 40%;
+  text-align: left;
+  float: left;
+}
+
+.character-traits input {
+  width: 30%;
+  text-align: left;
+  float: right;
+}
+
+.display-label {
+  width: 20%;
+  float: none;
+  text-align: right;
+}
+
+/* Character Skills */
+
+.character-skills {
+  margin: 1em;
+  width: 100%;
+  display: inline-block;
+}
+
+.character-skills div {
+  width: 30%;
+  display: inline-block;
+}
+
+.character-skill {
+  width: 40%;
+  margin: 0.25em;
+  text-align: left;
+  display: inline-block;
+}
+
+.character-skills input {
+  width: 30%;
+  text-align: left;
+  display: inline-block;
+}
+
+.character-skills-title {
+  font-weight: bold;
+  margin: 1em;
+  font-size: 1.15em;
+  display: block;
+  text-align: center;
+}
+
+.character-skills-pts {
+  font-size: 1em;
+  display: inline-block;
+  text-align: right;
+  width: 50%;
+}
+
+.character-skills-pts-label {
+  font-size: 1em;
+  display: inline-block;
+  text-align: left;
+  width: 30%;
+  margin: 0.5em;
+}
+
+.character-skills-pts-assigned {
+  font-size: 1em;
+  display: inline-block;
+  text-align: left;
+  width: 40%;
+}
+
+.character-skills-pts-assigned-label {
+  font-size: 1em;
+  display: inline-block;
+  text-align: right;
+  width: 55%;
+  margin: 0.5em;
+}
+
+/* Character Abilities */
+
+.character-abilities {
+  margin: 1em;
+}
+
+.character-abilities div {
+  width: 100%;
+  display: inline-block;
+}
+
+.ability-name {
+  width: 20%;
+}
+
+.ability-effect {
+  width: 60%;
+}
+
+.character-abilities-label-left {
+  width: 25%;
+  font-size: 1em;
+  float: left;
+}
+
+.character-abilities-label-right {
+  width: 25%;
+  font-size: 1em;
+  float: right;
+}
+
+.character-abilities-title {
+  margin: 1em;
+  font-size: 1.25em;
+  font-weight: bold;
+}
+
+/* Equipment  */
+
+.character-equipment {
+  margin: 1em;
+}
+
+.character-equipment-title {
+  margin: 1em;
+  font-size: 1.25em;
+  font-weight: bold;
+  width: 100%;
+  display: block;
+}
+
+.equipment {
+  display: inline-block;
+  width: 40%;
+  margin: 1em;
+}
+
+.equipment input {
+  float: right;
+  width: 50%;
+}
+
+.equipment textarea {
+  float: right;
+  width: 50%;
+  resize: vertical;
+  min-height: 1em;
+}
+
+.equipment-title {
+  margin: 1em;
+  font-weight: bold;
+}
+
+.equipment-detail {
+  text-align: left;
+  margin: 0.5em;
+}
+
+.equipment-label {
+  text-align: left;
+  margin: 1em;
+  width: 50%;
+}
+
+/* Inventory */
+
+.character-inventory {
+  margin-top: 1em;
+  margin-bottom: 4em;
+}
+
+.character-inventory-title {
+  margin: 1em;
+  font-size: 1.25em;
+  font-weight: bold;
+  width: 100%;
+  display: block;
+}
+
+.character-inventory table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.character-inventory input {
+    width: 90%;
+}
+
+.character-inventory td, th {
+    border: 1px solid BLACK;
+    text-align: left;
+    padding: 0.25em;
+}
+
+.character-inventory tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.inventory-functions {
+  display: block;
+  margin: 1em;
+}
+
+.inventory-functions button {
+  font-size: 0.75em;
+}
+
+/* Responsive Styles  */
+
+@media screen and (max-width: 65em) {
+  .myrpg-border {
+    font-size: 1em;
+    display: block;
+  }
+  
+  .character-info {
+    margin: 0em;
+    width: 100%;
+    display: block;
+  }
+  
+  .character-info-right {
+    width: 100%;
+    display: block;
+  }
+  
+  .character-info-left {
+    width: 100%;
+    display: block;
+  }
+}

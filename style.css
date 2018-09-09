@@ -1,0 +1,72 @@
+/* Styles go here */
+.header {
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  overflow: hidden;
+  background-color: BLACK;
+  padding: 2em;
+  font-family: "Arial", sans-serif;
+}
+
+.header a {
+  width: 100%;
+  color: WHITE;
+  padding: 0.5em;
+  text-decoration: none;
+  font-size: 2em;
+  border-radius: 1em;
+}
+
+.header .logo {
+  border-radius: 1em;
+  font-size: 3em;
+  font-weight: bold;
+}
+
+.header :hover {
+  background-color: WHITE;
+  color: BLACK;
+}
+
+.footer {
+  text-align: center;
+  padding: 1em;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: BLACK;
+  color: WHITE;
+  font-family: "Arial", sans-serif;
+}
+
+/* Character Functions */
+
+.character-functions {
+  margin: 0 0 1em 0;
+}
+
+.character-functions-hidden {
+  visibility: hidden
+}
+
+.character-functions input {
+  float: none;
+  width: 50%;
+}
+
+.character-functions button {
+  float: none;
+  width: 20%;
+}
+
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .header-right {
+    float: none;
+  }
+}

@@ -1,0 +1,569 @@
+<link rel="stylesheet" href="myrpg.style.css">
+<script src="myrpg.script.js"></script>
+
+<div class="myrpg-border">
+  <div class="character-info">
+    <div class="character-info-left">
+      <div class="character-detail">
+        <label>Name</label>
+        <input id="name" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="character-detail">
+        <label>Class</label>
+        <input id="class" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="character-detail">
+        <label>Ancestry</label>
+        <input id="ancestry" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="character-detail">
+        <label>Alignment</label>
+        <input id="alignment" type="text" oninput="saveValue(this)" />
+      </div>
+    </div>
+    <div class="character-info-right">
+      <div class="character-detail">
+        <label>Gender</label>
+        <input id="gender" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="character-detail">
+        <label>Hair Color</label>
+        <input id="hair" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="character-detail">
+        <label>Eye Color</label>
+        <input id="eye" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="character-detail">
+        <label>Height</label>
+        <input id="height" type="text" oninput="saveValue(this)" />
+      </div>
+    </div>
+  </div>
+  <div class="character-stats">
+    <div class="character-attributes">
+      <div class="character-attribute">
+        <label class="attributes-label">Attributes</label>
+        <label class="mod-label">Mod</label>
+        <label class="mod-label">Stat</label>
+      </div>
+      <div class="character-attribute">
+        <label>Strength (STR)</label>
+        <input id="str_mod" type="number" value="0" />
+        <input id="str" type="number" value="5" min="5" onfocusout="checkAttributeLimit(this)" />
+      </div>
+      <div class="character-attribute">
+        <label>Agility (AGI)</label>
+        <input id="agi_mod" type="number" value="0" />
+        <input id="agi" type="number" value="5" min="5" onfocusout="checkAttributeLimit(this)" />
+      </div>
+      <div class="character-attribute">
+        <label>Perception (PER)</label>
+        <input id="per_mod" type="number" value="0" />
+        <input id="per" type="number" value="5" min="5" onfocusout="checkAttributeLimit(this)" />
+      </div>
+      <div class="character-attribute">
+        <label>Vitality (VIT)</label>
+        <input id="vit_mod" type="number" value="0" />
+        <input id="vit" type="number" value="5" min="5" onfocusout="checkAttributeLimit(this)" />
+      </div>
+      <div class="character-attribute">
+        <label>Intelligence (INT)</label>
+        <input id="int_mod" type="number" value="0" />
+        <input id="int" type="number" value="5" min="5" onfocusout="checkAttributeLimit(this)" />
+      </div>
+      <div class="character-attribute">
+        <label>Wisdom (WIS)</label>
+        <input id="wis_mod" type="number" value="0" />
+        <input id="wis" type="number" value="5" min="5" onfocusout="checkAttributeLimit(this)" />
+      </div>
+      <div class="character-attribute">
+        <label>Charisma (CHR)</label>
+        <input id="chr_mod" type="number" value="0" />
+        <input id="chr" type="number" value="5" min="5" onfocusout="checkAttributeLimit(this)" />
+      </div>
+      <div class="character-attribute">
+        <label>Remaining Attribute Points:</label>
+        <label id="remaining_pts">3</label>
+      </div>
+    </div>
+    <div class="character-traits">
+      <label class="character-traits-title">Traits</label>
+      <div class="character-trait">
+        <div>
+          <label class="character-traits-label">Level</label>
+          <input id="lvl" type="number" onfocusout="confirmAction(this)" value="1" min="1" />
+        </div>
+        <div>
+          <label class="character-traits-label">Experience (EXP)</label>
+          <input id="exp" type="number" min="0" max="10" value="0"  />
+        </div>
+        <div>
+          <label class="character-traits-label">Knowledge</label>
+          <label id="knl" class="display-label">1</label>
+          <input id="knl_used" type="number" min="0" max="1" value="0" onfocusout="updateKnowledgeAndSkills(this)" />
+        </div>
+        <div>
+          <label class="character-traits-label">Health</label>
+          <label id="health" class="display-label">5</label>
+          <input id="damage" type="number" min="0" max="5" value="5" onfocusout="updateDamage(this)" />
+        </div>
+        <div>
+          <label class="character-traits-label">Weight Capacity</label>
+          <label id="capacity" class="display-label">0</label>
+        </div>
+        <div>
+          <label class="character-traits-label">Body Weight</label>
+          <label id="body-weight" class="display-label">50</label>
+        </div>
+        <div>
+          <label class="character-traits-label">Speed</label>
+          <label id="speed" class="display-label">1</label>
+        </div>
+        <div>
+          <label class="character-traits-label">Action Point(s)</label>
+          <label id="action_pts" class="display-label">1</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="character-skills" class="character-skills">
+    <label class="character-skills-title">Skills</label>
+    <label class="character-skills-pts">Remaining Skill Points: </label>
+    <label id="skill_pts" class="character-skills-pts-label">1</label>
+    <label class="character-skills-pts-assigned-label">Assigned Skill Points: </label>
+    <label id="skill_pts_assigned" class="character-skills-pts-assigned">0</label>
+    <div>
+      <label class="character-skill">Archery</label>
+      <input id="archery" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
+    </div>
+    <div>
+      <label class="character-skill">Art</label>
+      <input id="art" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
+    </div>
+    <div>
+      <label class="character-skill">Blade</label>
+      <input id="blade" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
+    </div>
+    <div>
+      <label class="character-skill">Block</label>
+      <input id="block" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
+    </div>
+    <div>
+      <label class="character-skill">Blunt</label>
+      <input id="blunt" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
+    </div>
+    <div>
+      <label class="character-skill">Carpentry</label>
+      <input id="carpentry" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
+    </div>
+    <div>
+      <label class="character-skill">Catalyst</label>
+      <input id="catalyst" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
+    </div>
+    <div>
+      <label class="character-skill">Chemistry</label>
+      <input id="chemistry" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
+    </div>
+    <div>
+      <label class="character-skill">Culinary Arts</label>
+      <input id="culinary_arts" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
+    </div>
+    <div>
+      <label class="character-skill">Dodge</label>
+      <input id="dodge" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
+    </div>
+    <div>
+      <label class="character-skill">Duel Wield</label>
+      <input id="duel_wield" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
+    </div>
+    <div>
+      <label class="character-skill">Engineering</label>
+      <input id="engineering" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
+    </div>
+    <div>
+      <label class="character-skill">Herbalism</label>
+      <input id="herbalism" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
+    </div>
+    <div>
+      <label class="character-skill">Literacy</label>
+      <input id="literacy" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
+    </div>
+    <div>
+      <label class="character-skill">Martial Arts</label>
+      <input id="martial_arts" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
+    </div>
+    <div>
+      <label class="character-skill">Pick Lock</label>
+      <input id="pick_lock" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
+    </div>
+    <div>
+      <label class="character-skill">Pick Pocket</label>
+      <input id="pick_pocket" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
+    </div>
+    <div>
+      <label class="character-skill">Sewing</label>
+      <input id="sewing" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
+    </div>
+    <div>
+      <label class="character-skill">Smithing</label>
+      <input id="smithing" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
+    </div>
+    <div>
+      <label class="character-skill">Staff</label>
+      <input id="staff" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
+    </div>
+    <div>
+      <label class="character-skill">Spell Craft</label>
+      <input id="spell_craft" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
+    </div>
+    <div>
+      <label class="character-skill">Swim</label>
+      <input id="swim" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
+    </div>
+    <div>
+      <label class="character-skill">Sneak</label>
+      <input id="sneak" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
+    </div>
+    <div>
+      <label class="character-skill">Whip</label>
+      <input id="whip" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
+    </div>
+  </div>
+  <div class="character-abilities">
+    <label class="character-abilities-title">Abilites</label>
+    <div>
+      <label class="character-abilities-label-left">Name</label>
+      <label class="character-abilities-label-right">Effect</label>
+    </div>
+    <div>
+      <input id="ability_one_name" class="ability-name" type="text" oninput="saveValue(this)" />
+      <input id="ability_one_effect" class="ability-effect" type="text" oninput="saveValue(this)" />
+    </div>
+    <div>
+      <input id="ability_two_name" class="ability-name" type="text" oninput="saveValue(this)" />
+      <input id="ability_two_effect" class="ability-effect" type="text" oninput="saveValue(this)" />
+    </div>
+    <div>
+      <input id="ability_three_name" class="ability-name" type="text" oninput="saveValue(this)" />
+      <input id="ability_three_effect" class="ability-effect" type="text" oninput="saveValue(this)" />
+    </div>
+    <div>
+      <input id="ability_four_name" class="ability-name" type="text" oninput="saveValue(this)" />
+      <input id="ability_four_effect" class="ability-effect" type="text" oninput="saveValue(this)" />
+    </div>
+  </div>
+  <div class="character-equipment">
+    <label class="character-equipment-title">Equipment</label>
+    <div class="equipment">
+      <label class="equipment-title">Right Hand</label>
+      <div class="equipment-detail">
+        <label class="equipment-label">Name</label>
+        <input id="right-hand-name" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Attack</label>
+        <input id="right-hand-ac" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Requirements</label>
+        <input id="right-hand-requirements" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Effect</label>
+        <textarea id="right-hand-effect" type="text" oninput="saveValue(this)" ></textarea>
+      </div>
+    </div>
+    <div class="equipment">
+      <label class="equipment-title">Left Hand</label>
+      <div class="equipment-detail">
+        <label class="equipment-label">Name</label>
+        <input id="left-hand-name" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Attack</label>
+        <input id="left-hand-ac" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Requirements</label>
+        <input id="left-hand-requirements" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Effect</label>
+        <textarea id="left-hand-effect" type="text" oninput="saveValue(this)" ></textarea>
+      </div>
+    </div>
+    <div class="equipment">
+      <label class="equipment-title">Head</label>
+      <div class="equipment-detail">
+        <label class="equipment-label">Name</label>
+        <input id="head-name" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Armor Class</label>
+        <input id="head-ac" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Requirements</label>
+        <input id="head-requirements" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Effect</label>
+        <textarea id="head-effect" type="text" oninput="saveValue(this)" ></textarea>
+      </div>
+    </div>
+    <div class="equipment">
+      <label class="equipment-title">Shoulders</label>
+      <div class="equipment-detail">
+        <label class="equipment-label">Name</label>
+        <input id="shoulders-name" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Armor Class</label>
+        <input id="shoulders-ac" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Requirements</label>
+        <input id="shoulders-requirements" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Effect</label>
+        <textarea id="shoulders-effect" type="text" oninput="saveValue(this)" ></textarea>
+      </div>
+    </div>
+    <div class="equipment">
+      <label class="equipment-title">Torso</label>
+      <div class="equipment-detail">
+        <label class="equipment-label">Name</label>
+        <input id="torso-name" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Armor Class</label>
+        <input id="torso-ac" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Requirements</label>
+        <input id="torso-requirements" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Effect</label>
+        <textarea id="torso-effect" type="text" oninput="saveValue(this)" ></textarea>
+      </div>
+    </div>
+    <div class="equipment">
+      <label class="equipment-title">Hands</label>
+      <div class="equipment-detail">
+        <label class="equipment-label">Name</label>
+        <input id="hands-name" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Armor Class</label>
+        <input id="hands-ac" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Requirements</label>
+        <input id="hands-requirements" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Effect</label>
+        <textarea id="hands-effect" type="text" oninput="saveValue(this)" ></textarea>
+      </div>
+    </div>
+    <div class="equipment">
+      <label class="equipment-title">Legs</label>
+      <div class="equipment-detail">
+        <label class="equipment-label">Name</label>
+        <input id="legs-name" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Armor Class</label>
+        <input id="legs-ac" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Requirements</label>
+        <input id="legs-requirements" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Effect</label>
+        <textarea id="legs-effect" type="text" oninput="saveValue(this)"></textarea>
+      </div>
+    </div>
+    <div class="equipment">
+      <label class="equipment-title">Feet</label>
+      <div class="equipment-detail">
+        <label class="equipment-label">Name</label>
+        <input id="feet-name" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Armor Class</label>
+        <input id="feet-ac" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Requirements</label>
+        <input id="feet-requirements" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Effect</label>
+        <textarea id="feet-effect" type="text" oninput="saveValue(this)" ></textarea>
+      </div>
+    </div>
+    <div class="equipment">
+      <label class="equipment-title">Necklace</label>
+      <div class="equipment-detail">
+        <label class="equipment-label">Name</label>
+        <input id="necklace-name" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Requirements</label>
+        <input id="necklace-requirements" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Effect</label>
+        <textarea id="necklace-effect" type="text" oninput="saveValue(this)" ></textarea>
+      </div>
+    </div>
+    <div class="equipment">
+      <label class="equipment-title">Necklace Two</label>
+      <div class="equipment-detail">
+        <label class="equipment-label">Name</label>
+        <input id="necklace-two-name" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Requirements</label>
+        <input id="necklace-two-requirements" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Effect</label>
+        <textarea id="necklace-two-effect" type="text" oninput="saveValue(this)" ></textarea>
+      </div>
+    </div>
+    <div class="equipment">
+      <label class="equipment-title">Bracelet</label>
+      <div class="equipment-detail">
+        <label class="equipment-label">Name</label>
+        <input id="bracelet-name" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Requirements</label>
+        <input id="bracelet-requirements" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Effect</label>
+        <textarea id="bracelet-effect" type="text" oninput="saveValue(this)" ></textarea>
+      </div>
+    </div>
+    <div class="equipment">
+      <label class="equipment-title">Bracelet Two</label>
+      <div class="equipment-detail">
+        <label class="equipment-label">Name</label>
+        <input id="bracelet-two-name" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Requirements</label>
+        <input id="bracelet-two-requirements" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Effect</label>
+        <textarea id="bracelet-two-effect" type="text" oninput="saveValue(this)" ></textarea>
+      </div>
+    </div>
+    <div class="equipment">
+      <label class="equipment-title">Ring</label>
+      <div class="equipment-detail">
+        <label class="equipment-label">Name</label>
+        <input id="ring-name" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Requirements</label>
+        <input id="ring-requirements" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Effect</label>
+        <textarea id="ring-effect" type="text" oninput="saveValue(this)" ></textarea>
+      </div>
+    </div>
+    <div class="equipment">
+      <label class="equipment-title">Ring Two</label>
+      <div class="equipment-detail">
+        <label class="equipment-label">Name</label>
+        <input id="ring-two-name" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Requirements</label>
+        <input id="ring-two-requirements" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Effect</label>
+        <textarea id="ring-two-effect" type="text" oninput="saveValue(this)" ></textarea>
+      </div>
+    </div>
+    <div class="equipment">
+      <label class="equipment-title">Ring Three</label>
+      <div class="equipment-detail">
+        <label class="equipment-label">Name</label>
+        <input id="ring-three-name" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Requirements</label>
+        <input id="ring-three-requirements" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Effect</label>
+        <textarea id="ring-three-effect" type="text" oninput="saveValue(this)" ></textarea>
+      </div>
+    </div>
+    <div class="equipment">
+      <label class="equipment-title">Ring Four</label>
+      <div class="equipment-detail">
+        <label class="equipment-label">Name</label>
+        <input id="ring-four-name" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Requirements</label>
+        <input id="ring-four-requirements" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Effect</label>
+        <textarea id="ring-four-effect" type="text" oninput="saveValue(this)" ></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="character-inventory">
+    <label class="character-inventory-title">Inventory</label>
+    <table id="inventory">
+      <tr>
+        <th>Item</th>
+        <th>Description</th>
+        <th>Weight</th>
+      </tr>
+      <tr class="inventory-title-group">
+        <th><input id="item_1_name" type="text" oninput="saveValue(this)" /></th>
+        <th><input id="item_1_description" type="text" oninput="saveValue(this)" /></th>
+        <th><input id="item_1_weight" type="number" oninput="saveValue(this)" /></th>
+      </tr>
+      <tr class="inventory-title-group">
+        <th><input id="item_2_name" type="text" oninput="saveValue(this)" /></th>
+        <th><input id="item_2_description" type="text" oninput="saveValue(this)" /></th>
+        <th><input id="item_2_weight" type="number" oninput="saveValue(this)" /></th>
+      </tr>
+      <tr class="inventory-title-group">
+        <th><input id="item_3_name" type="text" oninput="saveValue(this)" /></th>
+        <th><input id="item_3_description" type="text" oninput="saveValue(this)" /></th>
+        <th><input id="item_3_weight" type="number" oninput="saveValue(this)" /></th>
+      </tr>
+      <tr class="inventory-title-group">
+        <th><input id="item_4_name" type="text" oninput="saveValue(this)" /></th>
+        <th><input id="item_4_description" type="text" oninput="saveValue(this)" /></th>
+        <th><input id="item_4_weight" type="number" oninput="saveValue(this)" /></th>
+      </tr>
+      <tr class="inventory-title-group">
+        <th><input id="item_5_name" type="text" oninput="saveValue(this)" /></th>
+        <th><input id="item_5_description" type="text" oninput="saveValue(this)" /></th>
+        <th><input id="item_5_weight" type="number" oninput="saveValue(this)" /></th>
+      </tr>
+    </table>
+    <div class="inventory-functions">
+      <button onclick="addInventoryItem(this)">Add New Item</button>
+    </div>
+  </div>
+</div>

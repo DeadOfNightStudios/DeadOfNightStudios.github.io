@@ -1,0 +1,13 @@
+/* Dead Of Night Studios Home Page Styles */
+
+.company-logo {
+  width: 100%;
+  height: 100%;
+}
+
+.company-logo-container {
+  width: 50%;
+  height: 50%;
+  background-color: WHITE;
+  margin: auto;
+}

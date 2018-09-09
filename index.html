@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <script src="myrpg.script.js"></script>
+  </head>
+  
+  <body>
+    <div class="header">
+      <a href="#default" class="logo" onclick="loadHomePage(this)">Dead Of Night Studios</a>
+    </div>
+    <div class="header">
+      <a href="#myrpg" onclick="loadMyrpgPage(this)">MyRPG</a>
+    </div>
+    <div id="content"></div>
+    <div class="footer">
+      <div id="character-functions" class="character-functions-hidden">
+        <input type="file" id="load-character" onclick="loadCharacterSheet(this)" />
+        <button id="save-character" onclick="saveCharacterSheet(this)">Save Character</button>
+      </div>
+      <label>Dead.Of.Night.Studios@gmail.com</label>
+    </div>
+  </body>
+</html>
