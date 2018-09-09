@@ -23,3 +23,9 @@
   margin: 1em;
   vertical-align: top;
 }
+
+.company-logo {
+  width: 70%;
+  height: 70%;
+  margin: 2em;
+}
