@@ -3,10 +3,34 @@
   text-align: center;
   overflow: hidden;
   font-size: 1.25em;
-  padding: 2em;
+  padding: 1em;
   font-family: "Arial", sans-serif;
   max-width: 100%;
+  margin-bottom: 4em;
 }
+
+.collapsible-div {
+  display: inline-block;
+}
+
+.collapsible {
+  background-color: #9E9E9E;
+  color: BLACK;
+  cursor: pointer;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  width: 100%;
+  border: none;
+  text-align: center;
+  outline: none;
+  font-size: 1.25em;
+}
+
+.collapsible:hover {
+    background-color: #555;
+}
+
 
 /* Character Info  */
 

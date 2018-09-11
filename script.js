@@ -19,6 +19,11 @@ function loadMyrpgPage() {
 }
 
 function loadHomePage() {
+  
+  // Hide Save & Load of Character Sheet
+  document.getElementById("character-functions").classList.remove('character-functions');
+  document.getElementById("character-functions").classList.add('character-functions-hidden');
+  
   loadFile("home.html");
 }
 

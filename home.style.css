@@ -7,6 +7,12 @@
   font-family: "Arial", sans-serif;
 }
 
+.company-logo {
+  width: 70%;
+  height: 70%;
+  margin: 2em;
+}
+
 .company-logo-container {
   width: 40%;
   height: 40%;
@@ -22,10 +28,4 @@
   text-align: left;
   margin: 1em;
   vertical-align: top;
-}
-
-.company-logo {
-  width: 70%;
-  height: 70%;
-  margin: 2em;
 }

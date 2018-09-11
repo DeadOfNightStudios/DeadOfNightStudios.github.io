@@ -286,3 +286,24 @@ function downloadSheet(filename, text) {
 function saveValue(element) {
   element.defaultValue = element.value;
 }
+
+/* Collapse and Expand Functions */
+
+function collapseExpand(btnName, elementName) {
+  var element = document.getElementById(elementName);
+  var style = window.getComputedStyle(element);
+  var display = style.getPropertyValue('display');
+
+  var nameOfBtn = document.getElementById(btnName).innerHTML
+  nameOfBtn = nameOfBtn.substring(1, nameOfBtn.length-1);
+  if (display === "block") {
+    element.style.display = "none";
+    document.getElementById(btnName).innerHTML = "+ " + nameOfBtn + " +";
+  } else {
+    element.style.display = "block";
+    document.getElementById(btnName).innerHTML = "- " + nameOfBtn + " -";
+  }
+}
+
+
+
