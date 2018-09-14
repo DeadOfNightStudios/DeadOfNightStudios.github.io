@@ -243,6 +243,16 @@ function addInventoryItem(element) {
   cellThree.innerHTML = "<input id=\"item_" + rowCount + "_name\" type=\"text\" />"
 }
 
+function removeInventoryItem(element) {
+  var inventory = document.getElementById("inventory");
+  
+  var rowCount = document.getElementById("inventory").getElementsByTagName("tr").length;
+  if (rowCount > 1) {
+    var row = inventory.deleteRow(rowCount - 1 );
+  }
+  
+}
+
 /* Load and Save Character Sheet Functions */
 
 function loadCharacterSheet(element) {
