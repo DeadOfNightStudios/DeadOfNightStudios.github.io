@@ -40,6 +40,10 @@
         <input id="height" type="text" oninput="saveValue(this)" />
       </div>
     </div>
+    <div class="character-art-div">
+      <img src="http://emblemsbf.com/img/23574.jpg" id="character-art" class="character-art">
+      <input type="file" id="load-character-art" class="load-character-art" onchange="loadCharacterArt(this)" />
+    </div>
   </div>
   <button id="character-stats-btn" class="collapsible" onclick="collapseExpand('character-stats-btn', 'character-stats')">- Stats -</button>
   <div id="character-stats" class="character-stats">

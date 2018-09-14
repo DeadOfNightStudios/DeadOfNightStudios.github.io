@@ -245,8 +245,8 @@ function addInventoryItem(element) {
 
 /* Load and Save Character Sheet Functions */
 
-function loadCharacterSheet(e) {
-  var file = e.target.files[0];
+function loadCharacterSheet(element) {
+  var file = element.files[0];
   if (!file) {
     return;
   }
@@ -305,5 +305,17 @@ function collapseExpand(btnName, elementName) {
   }
 }
 
+function loadCharacterArt(element) {
+  var file = element.files[0];
+  if (!file) {
+    return;
+  }
+  var image = document.getElementById('character-art');
+  var reader = new FileReader();
+  reader.onload = function readSuccess(evt) {                         
+      image.src = evt.target.result;                                
+  };
+  reader.readAsDataURL(file); 
+}
 
 

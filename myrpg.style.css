@@ -43,11 +43,13 @@
 .character-info-right {
   float: right;
   width: 50%;
+  margin-bottom: 1em;
 }
 
 .character-info-left {
   float: left;
   width: 50%;
+  margin-bottom: 1em;
 }
 
 .character-info-left label {
@@ -67,6 +69,26 @@
   text-align: left;
   float: left;
   margin: 0.25em;
+}
+
+.character-art-div {
+  margin: auto;
+  display: block;
+}
+
+.character-art {
+  margin: auto;
+  max-width: 50%;
+  max-height: 50%;
+  height: auto;
+  display: block;
+}
+
+.load-character-art {
+  margin: 1em;
+  text-align: center;
+  display: block;
+  width: 100%;
 }
 
 /* Character Stats */
