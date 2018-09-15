@@ -28,6 +28,15 @@ function loadHomePage() {
   loadFile("home.html");
 }
 
+function loadMyRPGDemoPage() {
+  
+  // Hide Save & Load of Character Sheet
+  document.getElementById("character-functions").classList.remove('character-functions');
+  document.getElementById("character-functions").classList.add('character-functions-hidden');
+  
+  loadFile("demo.html");
+}
+
 /* Utilitiy Functions */
 
 function loadFile(fileName) {

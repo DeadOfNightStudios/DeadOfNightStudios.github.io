@@ -1,0 +1,751 @@
+<link rel="stylesheet" href="myrpg.style.css">
+<script src="myrpg.script.js"></script>
+
+<div class="version-info">
+  <label>MyRPG V1.0.0</label>
+</div>
+<div class="myrpg-border">
+  <button id="character-info-btn" class="collapsible" onclick="collapseExpand('character-info-btn', 'character-info')">- Character Info -</button>
+  <div id="character-info" class="character-info">
+    <div class="character-info-left">
+      <div class="character-detail">
+        <label>Name</label>
+        <input id="name" type="text" oninput="saveValue(this)" value="Mul">
+      </div>
+      <div class="character-detail">
+        <label>Class</label>
+        <input id="class" type="text" oninput="saveValue(this)" value="Barbarian">
+      </div>
+      <div class="character-detail">
+        <label>Ancestry</label>
+        <input id="ancestry" type="text" oninput="saveValue(this)" value="Nordic">
+      </div>
+      <div class="character-detail">
+        <label>Alignment</label>
+        <input id="alignment" type="text" oninput="saveValue(this)" value="Chaotic Good">
+      </div>
+    </div>
+    <div class="character-info-right">
+      <div class="character-detail">
+        <label>Gender</label>
+        <input id="gender" type="text" oninput="saveValue(this)" value="Male">
+      </div>
+      <div class="character-detail">
+        <label>Hair Color</label>
+        <input id="hair" type="text" oninput="saveValue(this)" value="Red">
+      </div>
+      <div class="character-detail">
+        <label>Eye Color</label>
+        <input id="eye" type="text" oninput="saveValue(this)" value="Green">
+      </div>
+      <div class="character-detail">
+        <label>Height</label>
+        <input id="height" type="text" oninput="saveValue(this)" value="7 foot 2 inches">
+      </div>
+    </div>
+    <div class="character-art-div">
+      <img id="character-art" class="character-art" src="data:image/png;base64,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dp3s3Fkj9/z+9wLICXPnyq9+9V9pX6vnX1giIiKPPvqYAHLDjTfKRx+tkNLSERm5F/v5fJiSYPZ+RETWr98g8+fPl1NOOVUWLLhOduzYISIit91+e0YKtX17tTz77HNpxVm69GX53T3JG/Dtf/9Oj3MLrrtORETicVMuuODC7uObNm2StvZ2AeT000+X555/XsZPmJDSNbjxxzf3em79+g3y6quv9XpuyYsvyvvv/0NOOulk+dvfXpHNm7cIIGvWrpU33nxzQNeqNRCQBx54UAC57LLL5MknnxSfzzd8BGPbIs+/sKTHsTlHHimhUEjq6+u7jxWXlMj8i78pI0aM3CeNs846R/7tuOP3OX7GGWfKF7/0Zdm+fXufgvnqiSfKeedf8HG8M88SM27KylWr5IIL54nDcPQIf8X3vierV6+W1tZWaWlp6T7+8MP/La+/8Ub330d/7hjJLyj4RFwl8y/+phx2WGUvgrlJAJk79ysydeo0AeScc8+V9o4OWblylVz0jflSVFzcHWfc+PESjcbkf556SgAZOWq0LHlxqXztvPOlpaVF1qxZI/Mu+oYAUlZeLqefcZZAslaaMWOmHPep63XWWefIkUcdLX5/qzz44IPdx4855lhxOD7+/UcddbTMn/9NKSgo7BH/iDlHynnnXyCFhUVDL5gXX3ppn+MfrVgh4XBEALnxxh/L+vUb5P33/yHRaEyuvvoaAeSPf7xPGhp2yfr1G0RE5IIL5gkgR845Utav3yArV66SxsZGERF56umn98nj6KM/JytXrZaPVqyQ1taAxGJx+d6VV8qDDz4ktm1LfX29vPvu/8mRRx3VI95VV18jb7/1llx66bdERGTZsncEkJtuvkUeefQxOf74uVJdXS1x05Rjv/BFAeTXv/6N1NTUyj8//FBERDZv3iKP//mJbsH8+KZb5JVXXpV43JRAICjHn3CCPP3002KaptTXN8iyZe/IjJmzepTj1VdfExGRJUtelFGjxwggb775lkSjUamvb5BXX39dNmzcJCIiy5f/MxnntddFROT++x9IPixfPVE2bdosK1aulOaWFhERuffeP8jXzjtfmpp2S3t7u4zuSvvtZe/I2nXrpLqrBbjr7mST/Mgjj0r1jh3S1NQke/Y0HxzBLFu2TFpbA3LEEXMkEAzKM88+J4vuult2794jtbW13Rf65FNOkSuv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">
+      <input type="file" id="load-character-art" class="load-character-art" onchange="loadCharacterArt(this)">
+    </div>
+  </div>
+  <button id="class-history-btn" class="collapsible" onclick="collapseExpand('class-history-btn', 'class-history')">- Character Class History -</button>
+  <div id="class-history" class="class-history">
+    <table id="class-history-table">
+      <tbody><tr>
+        <th>Class</th>
+        <th>Years Served</th>
+        <th>Notes</th>
+      </tr>
+      <tr class="class-history-entry">
+        <th><input id="class_1" type="text" oninput="saveValue(this)" value="Trader "></th>
+        <th><input id="class_1_years" type="text" oninput="saveValue(this)" value="4 years"></th>
+        <th><textarea id="class_1_notes" type="text" oninput="saveValue(this)">Gained 1d4 bonus to haggle</textarea></th>
+      </tr>
+      
+    </tbody></table>
+    <div class="class-history-functions">
+      <button onclick="addClassHistoryEntry(this)">Add New Class Entry</button>
+      <button onclick="removeClassHistoryEntry(this)">Remove Last Class Entry</button>
+    </div>
+  </div>
+  <button id="character-stats-btn" class="collapsible" onclick="collapseExpand('character-stats-btn', 'character-stats')">- Stats -</button>
+  <div id="character-stats" class="character-stats">
+    <div class="character-attributes">
+      <div class="character-attribute">
+        <label class="attributes-label">Attributes</label>
+        <label class="mod-label">Mod</label>
+        <label class="mod-label">Stat</label>
+      </div>
+      <div class="character-attribute">
+        <label>Strength (STR)</label>
+        <input id="str_mod" type="number" value="0">
+        <input id="str" type="number" value="25" min="5" onfocusout="checkAttributeLimit(this)">
+      </div>
+      <div class="character-attribute">
+        <label>Agility (AGI)</label>
+        <input id="agi_mod" type="number" value="0">
+        <input id="agi" type="number" value="8" min="5" onfocusout="checkAttributeLimit(this)">
+      </div>
+      <div class="character-attribute">
+        <label>Perception (PER)</label>
+        <input id="per_mod" type="number" value="0">
+        <input id="per" type="number" value="6" min="5" onfocusout="checkAttributeLimit(this)">
+      </div>
+      <div class="character-attribute">
+        <label>Vitality (VIT)</label>
+        <input id="vit_mod" type="number" value="0">
+        <input id="vit" type="number" value="12" min="5" onfocusout="checkAttributeLimit(this)">
+      </div>
+      <div class="character-attribute">
+        <label>Intelligence (INT)</label>
+        <input id="int_mod" type="number" value="0">
+        <input id="int" type="number" value="5" min="5" onfocusout="checkAttributeLimit(this)">
+      </div>
+      <div class="character-attribute">
+        <label>Wisdom (WIS)</label>
+        <input id="wis_mod" type="number" value="0">
+        <input id="wis" type="number" value="9" min="5" onfocusout="checkAttributeLimit(this)">
+      </div>
+      <div class="character-attribute">
+        <label>Charisma (CHR)</label>
+        <input id="chr_mod" type="number" value="0">
+        <input id="chr" type="number" value="5" min="5" onfocusout="checkAttributeLimit(this)">
+      </div>
+      <div class="character-attribute">
+        <label>Remaining Attribute Points:</label>
+        <label id="remaining_pts">0</label>
+      </div>
+    </div>
+    <div class="character-traits">
+      <label class="character-traits-title">Traits</label>
+      <div class="character-trait">
+        <div>
+          <label class="character-traits-label">Level</label>
+          <input id="lvl" type="number" onfocusout="confirmAction(this)" value="11" min="1">
+        </div>
+        <div>
+          <label class="character-traits-label">Experience (EXP)</label>
+          <input id="exp" type="number" min="0" value="0">
+        </div>
+        <div>
+          <label class="character-traits-label">Knowledge</label>
+          <label id="knl" class="display-label">1</label>
+          <input id="knl_used" type="number" min="0" max="9" value="0" onfocusout="updateKnowledgeAndSkills(this)">
+        </div>
+        <div>
+          <label class="character-traits-label">Health</label>
+          <label id="health" class="display-label">12</label>
+          <input id="damage" type="number" min="0" max="12" value="5" onfocusout="updateDamage(this)">
+        </div>
+        <div>
+          <label class="character-traits-label">Weight Capacity</label>
+          <label id="used-capacity" class="display-label">167</label>
+          <label id="capacity" class="display-label"> / 500 lb  </label>
+          <label id="capacity-value" class="display-value">500</label>
+        </div>
+        <div>
+          <label class="character-traits-label">Body Weight</label>
+          <label id="body-weight" class="display-label">250</label>
+        </div>
+        <div>
+          <label class="character-traits-label">Speed</label>
+          <label id="speed" class="display-label">2</label>
+        </div>
+        <div>
+          <label class="character-traits-label">Action Point(s)</label>
+          <label id="action_pts" class="display-label">1</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button id="character-skills-btn" class="collapsible" onclick="collapseExpand('character-skills-btn', 'character-skills')">- Skills -</button>
+  <div id="character-skills" class="character-skills">
+    <label class="character-skills-pts">Remaining Skill Points: </label>
+    <label id="skill_pts" class="character-skills-pts-label">0</label>
+    <label class="character-skills-pts-assigned-label">Assigned Skill Points: </label>
+    <label id="skill_pts_assigned" class="character-skills-pts-assigned">3</label>
+    <div>
+      <label class="character-skill">Alchemy</label>
+      <input id="alchemy" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1">
+    </div>
+    <div>
+      <label class="character-skill">Archery</label>
+      <input id="archery" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1">
+    </div>
+    <div>
+      <label class="character-skill">Art</label>
+      <input id="art" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1">
+    </div>
+    <div>
+      <label class="character-skill">Blade</label>
+      <input id="blade" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1">
+    </div>
+    <div>
+      <label class="character-skill">Block</label>
+      <input id="block" type="number" onfocusout="updateSkillPoints(this)" value="1" min="0" max="2">
+    </div>
+    <div>
+      <label class="character-skill">Blunt</label>
+      <input id="blunt" type="number" onfocusout="updateSkillPoints(this)" value="2" min="0" max="3">
+    </div>
+    <div>
+      <label class="character-skill">Carpentry</label>
+      <input id="carpentry" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1">
+    </div>
+    <div>
+      <label class="character-skill">Catalyst</label>
+      <input id="catalyst" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1">
+    </div>
+    <div>
+      <label class="character-skill">Culinary Arts</label>
+      <input id="culinary_arts" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1">
+    </div>
+    <div>
+      <label class="character-skill">Dodge</label>
+      <input id="dodge" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1">
+    </div>
+    <div>
+      <label class="character-skill">Duel Wield</label>
+      <input id="duel_wield" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1">
+    </div>
+    <div>
+      <label class="character-skill">Engineering</label>
+      <input id="engineering" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1">
+    </div>
+    <div>
+      <label class="character-skill">Herbalism</label>
+      <input id="herbalism" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1">
+    </div>
+    <div>
+      <label class="character-skill">Literacy</label>
+      <input id="literacy" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1">
+    </div>
+    <div>
+      <label class="character-skill">Martial Arts</label>
+      <input id="martial_arts" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1">
+    </div>
+    <div>
+      <label class="character-skill">Pick Lock</label>
+      <input id="pick_lock" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1">
+    </div>
+    <div>
+      <label class="character-skill">Pick Pocket</label>
+      <input id="pick_pocket" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1">
+    </div>
+    <div>
+      <label class="character-skill">Sewing</label>
+      <input id="sewing" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1">
+    </div>
+    <div>
+      <label class="character-skill">Smithing</label>
+      <input id="smithing" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1">
+    </div>
+    <div>
+      <label class="character-skill">Staff</label>
+      <input id="staff" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1">
+    </div>
+    <div>
+      <label class="character-skill">Spell Craft</label>
+      <input id="spell_craft" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1">
+    </div>
+    <div>
+      <label class="character-skill">Swim</label>
+      <input id="swim" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1">
+    </div>
+    <div>
+      <label class="character-skill">Sneak</label>
+      <input id="sneak" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1">
+    </div>
+    <div>
+      <label class="character-skill">Whip</label>
+      <input id="whip" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1">
+    </div>
+  </div>
+  <button id="character-abilities-btn" class="collapsible" onclick="collapseExpand('character-abilities-btn', 'character-abilities')">- Abilities -</button>
+  <div id="character-abilities" class="character-abilities">
+    <div>
+      <label class="character-abilities-label-left">Name</label>
+      <label class="character-abilities-label-right">Effect</label>
+    </div>
+    <div>
+      <input id="ability_one_name" class="ability-name" type="text" oninput="saveValue(this)" value="Roar ">
+      <input id="ability_one_effect" class="ability-effect" type="text" oninput="saveValue(this)" value="Push back enemy by 2 squares and deal 1d4 damage">
+    </div>
+    <div>
+      <input id="ability_two_name" class="ability-name" type="text" oninput="saveValue(this)">
+      <input id="ability_two_effect" class="ability-effect" type="text" oninput="saveValue(this)">
+    </div>
+    <div>
+      <input id="ability_three_name" class="ability-name" type="text" oninput="saveValue(this)">
+      <input id="ability_three_effect" class="ability-effect" type="text" oninput="saveValue(this)">
+    </div>
+    <div>
+      <input id="ability_four_name" class="ability-name" type="text" oninput="saveValue(this)">
+      <input id="ability_four_effect" class="ability-effect" type="text" oninput="saveValue(this)">
+    </div>
+  </div>
+  <button id="character-equipment-btn" class="collapsible" onclick="collapseExpand('character-equipment-btn', 'character-equipment')">- Equipment -</button>
+  <div id="character-equipment" class="character-equipment">
+    <button id="character-weapons-btn" class="collapsible" onclick="collapseExpand('character-weapons-btn', 'character-equipment-weapons')">- Weapons -</button>
+    <div id="character-equipment-weapons">
+      <div class="equipment">
+      <label class="equipment-title">Right Hand</label>
+      <div class="equipment-detail">
+        <label class="equipment-label">Name</label>
+        <input id="right-hand-name" type="text" oninput="saveValue(this)" value="Large Wooden Club">
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Attack</label>
+        <input id="right-hand-att" type="text" oninput="saveValue(this)" value="1d10">
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Weight</label>
+        <input id="right-hand-weight" type="number" oninput="updateTotalWeightUsed(this)" value="35">
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Requirements</label>
+        <input id="right-hand-requirements" type="text" oninput="saveValue(this)" value="16 STR">
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Effect</label>
+        <textarea id="right-hand-effect" type="text" oninput="saveValue(this)"></textarea>
+      </div>
+    </div>
+      <div class="equipment">
+      <label class="equipment-title">Left Hand</label>
+      <div class="equipment-detail">
+        <label class="equipment-label">Name</label>
+        <input id="left-hand-name" type="text" oninput="saveValue(this)">
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Attack</label>
+        <input id="left-hand-ac" type="text" oninput="saveValue(this)">
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Weight</label>
+        <input id="left-hand-weight" type="number" oninput="updateTotalWeightUsed(this)">
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Requirements</label>
+        <input id="left-hand-requirements" type="text" oninput="saveValue(this)">
+      </div>
+      <div class="equipment-detail">
+        <label class="equipment-label">Effect</label>
+        <textarea id="left-hand-effect" type="text" oninput="saveValue(this)"></textarea>
+      </div>
+    </div>
+    </div>
+    <button id="character-armor-btn" class="collapsible" onclick="collapseExpand('character-armor-btn', 'character-equipment-armor')">- Armor -</button>
+    <div id="character-equipment-armor">
+      <div class="equipment">
+        <label class="equipment-title">Head</label>
+        <div class="equipment-detail">
+          <label class="equipment-label">Name</label>
+          <input id="head-name" type="text" oninput="saveValue(this)" value="Iron Helm">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Armor Class</label>
+          <input id="head-ac" type="text" oninput="saveValue(this)" value="3">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight</label>
+          <input id="head-weight" type="number" oninput="updateTotalWeightUsed(this)" value="45">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements</label>
+          <input id="head-requirements" type="text" oninput="saveValue(this)" value="14 STR">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect</label>
+          <textarea id="head-effect" type="text" oninput="saveValue(this)">NA</textarea>
+        </div>
+      </div>
+      <div class="equipment">
+        <label class="equipment-title">Shoulders</label>
+        <div class="equipment-detail">
+          <label class="equipment-label">Name</label>
+          <input id="shoulders-name" type="text" oninput="saveValue(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Armor Class</label>
+          <input id="shoulders-ac" type="text" oninput="saveValue(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight</label>
+          <input id="shoulders-weight" type="number" oninput="updateTotalWeightUsed(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements</label>
+          <input id="shoulders-requirements" type="text" oninput="saveValue(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect</label>
+          <textarea id="shoulders-effect" type="text" oninput="saveValue(this)"></textarea>
+        </div>
+      </div>
+      <div class="equipment">
+        <label class="equipment-title">Torso</label>
+        <div class="equipment-detail">
+          <label class="equipment-label">Name</label>
+          <input id="torso-name" type="text" oninput="saveValue(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Armor Class</label>
+          <input id="torso-ac" type="text" oninput="saveValue(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight</label>
+          <input id="torso-weight" type="number" oninput="updateTotalWeightUsed(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements</label>
+          <input id="torso-requirements" type="text" oninput="saveValue(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect</label>
+          <textarea id="torso-effect" type="text" oninput="saveValue(this)"></textarea>
+        </div>
+      </div>
+      <div class="equipment">
+        <label class="equipment-title">Hands</label>
+        <div class="equipment-detail">
+          <label class="equipment-label">Name</label>
+          <input id="hands-name" type="text" oninput="saveValue(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Armor Class</label>
+          <input id="hands-ac" type="text" oninput="saveValue(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight</label>
+          <input id="hands-weight" type="number" oninput="updateTotalWeightUsed(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements</label>
+          <input id="hands-requirements" type="text" oninput="saveValue(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect</label>
+          <textarea id="hands-effect" type="text" oninput="saveValue(this)"></textarea>
+        </div>
+      </div>
+      <div class="equipment">
+        <label class="equipment-title">Legs</label>
+        <div class="equipment-detail">
+          <label class="equipment-label">Name</label>
+          <input id="legs-name" type="text" oninput="saveValue(this)" value="Rusted Iron Greaves">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Armor Class</label>
+          <input id="legs-ac" type="text" oninput="saveValue(this)" value="2">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight</label>
+          <input id="legs-weight" type="number" oninput="updateTotalWeightUsed(this)" value="30">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements</label>
+          <input id="legs-requirements" type="text" oninput="saveValue(this)" value="12 STR">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect</label>
+          <textarea id="legs-effect" type="text" oninput="saveValue(this)">NA</textarea>
+        </div>
+      </div>
+      <div class="equipment">
+        <label class="equipment-title">Feet</label>
+        <div class="equipment-detail">
+          <label class="equipment-label">Name</label>
+          <input id="feet-name" type="text" oninput="saveValue(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Armor Class</label>
+          <input id="feet-ac" type="text" oninput="saveValue(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight</label>
+          <input id="feet-weight" type="number" oninput="updateTotalWeightUsed(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements</label>
+          <input id="feet-requirements" type="text" oninput="saveValue(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect</label>
+          <textarea id="feet-effect" type="text" oninput="saveValue(this)"></textarea>
+        </div>
+      </div>
+    </div>
+    <button id="character-accessories-btn" class="collapsible" onclick="collapseExpand('character-accessories-btn', 'character-equipment-accessories')">- Accessories -</button>
+    <div id="character-equipment-accessories">
+      <div class="equipment">
+        <label class="equipment-title">Necklace</label>
+        <div class="equipment-detail">
+          <label class="equipment-label">Name</label>
+          <input id="necklace-name" type="text" oninput="saveValue(this)" value="">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight</label>
+          <input id="necklace-weight" type="number" oninput="updateTotalWeightUsed(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements</label>
+          <input id="necklace-requirements" type="text" oninput="saveValue(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect</label>
+          <textarea id="necklace-effect" type="text" oninput="saveValue(this)"></textarea>
+        </div>
+      </div>
+      <div class="equipment">
+        <label class="equipment-title">Necklace Two</label>
+        <div class="equipment-detail">
+          <label class="equipment-label">Name</label>
+          <input id="necklace-two-name" type="text" oninput="saveValue(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight</label>
+          <input id="necklace-two-weight" type="number" oninput="updateTotalWeightUsed(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements</label>
+          <input id="necklace-two-requirements" type="text" oninput="saveValue(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect</label>
+          <textarea id="necklace-two-effect" type="text" oninput="saveValue(this)"></textarea>
+        </div>
+      </div>
+      <div class="equipment">
+        <label class="equipment-title">Bracelet</label>
+        <div class="equipment-detail">
+          <label class="equipment-label">Name</label>
+          <input id="bracelet-name" type="text" oninput="saveValue(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight</label>
+          <input id="bracelet-weight" type="number" oninput="updateTotalWeightUsed(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements</label>
+          <input id="bracelet-requirements" type="text" oninput="saveValue(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect</label>
+          <textarea id="bracelet-effect" type="text" oninput="saveValue(this)"></textarea>
+        </div>
+      </div>
+      <div class="equipment">
+        <label class="equipment-title">Bracelet Two</label>
+        <div class="equipment-detail">
+          <label class="equipment-label">Name</label>
+          <input id="bracelet-two-name" type="text" oninput="saveValue(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight</label>
+          <input id="bracelet-two-weight" type="number" oninput="updateTotalWeightUsed(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements</label>
+          <input id="bracelet-two-requirements" type="text" oninput="saveValue(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect</label>
+          <textarea id="bracelet-two-effect" type="text" oninput="saveValue(this)"></textarea>
+        </div>
+      </div>
+      <div class="equipment">
+        <label class="equipment-title">Ring</label>
+        <div class="equipment-detail">
+          <label class="equipment-label">Name</label>
+          <input id="ring-name" type="text" oninput="saveValue(this)" value="Silver Ring">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight</label>
+          <input id="ring-weight" type="number" oninput="updateTotalWeightUsed(this)" value="2">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements</label>
+          <input id="ring-requirements" type="text" oninput="saveValue(this)" value="NA">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect</label>
+          <textarea id="ring-effect" type="text" oninput="saveValue(this)">NA</textarea>
+        </div>
+      </div>
+      <div class="equipment">
+        <label class="equipment-title">Ring Two</label>
+        <div class="equipment-detail">
+          <label class="equipment-label">Name</label>
+          <input id="ring-two-name" type="text" oninput="saveValue(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight</label>
+          <input id="ring-two-weight" type="number" oninput="updateTotalWeightUsed(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements</label>
+          <input id="ring-two-requirements" type="text" oninput="saveValue(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect</label>
+          <textarea id="ring-two-effect" type="text" oninput="saveValue(this)"></textarea>
+        </div>
+      </div>
+      <div class="equipment">
+        <label class="equipment-title">Ring Three</label>
+        <div class="equipment-detail">
+          <label class="equipment-label">Name</label>
+          <input id="ring-three-name" type="text" oninput="saveValue(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight</label>
+          <input id="ring-three-weight" type="number" oninput="updateTotalWeightUsed(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements</label>
+          <input id="ring-three-requirements" type="text" oninput="saveValue(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect</label>
+          <textarea id="ring-three-effect" type="text" oninput="saveValue(this)"></textarea>
+        </div>
+      </div>
+      <div class="equipment">
+        <label class="equipment-title">Ring Four</label>
+        <div class="equipment-detail">
+          <label class="equipment-label">Name</label>
+          <input id="ring-four-name" type="text" oninput="saveValue(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight</label>
+          <input id="ring-four-weight" type="number" oninput="updateTotalWeightUsed(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements</label>
+          <input id="ring-four-requirements" type="text" oninput="saveValue(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect</label>
+          <textarea id="ring-four-effect" type="text" oninput="saveValue(this)"></textarea>
+        </div>
+      </div>
+      <div class="equipment">
+        <label class="equipment-title">Ring Five</label>
+        <div class="equipment-detail">
+          <label class="equipment-label">Name</label>
+          <input id="ring-five-name" type="text" oninput="saveValue(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight</label>
+          <input id="ring-five-weight" type="number" oninput="updateTotalWeightUsed(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements</label>
+          <input id="ring-five-requirements" type="text" oninput="saveValue(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect</label>
+          <textarea id="ring-five-effect" type="text" oninput="saveValue(this)"></textarea>
+        </div>
+      </div>
+      <div class="equipment">
+        <label class="equipment-title">Ring Six</label>
+        <div class="equipment-detail">
+          <label class="equipment-label">Name</label>
+          <input id="ring-six-name" type="text" oninput="saveValue(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight</label>
+          <input id="ring-six-weight" type="number" oninput="updateTotalWeightUsed(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements</label>
+          <input id="ring-six-requirements" type="text" oninput="saveValue(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect</label>
+          <textarea id="ring-six-effect" type="text" oninput="saveValue(this)"></textarea>
+        </div>
+      </div>
+      <div class="equipment">
+        <label class="equipment-title">Ring Seven</label>
+        <div class="equipment-detail">
+          <label class="equipment-label">Name</label>
+          <input id="ring-seven-name" type="text" oninput="saveValue(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight</label>
+          <input id="ring-seven-weight" type="number" oninput="updateTotalWeightUsed(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements</label>
+          <input id="ring-seven-requirements" type="text" oninput="saveValue(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect</label>
+          <textarea id="ring-seven-effect" type="text" oninput="saveValue(this)"></textarea>
+        </div>
+      </div>
+      <div class="equipment">
+        <label class="equipment-title">Ring Eight</label>
+        <div class="equipment-detail">
+          <label class="equipment-label">Name</label>
+          <input id="ring-eight-name" type="text" oninput="saveValue(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight</label>
+          <input id="ring-eight-weight" type="number" oninput="updateTotalWeightUsed(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements</label>
+          <input id="ring-eight-requirements" type="text" oninput="saveValue(this)">
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect</label>
+          <textarea id="ring-eight-effect" type="text" oninput="saveValue(this)"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button id="character-inventory-btn" class="collapsible" onclick="collapseExpand('character-inventory-btn', 'character-inventory')">- Inventory -</button>
+  <div id="character-inventory" class="character-inventory">
+    <label class="character-inventory-title">Inventory</label>
+    <table id="inventory">
+      <tbody><tr>
+        <th>Item</th>
+        <th>Description</th>
+        <th>Weight</th>
+      </tr>
+      <tr class="inventory-title-group">
+        <th><input id="item_1_name" type="text" oninput="saveValue(this)" value="Raw Meat"></th>
+        <th><input id="item_1_description" type="text" oninput="saveValue(this)" value="Slabs of raw meat"></th>
+        <th><input id="item_1_weight" type="number" oninput="updateTotalWeightUsed(this)" value="50"></th>
+      </tr>
+      <tr class="inventory-title-group">
+        <th><input id="item_2_name" type="text" oninput="saveValue(this)"></th>
+        <th><input id="item_2_description" type="text" oninput="saveValue(this)"></th>
+        <th><input id="item_2_weight" type="number" oninput="updateTotalWeightUsed(this)"></th>
+      </tr>
+      <tr class="inventory-title-group">
+        <th><input id="item_3_name" type="text" oninput="saveValue(this)"></th>
+        <th><input id="item_3_description" type="text" oninput="saveValue(this)"></th>
+        <th><input id="item_3_weight" type="number" oninput="updateTotalWeightUsed(this)"></th>
+      </tr>
+      <tr class="inventory-title-group">
+        <th><input id="item_4_name" type="text" oninput="saveValue(this)"></th>
+        <th><input id="item_4_description" type="text" oninput="saveValue(this)"></th>
+        <th><input id="item_4_weight" type="number" oninput="updateTotalWeightUsed(this)"></th>
+      </tr>
+      <tr class="inventory-title-group">
+        <th><input id="item_5_name" type="text" oninput="saveValue(this)"></th>
+        <th><input id="item_5_description" type="text" oninput="saveValue(this)"></th>
+        <th><input id="item_5_weight" type="number" oninput="updateTotalWeightUsed(this)"></th>
+      </tr>
+    <tr><td><input id="item_6_name" type="text" oninput="saveValue(this)"></td><td><input id="item_6_name" type="text" oninput="saveValue(this)"></td><td><input id="item_6_name" type="number" oninput="updateTotalWeightUsed(this)"></td></tr><tr><td><input id="item_7_name" type="text" oninput="saveValue(this)"></td><td><input id="item_7_name" type="text" oninput="saveValue(this)"></td><td><input id="item_7_name" type="number" oninput="updateTotalWeightUsed(this)"></td></tr><tr><td><input id="item_8_name" type="text" oninput="saveValue(this)" value="New Item Test"></td><td><input id="item_8_name" type="text" oninput="saveValue(this)" value="Test"></td><td><input id="item_8_name" type="number" oninput="updateTotalWeightUsed(this)" value="5"></td></tr></tbody></table>
+    <div class="inventory-functions">
+      <button onclick="addInventoryItem(this)">Add New Item</button>
+      <button onclick="removeInventoryItem(this)">Remove Last Item</button>
+    </div>
+  </div>
+</div>
