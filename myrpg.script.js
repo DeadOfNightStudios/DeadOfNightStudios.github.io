@@ -145,13 +145,13 @@ function updateKnowledgeAndSkills(element) {
     document.getElementById("skill_pts").innerHTML = newSkillPts;
   }
     
+  updateSkillProperties("alchemy", newSkillPts);
   updateSkillProperties("archery", newSkillPts);
   updateSkillProperties("art", newSkillPts);
   updateSkillProperties("blade", newSkillPts);
   updateSkillProperties("block", newSkillPts);
   updateSkillProperties("blunt", newSkillPts);
   updateSkillProperties("carpentry", newSkillPts);
-  updateSkillProperties("chemistry", newSkillPts);
   updateSkillProperties("culinary_arts", newSkillPts);
   updateSkillProperties("dodge", newSkillPts);
   updateSkillProperties("duel_wield", newSkillPts);
@@ -177,8 +177,8 @@ function updateSkillPoints(element) {
   var remainingPts = parseInt(document.getElementById("skill_pts").innerHTML);
   var skillPtsAssigned = parseInt(document.getElementById("skill_pts_assigned").innerHTML);
   var totalPts = remainingPts + skillPtsAssigned;
-  
-  if (parseInt(element.value) > totalPts) {
+  var elementValue = parseInt(element.value);
+  if (elementValue > totalPts) {
     element.value = element.defaultValue;
   } else if (remainingPts === 0) {
     element.value = element.defaultValue;
@@ -187,19 +187,21 @@ function updateSkillPoints(element) {
   } else if (parseInt(element.value) < parseInt(element.defaultValue)) {
     var diff = element.defaultValue - element.value;
     document.getElementById("skill_pts").innerHTML = remainingPts + diff;
+    document.getElementById("skill_pts_assigned").innerHTML = skillPtsAssigned - diff;
   } else if (parseInt(element.value) >= parseInt(element.defaultValue)) {
     var difference = parseInt(element.value) - parseInt(element.defaultValue);
     document.getElementById("skill_pts").innerHTML = remainingPts - difference;
+    document.getElementById("skill_pts_assigned").innerHTML = skillPtsAssigned + difference;
   }
   element.defaultValue = element.value;
   
-  var assignedPts = updateSkillProperties("archery", remainingPts);
+  var assignedPts = assignedPts + updateSkillProperties("alchemy", remainingPts);
+  assignedPts = assignedPts + updateSkillProperties("archery", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("art", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("blade", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("block", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("blunt", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("carpentry", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("chemistry", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("culinary_arts", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("dodge", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("duel_wield", remainingPts);
@@ -216,8 +218,6 @@ function updateSkillPoints(element) {
   assignedPts = assignedPts + updateSkillProperties("swim", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("sneak", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("whip", remainingPts);
-  
-  document.getElementById("skill_pts_assigned").innerHTML = assignedPts;
 }
 
 function updateSkillProperties(elementName, remainingPts) {
