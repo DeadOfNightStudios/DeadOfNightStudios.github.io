@@ -269,12 +269,12 @@ function updateTotalWeightUsed(element) {
   
   
   var overCapcity = parseInt(document.getElementById("capacity-value").innerHTML) - parseInt(document.getElementById("used-capacity").innerHTML);
-  var agiModifier = "";
+  var agiModifier = " ";
   if (overCapcity < 0) {
     var agiModValue = Math.floor(overCapcity/2);
     agiModifier = " (" + agiModValue + " AGI)";
   }
-  document.getElementById("capacity").innerHTML = parseInt(document.getElementById("capacity").innerHTML) + " " + agiModifier;
+  document.getElementById("capacity").innerHTML = " / " + document.getElementById("capacity-value").innerHTML + " lb " + agiModifier;
 }
 
 /* Class History Functions  */
