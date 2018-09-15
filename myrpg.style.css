@@ -1,4 +1,11 @@
 /* Style sheet used for MyRPG  */
+
+.version-info {
+  text-align: center;
+  margin-top: 2em;
+  font-family: "Arial", sans-serif;
+}
+
 .myrpg-border {
   text-align: center;
   overflow: hidden;
@@ -347,6 +354,7 @@
 
 .character-inventory input {
     width: 90%;
+    display: block;
 }
 
 .character-inventory td, th {
