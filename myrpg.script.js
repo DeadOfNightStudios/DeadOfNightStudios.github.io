@@ -64,7 +64,8 @@ function updateHealth(element) {
 function updateBodyWeightAndCapcity(element) {
   var str = document.getElementById("str").value;
   document.getElementById("body-weight").innerHTML = parseInt(str) * 10;
-  document.getElementById("capacity").innerHTML = parseInt(str) * 20;
+  document.getElementById("capacity").innerHTML = "/ " + (parseInt(str) * 20) + " lb";
+  document.getElementById("capacity-value").innerHTML = (parseInt(str) * 20);
 }
 
 function updateSpeed(element) {
@@ -236,11 +237,11 @@ function addInventoryItem(element) {
   var row = inventory.insertRow(rowCount);
   
   var cellOne = row.insertCell(0);
-  cellOne.innerHTML = "<input id=\"item_" + rowCount + "_name\" type=\"text\" />"
+  cellOne.innerHTML = "<input id=\"item_" + rowCount + "_name\" type=\"text\" oninput=\"saveValue(this)\" />"
   var cellTwo = row.insertCell(1);
-  cellTwo.innerHTML = "<input id=\"item_" + rowCount + "_name\" type=\"text\" />"
+  cellTwo.innerHTML = "<input id=\"item_" + rowCount + "_name\" type=\"text\" oninput=\"saveValue(this)\" />"
   var cellThree = row.insertCell(2);
-  cellThree.innerHTML = "<input id=\"item_" + rowCount + "_name\" type=\"text\" />"
+  cellThree.innerHTML = "<input id=\"item_" + rowCount + "_name\" type=\"number\" oninput=\"updateTotalWeightUsed(this)\" />"
 }
 
 function removeInventoryItem(element) {
@@ -249,6 +250,53 @@ function removeInventoryItem(element) {
   var rowCount = document.getElementById("inventory").getElementsByTagName("tr").length;
   if (rowCount > 1) {
     var row = inventory.deleteRow(rowCount - 1 );
+  }
+  
+}
+
+function updateTotalWeightUsed(element) {
+  var changeValue = element.value;
+  if (changeValue < 0) {
+    element.value = 0;
+  }
+  
+  var totalCapcityUsed = parseInt(document.getElementById("used-capacity").innerHTML);
+  var diff = element.defaultValue - element.value;
+  document.getElementById("used-capacity").innerHTML = totalCapcityUsed - diff;
+  element.defaultValue = element.value;
+  
+  
+  var overCapcity = parseInt(document.getElementById("capacity-value").innerHTML) - parseInt(document.getElementById("used-capacity").innerHTML);
+  var agiModifier = "";
+  if (overCapcity < 0) {
+    var agiModValue = Math.floor(overCapcity/2);
+    agiModifier = " (" + agiModValue + " AGI)";
+  }
+  document.getElementById("capacity").innerHTML = parseInt(document.getElementById("capacity").innerHTML) + " " + agiModifier;
+}
+
+/* Class History Functions  */
+
+function addClassHistoryEntry(element) {
+  var classHistory = document.getElementById("class-history-table");
+  
+  var rowCount = document.getElementById("class-history-table").getElementsByTagName("tr").length;
+  var row = classHistory.insertRow(rowCount);
+  
+  var cellOne = row.insertCell(0);
+  cellOne.innerHTML = "<input id=\"item_" + rowCount + "_name\" type=\"text\" oninput=\"saveValue(this)\" />"
+  var cellTwo = row.insertCell(1);
+  cellTwo.innerHTML = "<input id=\"item_" + rowCount + "_name\" type=\"text\" oninput=\"saveValue(this)\" />"
+  var cellThree = row.insertCell(2);
+  cellThree.innerHTML = "<textarea id=\"item_" + rowCount + "_name\" type=\"number\" oninput=\"saveValue(this)\" ></textarea>"
+}
+
+function removeClassHistoryEntry(element) {
+  var classHistory = document.getElementById("class-history-table");
+  
+  var rowCount = document.getElementById("class-history-table").getElementsByTagName("tr").length;
+  if (rowCount > 1) {
+    var row = classHistory.deleteRow(rowCount - 1 );
   }
   
 }

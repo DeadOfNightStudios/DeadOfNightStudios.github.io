@@ -45,6 +45,30 @@
       <input type="file" id="load-character-art" class="load-character-art" onchange="loadCharacterArt(this)" />
     </div>
   </div>
+  <button id="class-history-btn" class="collapsible" onclick="collapseExpand('class-history-btn', 'class-history')">- Character Class History -</button>
+  <div id="class-history" class="class-history">
+    <table id="class-history-table">
+      <tr>
+        <th>Class</th>
+        <th>Years Served</th>
+        <th>Notes</th>
+      </tr>
+      <tr class="class-history-entry">
+        <th><input id="class_1" type="text" oninput="saveValue(this)" /></th>
+        <th><input id="class_1_years" type="text" oninput="saveValue(this)" /></th>
+        <th><textarea id="class_1_notes" type="text" oninput="saveValue(this)" ></textarea></th>
+      </tr>
+      <tr class="class-history-entry">
+        <th><input id="class_2" type="text" oninput="saveValue(this)" /></th>
+        <th><input id="class_2_years" type="text" oninput="saveValue(this)" /></th>
+        <th><textarea id="class_2_notes" type="text" oninput="saveValue(this)" ></textarea></th>
+      </tr>
+    </table>
+    <div class="class-history-functions">
+      <button onclick="addClassHistoryEntry(this)">Add New Class Entry</button>
+      <button onclick="removeClassHistoryEntry(this)">Remove Last Class Entry</button>
+    </div>
+  </div>
   <button id="character-stats-btn" class="collapsible" onclick="collapseExpand('character-stats-btn', 'character-stats')">- Stats -</button>
   <div id="character-stats" class="character-stats">
     <div class="character-attributes">
@@ -90,7 +114,7 @@
       </div>
       <div class="character-attribute">
         <label>Remaining Attribute Points:</label>
-        <label id="remaining_pts">3</label>
+        <label id="remaining_pts">5</label>
       </div>
     </div>
     <div class="character-traits">
@@ -102,7 +126,7 @@
         </div>
         <div>
           <label class="character-traits-label">Experience (EXP)</label>
-          <input id="exp" type="number" min="0" max="10" value="0"  />
+          <input id="exp" type="number" min="0" value="0"  />
         </div>
         <div>
           <label class="character-traits-label">Knowledge</label>
@@ -116,7 +140,9 @@
         </div>
         <div>
           <label class="character-traits-label">Weight Capacity</label>
-          <label id="capacity" class="display-label">0</label>
+          <label id="used-capacity" class="display-label">0</label>
+          <label id="capacity" class="display-label" >/ 100</label>
+          <label id="capacity-value" class="display-value" >100</label>
         </div>
         <div>
           <label class="character-traits-label">Body Weight</label>
@@ -139,6 +165,10 @@
     <label id="skill_pts" class="character-skills-pts-label">1</label>
     <label class="character-skills-pts-assigned-label">Assigned Skill Points: </label>
     <label id="skill_pts_assigned" class="character-skills-pts-assigned">0</label>
+    <div>
+      <label class="character-skill">Alchemy</label>
+      <input id="alchemy" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
+    </div>
     <div>
       <label class="character-skill">Archery</label>
       <input id="archery" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
@@ -166,10 +196,6 @@
     <div>
       <label class="character-skill">Catalyst</label>
       <input id="catalyst" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
-    </div>
-    <div>
-      <label class="character-skill">Chemistry</label>
-      <input id="chemistry" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
     </div>
     <div>
       <label class="character-skill">Culinary Arts</label>
@@ -275,7 +301,7 @@
       </div>
       <div class="equipment-detail">
         <label class="equipment-label">Weight</label>
-        <input id="right-hand-weight" type="text" oninput="saveValue(this)" />
+        <input id="right-hand-weight" type="number" oninput="updateTotalWeightUsed(this)" />
       </div>
       <div class="equipment-detail">
         <label class="equipment-label">Requirements</label>
@@ -298,7 +324,7 @@
       </div>
       <div class="equipment-detail">
         <label class="equipment-label">Weight</label>
-        <input id="left-hand-weight" type="text" oninput="saveValue(this)" />
+        <input id="left-hand-weight" type="number" oninput="updateTotalWeightUsed(this)" />
       </div>
       <div class="equipment-detail">
         <label class="equipment-label">Requirements</label>
@@ -324,7 +350,7 @@
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Weight</label>
-          <input id="head-weight" type="text" oninput="saveValue(this)" />
+          <input id="head-weight" type="number" oninput="updateTotalWeightUsed(this)" />
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Requirements</label>
@@ -347,7 +373,7 @@
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Weight</label>
-          <input id="shoulders-weight" type="text" oninput="saveValue(this)" />
+          <input id="shoulders-weight" type="number" oninput="updateTotalWeightUsed(this)" />
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Requirements</label>
@@ -370,7 +396,7 @@
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Weight</label>
-          <input id="torso-weight" type="text" oninput="saveValue(this)" />
+          <input id="torso-weight" type="number" oninput="updateTotalWeightUsed(this)" />
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Requirements</label>
@@ -393,7 +419,7 @@
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Weight</label>
-          <input id="hands-weight" type="text" oninput="saveValue(this)" />
+          <input id="hands-weight" type="number" oninput="updateTotalWeightUsed(this)" />
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Requirements</label>
@@ -416,7 +442,7 @@
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Weight</label>
-          <input id="legs-weight" type="text" oninput="saveValue(this)" />
+          <input id="legs-weight" type="number" oninput="updateTotalWeightUsed(this)" />
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Requirements</label>
@@ -439,7 +465,7 @@
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Weight</label>
-          <input id="feet-weight" type="text" oninput="saveValue(this)" />
+          <input id="feet-weight" type="number" oninput="updateTotalWeightUsed(this)" />
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Requirements</label>
@@ -461,7 +487,7 @@
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Weight</label>
-          <input id="necklace-weight" type="text" oninput="saveValue(this)" />
+          <input id="necklace-weight" type="number" oninput="updateTotalWeightUsed(this)" />
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Requirements</label>
@@ -480,7 +506,7 @@
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Weight</label>
-          <input id="necklace-two-weight" type="text" oninput="saveValue(this)" />
+          <input id="necklace-two-weight" type="number" oninput="updateTotalWeightUsed(this)" />
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Requirements</label>
@@ -499,7 +525,7 @@
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Weight</label>
-          <input id="bracelet-weight" type="text" oninput="saveValue(this)" />
+          <input id="bracelet-weight" type="number" oninput="updateTotalWeightUsed(this)" />
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Requirements</label>
@@ -518,7 +544,7 @@
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Weight</label>
-          <input id="bracelet-two-weight" type="text" oninput="saveValue(this)" />
+          <input id="bracelet-two-weight" type="number" oninput="updateTotalWeightUsed(this)" />
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Requirements</label>
@@ -537,7 +563,7 @@
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Weight</label>
-          <input id="ring-weight" type="text" oninput="saveValue(this)" />
+          <input id="ring-weight" type="number" oninput="updateTotalWeightUsed(this)" />
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Requirements</label>
@@ -556,7 +582,7 @@
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Weight</label>
-          <input id="ring-two-weight" type="text" oninput="saveValue(this)" />
+          <input id="ring-two-weight" type="number" oninput="updateTotalWeightUsed(this)" />
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Requirements</label>
@@ -575,7 +601,7 @@
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Weight</label>
-          <input id="ring-three-weight" type="text" oninput="saveValue(this)" />
+          <input id="ring-three-weight" type="number" oninput="updateTotalWeightUsed(this)" />
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Requirements</label>
@@ -594,7 +620,7 @@
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Weight</label>
-          <input id="ring-four-weight" type="text" oninput="saveValue(this)" />
+          <input id="ring-four-weight" type="number" oninput="updateTotalWeightUsed(this)" />
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Requirements</label>
@@ -613,7 +639,7 @@
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Weight</label>
-          <input id="ring-five-weight" type="text" oninput="saveValue(this)" />
+          <input id="ring-five-weight" type="number" oninput="updateTotalWeightUsed(this)" />
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Requirements</label>
@@ -632,7 +658,7 @@
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Weight</label>
-          <input id="ring-six-weight" type="text" oninput="saveValue(this)" />
+          <input id="ring-six-weight" type="number" oninput="updateTotalWeightUsed(this)" />
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Requirements</label>
@@ -651,7 +677,7 @@
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Weight</label>
-          <input id="ring-seven-weight" type="text" oninput="saveValue(this)" />
+          <input id="ring-seven-weight" type="number" oninput="updateTotalWeightUsed(this)" />
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Requirements</label>
@@ -670,7 +696,7 @@
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Weight</label>
-          <input id="ring-eight-weight" type="text" oninput="saveValue(this)" />
+          <input id="ring-eight-weight" type="number" oninput="updateTotalWeightUsed(this)" />
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Requirements</label>
@@ -695,27 +721,27 @@
       <tr class="inventory-title-group">
         <th><input id="item_1_name" type="text" oninput="saveValue(this)" /></th>
         <th><input id="item_1_description" type="text" oninput="saveValue(this)" /></th>
-        <th><input id="item_1_weight" type="number" oninput="saveValue(this)" /></th>
+        <th><input id="item_1_weight" type="number" oninput="updateTotalWeightUsed(this)" /></th>
       </tr>
       <tr class="inventory-title-group">
         <th><input id="item_2_name" type="text" oninput="saveValue(this)" /></th>
         <th><input id="item_2_description" type="text" oninput="saveValue(this)" /></th>
-        <th><input id="item_2_weight" type="number" oninput="saveValue(this)" /></th>
+        <th><input id="item_2_weight" type="number" oninput="updateTotalWeightUsed(this)" /></th>
       </tr>
       <tr class="inventory-title-group">
         <th><input id="item_3_name" type="text" oninput="saveValue(this)" /></th>
         <th><input id="item_3_description" type="text" oninput="saveValue(this)" /></th>
-        <th><input id="item_3_weight" type="number" oninput="saveValue(this)" /></th>
+        <th><input id="item_3_weight" type="number" oninput="updateTotalWeightUsed(this)" /></th>
       </tr>
       <tr class="inventory-title-group">
         <th><input id="item_4_name" type="text" oninput="saveValue(this)" /></th>
         <th><input id="item_4_description" type="text" oninput="saveValue(this)" /></th>
-        <th><input id="item_4_weight" type="number" oninput="saveValue(this)" /></th>
+        <th><input id="item_4_weight" type="number" oninput="updateTotalWeightUsed(this)" /></th>
       </tr>
       <tr class="inventory-title-group">
         <th><input id="item_5_name" type="text" oninput="saveValue(this)" /></th>
         <th><input id="item_5_description" type="text" oninput="saveValue(this)" /></th>
-        <th><input id="item_5_weight" type="number" oninput="saveValue(this)" /></th>
+        <th><input id="item_5_weight" type="number" oninput="updateTotalWeightUsed(this)" /></th>
       </tr>
     </table>
     <div class="inventory-functions">

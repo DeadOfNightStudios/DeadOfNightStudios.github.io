@@ -170,6 +170,12 @@
   text-align: right;
 }
 
+.display-value {
+  display: none;
+  width: 0%;
+  height: 0%;
+}
+
 /* Character Skills */
 
 .character-skills {
@@ -359,6 +365,49 @@
 }
 
 .inventory-functions button {
+  font-size: 0.75em;
+}
+
+/* Class History */
+
+.class-history {
+  margin-top: 1em;
+  margin-bottom: 2em;
+  display: block;
+  width: 100%;
+}
+
+.class-history table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.class-history input {
+    width: 90%;
+    text-align: left;
+}
+
+.class-history td, th {
+    border: 1px solid BLACK;
+    text-align: center;
+    padding: 0.25em;
+}
+
+.class-history tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+
+.class-history textarea {
+  min-width: 15em;
+}
+
+.class-history-functions {
+  display: block;
+  margin: 1em;
+}
+
+.class-history-functions button {
   font-size: 0.75em;
 }
 
