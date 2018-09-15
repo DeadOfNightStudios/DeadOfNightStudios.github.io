@@ -1,7 +1,7 @@
 /* All Header and Footer Logic goes here */
 
 window.onload = function() {
-  loadHomePage(this);
+  loadFile("home.html");
   
   document.getElementById('load-character')
     .addEventListener('change', loadCharacterSheet, false);
@@ -19,6 +19,7 @@ function loadMyrpgPage() {
 }
 
 function loadHomePage() {
+  window.location.reload(true); // Remove old settings
   
   // Hide Save & Load of Character Sheet
   document.getElementById("character-functions").classList.remove('character-functions');
