@@ -178,21 +178,23 @@ function updateSkillPoints(element) {
   var skillPtsAssigned = parseInt(document.getElementById("skill_pts_assigned").innerHTML);
   var totalPts = remainingPts + skillPtsAssigned;
   var elementValue = parseInt(element.value);
+  var elementDefaultValue = parseInt(element.defaultValue);
   if (elementValue > totalPts) {
     element.value = element.defaultValue;
-  } else if (remainingPts === 0) {
-    element.value = element.defaultValue;
-  } else if (parseInt(element.value) < 0) {
+  } else if (elementValue < 0) {
     element.value = 0;
-  } else if (parseInt(element.value) < parseInt(element.defaultValue)) {
+  } else if (elementValue <= elementDefaultValue) {
     var diff = element.defaultValue - element.value;
     document.getElementById("skill_pts").innerHTML = remainingPts + diff;
     document.getElementById("skill_pts_assigned").innerHTML = skillPtsAssigned - diff;
-  } else if (parseInt(element.value) >= parseInt(element.defaultValue)) {
+    remainingPts = parseInt(document.getElementById("skill_pts").innerHTML);
+  } else if (elementValue >= elementDefaultValue && remainingPts > 0) {
     var difference = parseInt(element.value) - parseInt(element.defaultValue);
     document.getElementById("skill_pts").innerHTML = remainingPts - difference;
     document.getElementById("skill_pts_assigned").innerHTML = skillPtsAssigned + difference;
-  }
+  } else if (remainingPts === 0) {
+    element.value = element.defaultValue;
+  } 
   element.defaultValue = element.value;
   
   var assignedPts = assignedPts + updateSkillProperties("alchemy", remainingPts);
