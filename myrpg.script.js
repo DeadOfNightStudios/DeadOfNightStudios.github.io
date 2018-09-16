@@ -85,7 +85,7 @@ function updateSpeed(element) {
 }
 
 function updateKnowledgeUsed(element) {
-  var knowledge = document.getElementById("knl").innerHTML;
+  var knowledge = document.getElementById("knl").value;
   if (element.value > knowledge) {
     element.value = element.defaultValue;
   } else if (parseInt(element.value) < 0) {
@@ -96,7 +96,7 @@ function updateKnowledgeUsed(element) {
 }
 
 function updateDamage(element) {
-  var health = document.getElementById("health").innerHTML;
+  var health = document.getElementById("health").value;
   if (parseInt(element.value) > health) {
     element.value = element.defaultValue;
   } else if (parseInt(element.value) < 0) {
@@ -121,7 +121,7 @@ function updateKnowledgeAndSkills(element) {
   var wisdom = document.getElementById("wis").value;
   var knowledge = parseInt(wisdom) / 5;
   document.getElementById("knl").innerHTML = Math.floor(knowledge) + " / ";
-  document.getElementById("knl-used").max = wisdom;
+  document.getElementById("knl-used").max = knowledge;
   document.getElementById("knl-used").min = 0;
   
   var skillPtsRemaining = parseInt(document.getElementById("skill_pts").innerHTML);
