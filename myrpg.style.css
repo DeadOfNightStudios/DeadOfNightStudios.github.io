@@ -59,19 +59,19 @@
   margin-bottom: 1em;
 }
 
-.character-info-left label {
+.character-info-left-label {
   width: 20%;
   text-align: left;
   float: left;
 }
 
-.character-info-right label {
+.character-info-right-label {
   width: 20%;
   text-align: left;
   float: left;
 }
 
-.character-info input {
+.character-info-input {
   width: 60%;
   text-align: left;
   float: left;
@@ -92,10 +92,137 @@
 }
 
 .load-character-art {
-  margin: 1em;
+  margin: auto;
+  padding: 2em;
   text-align: center;
   display: block;
+  width: 20%;
+}
+
+/* Class History */
+
+.class-history {
+  margin-top: 1em;
+  margin-bottom: 2em;
+  display: block;
   width: 100%;
+}
+
+.class-history table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.class-history input {
+    width: 90%;
+    text-align: left;
+}
+
+.class-history td, th {
+    border: 1px solid BLACK;
+    text-align: center;
+    padding: 0.25em;
+}
+
+.class-history tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+
+.class-history textarea {
+  min-width: 15em;
+}
+
+.class-history-functions {
+  display: block;
+  margin: 1em;
+}
+
+.class-history-functions button {
+  font-size: 0.75em;
+}
+
+/* Afflictions */
+
+.afflictions {
+  margin-top: 1em;
+  margin-bottom: 2em;
+  display: block;
+  width: 100%;
+}
+
+.afflictions table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.afflictions input {
+    width: 90%;
+    text-align: left;
+}
+
+.afflictions td, th {
+    border: 1px solid BLACK;
+    text-align: center;
+    padding: 0.25em;
+}
+
+.afflictions tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+
+.afflictions textarea {
+  min-width: 15em;
+}
+
+.afflictions-functions {
+  display: block;
+  margin: 1em;
+}
+
+.afflictions-functions button {
+  font-size: 0.75em;
+}
+
+/* Languages */
+
+.languages {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.languages table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.languages input {
+    width: 90%;
+    text-align: left;
+}
+
+.languages td, th {
+    border: 1px solid BLACK;
+    text-align: center;
+    padding: 0.25em;
+}
+
+.languages tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.languages textarea {
+  min-width: 15em;
+}
+
+.languages-functions {
+  display: block;
+  margin: 1em;
+}
+
+.languages-functions button {
+  font-size: 0.75em;
 }
 
 /* Character Stats */
@@ -250,7 +377,7 @@
 /* Character Abilities */
 
 .character-abilities {
-  margin: 1em;
+  margin: 2em;
 }
 
 .character-abilities div {
@@ -359,7 +486,7 @@
 
 .character-inventory td, th {
     border: 1px solid BLACK;
-    text-align: left;
+    text-align: center;
     padding: 0.25em;
 }
 
@@ -373,49 +500,6 @@
 }
 
 .inventory-functions button {
-  font-size: 0.75em;
-}
-
-/* Class History */
-
-.class-history {
-  margin-top: 1em;
-  margin-bottom: 2em;
-  display: block;
-  width: 100%;
-}
-
-.class-history table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-.class-history input {
-    width: 90%;
-    text-align: left;
-}
-
-.class-history td, th {
-    border: 1px solid BLACK;
-    text-align: center;
-    padding: 0.25em;
-}
-
-.class-history tr:nth-child(even) {
-    background-color: #dddddd;
-}
-
-
-.class-history textarea {
-  min-width: 15em;
-}
-
-.class-history-functions {
-  display: block;
-  margin: 1em;
-}
-
-.class-history-functions button {
   font-size: 0.75em;
 }
 

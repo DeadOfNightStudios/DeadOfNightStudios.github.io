@@ -48,6 +48,8 @@ function checkAttributeLimit(element) {
     updateBodyWeightAndCapcity(element);
   } else if (element.id == "agi") {
     updateSpeed(element);
+  } else if (element.id == "spi") {
+    updateSurvivalPoints(element);
   }
 }
 
@@ -55,10 +57,18 @@ function checkAttributeLimit(element) {
 
 function updateHealth(element) {
   var vitality = document.getElementById("vit").value;
-  document.getElementById("health").innerHTML = vitality;
+  document.getElementById("health").innerHTML = vitality + " / ";
   document.getElementById("damage").value = vitality;
   document.getElementById("damage").max = vitality;
   document.getElementById("damage").min = 0;
+}
+
+function updateSurvivalPoints(element) {
+  var spirit = Math.floor(parseInt(document.getElementById("spi").value) / 3);
+  document.getElementById("survival-pts").innerHTML = spirit + " / ";
+  document.getElementById("survival-pts-used").value = spirit;
+  document.getElementById("survival-pts-used").max = spirit;
+  document.getElementById("survival-pts-used").min = 0;
 }
 
 function updateBodyWeightAndCapcity(element) {
@@ -71,7 +81,7 @@ function updateBodyWeightAndCapcity(element) {
 function updateSpeed(element) {
   var agi = document.getElementById("agi").value;
   document.getElementById("speed").innerHTML = Math.floor(parseInt(agi)/4);
-  document.getElementById("action_pts").innerHTML = Math.floor(parseInt(agi)/5);
+  document.getElementById("action-pts").innerHTML = Math.floor(parseInt(agi)/5);
 }
 
 function updateKnowledgeUsed(element) {
@@ -81,8 +91,8 @@ function updateKnowledgeUsed(element) {
   } else if (parseInt(element.value) < 0) {
     element.value = 0;
   }
-  document.getElementById("knl_used").max = knowledge;
-  document.getElementById("knl_used").min = 0;
+  document.getElementById("knl-used").max = knowledge;
+  document.getElementById("knl-used").min = 0;
 }
 
 function updateDamage(element) {
@@ -96,12 +106,23 @@ function updateDamage(element) {
   document.getElementById("damage").min = 0;
 }
 
+function updateSurvivalPointsUsed(element) {
+  var spirit = Math.floor(parseInt(document.getElementById("spi").value) / 3);
+  if (parseInt(element.value) > spirit) {
+    element.value = element.defaultValue;
+  } else if (parseInt(element.value) < 0) {
+    element.value = 0;
+  }
+  document.getElementById("survival-pts-used").max = spirit;
+  document.getElementById("survival-pts-used").min = 0;
+}
+
 function updateKnowledgeAndSkills(element) {
   var wisdom = document.getElementById("wis").value;
   var knowledge = parseInt(wisdom) / 5;
-  document.getElementById("knl").innerHTML = Math.floor(knowledge);
-  document.getElementById("knl_used").max = wisdom;
-  document.getElementById("knl_used").min = 0;
+  document.getElementById("knl").innerHTML = Math.floor(knowledge) + " / ";
+  document.getElementById("knl-used").max = wisdom;
+  document.getElementById("knl-used").min = 0;
   
   var skillPtsRemaining = parseInt(document.getElementById("skill_pts").innerHTML);
   var skillPtsAssigned = parseInt(document.getElementById("skill_pts_assigned").innerHTML);
@@ -246,16 +267,6 @@ function addInventoryItem(element) {
   cellThree.innerHTML = "<input id=\"item_" + rowCount + "_name\" type=\"number\" oninput=\"updateTotalWeightUsed(this)\" />"
 }
 
-function removeInventoryItem(element) {
-  var inventory = document.getElementById("inventory");
-  
-  var rowCount = document.getElementById("inventory").getElementsByTagName("tr").length;
-  if (rowCount > 1) {
-    var row = inventory.deleteRow(rowCount - 1 );
-  }
-  
-}
-
 function updateTotalWeightUsed(element) {
   var changeValue = element.value;
   if (changeValue < 0) {
@@ -277,30 +288,29 @@ function updateTotalWeightUsed(element) {
   document.getElementById("capacity").innerHTML = " / " + document.getElementById("capacity-value").innerHTML + " lb " + agiModifier;
 }
 
-/* Class History Functions  */
+/* Table Functions  */
 
-function addClassHistoryEntry(element) {
-  var classHistory = document.getElementById("class-history-table");
+function addEntry(element, tableId, entryName) {
+  var classHistory = document.getElementById(tableId);
   
-  var rowCount = document.getElementById("class-history-table").getElementsByTagName("tr").length;
+  var rowCount = document.getElementById(tableId).getElementsByTagName("tr").length;
   var row = classHistory.insertRow(rowCount);
   
   var cellOne = row.insertCell(0);
-  cellOne.innerHTML = "<input id=\"item_" + rowCount + "_name\" type=\"text\" oninput=\"saveValue(this)\" />"
+  cellOne.innerHTML = "<input id=\"" + entryName + "_" + rowCount + "_name\" type=\"text\" oninput=\"saveValue(this)\" />"
   var cellTwo = row.insertCell(1);
-  cellTwo.innerHTML = "<input id=\"item_" + rowCount + "_name\" type=\"text\" oninput=\"saveValue(this)\" />"
+  cellTwo.innerHTML = "<input id=\"" + entryName + "_" + rowCount + "_name\" type=\"text\" oninput=\"saveValue(this)\" />"
   var cellThree = row.insertCell(2);
-  cellThree.innerHTML = "<textarea id=\"item_" + rowCount + "_name\" type=\"number\" oninput=\"saveValue(this)\" ></textarea>"
+  cellThree.innerHTML = "<textarea id=\"" + entryName + "_" + rowCount + "_name\" type=\"number\" oninput=\"saveValue(this)\" ></textarea>"
 }
 
-function removeClassHistoryEntry(element) {
-  var classHistory = document.getElementById("class-history-table");
-  
-  var rowCount = document.getElementById("class-history-table").getElementsByTagName("tr").length;
+function removeEntry(element, tableId) {
+  var classHistory = document.getElementById(tableId);
+
+  var rowCount = document.getElementById(tableId).getElementsByTagName("tr").length;
   if (rowCount > 1) {
     var row = classHistory.deleteRow(rowCount - 1 );
   }
-  
 }
 
 /* Load and Save Character Sheet Functions */
