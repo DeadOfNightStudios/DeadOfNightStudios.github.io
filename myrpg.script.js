@@ -273,11 +273,10 @@ function updateTotalWeightUsed(element) {
     element.value = 0;
   }
   
-  var totalCapcityUsed = parseInt(document.getElementById("used-capacity").innerHTML);
+  var totalCapcityUsed = document.getElementById("used-capacity").innerHTML;
   var diff = element.defaultValue - element.value;
-  document.getElementById("used-capacity").innerHTML = totalCapcityUsed - diff;
+  document.getElementById("used-capacity").innerHTML = (totalCapcityUsed - diff).toFixed(2);
   element.defaultValue = element.value;
-  
   
   var overCapcity = parseInt(document.getElementById("capacity-value").innerHTML) - parseInt(document.getElementById("used-capacity").innerHTML);
   var agiModifier = " ";

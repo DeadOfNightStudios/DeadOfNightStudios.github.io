@@ -316,6 +316,7 @@
   margin: 1em;
   width: 100%;
   display: inline-block;
+  font-size: 0.85em;
 }
 
 .character-skills div {
@@ -525,5 +526,13 @@
   .character-info-left {
     width: 100%;
     display: block;
+  }
+  
+  
+  .character-skills {
+    margin: 1em;
+    width: 100%;
+    display: inline-block;
+    font-size: 0.75em;
   }
 }
