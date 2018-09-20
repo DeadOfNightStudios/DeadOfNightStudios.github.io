@@ -270,7 +270,7 @@
 .character-traits {
   width: 40%;
   float: right;
-  margin: 2em;
+  margin-right: 2em;
 }
 
 .character-traits-title {
@@ -284,6 +284,7 @@
 .character-traits div {
   width: 100%;
   float: left;
+  margin: 0.15em;
 }
 
 .character-traits-label {
@@ -292,10 +293,24 @@
   float: left;
 }
 
-.character-traits input {
+.character-traits-input {
   width: 30%;
   text-align: left;
   float: right;
+  margin: 0em;
+}
+
+.character-traits-input-full {
+  width: 50%;
+  text-align: left;
+  float: right;
+  margin: 0em;
+}
+
+.display-label-right {
+  width: 20%;
+  float: right;
+  text-align: right;
 }
 
 .display-label {
@@ -322,17 +337,25 @@
 .character-skills div {
   width: 30%;
   display: inline-block;
+  margin: 0.25em;
 }
 
 .character-skill {
-  width: 40%;
-  margin: 0.25em;
+  width: 35%;
+  margin: 0em;
+  text-align: left;
+  display: inline-block;
+}
+
+.character-skill-mod {
+  width: 10%;
+  margin: 0em;
   text-align: left;
   display: inline-block;
 }
 
 .character-skills input {
-  width: 30%;
+  width: 20%;
   text-align: left;
   display: inline-block;
 }
@@ -377,40 +400,85 @@
 
 /* Character Abilities */
 
+
 .character-abilities {
-  margin: 2em;
-}
-
-.character-abilities div {
+  margin-top: 1em;
+  margin-bottom: 2em;
+  display: block;
   width: 100%;
-  display: inline-block;
 }
 
-.ability-name {
-  width: 20%;
+.character-abilities table {
+    border-collapse: collapse;
+    width: 100%;
 }
 
-.ability-effect {
-  width: 60%;
+.character-abilities input {
+    width: 90%;
+    text-align: left;
 }
 
-.character-abilities-label-left {
-  width: 25%;
-  font-size: 1em;
-  float: left;
+.character-abilities td, th {
+    border: 1px solid BLACK;
+    text-align: center;
+    padding: 0.25em;
 }
 
-.character-abilities-label-right {
-  width: 25%;
-  font-size: 1em;
-  float: right;
+.character-abilities tr:nth-child(even) {
+    background-color: #dddddd;
 }
 
-.character-abilities-title {
+.character-abilities textarea {
+  min-width: 15em;
+}
+
+.character-abilities-functions {
+  display: block;
   margin: 1em;
-  font-size: 1.25em;
-  font-weight: bold;
 }
+
+.character-abilities-functions button {
+  font-size: 0.75em;
+}
+
+/* Techniques & Feats */
+
+.techniques {
+  margin-top: 1em;
+  margin-bottom: 2em;
+  display: block;
+  width: 100%;
+}
+
+.techniques table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.techniques input {
+    width: 90%;
+    text-align: left;
+}
+
+.techniques td, th {
+    border: 1px solid BLACK;
+    text-align: center;
+    padding: 0.25em;
+}
+
+.techniques tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.techniques-functions {
+  display: block;
+  margin: 1em;
+}
+
+.techniques-functions button {
+  font-size: 0.75em;
+}
+
 
 /* Equipment  */
 

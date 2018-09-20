@@ -50,30 +50,85 @@ function checkAttributeLimit(element) {
     updateSpeed(element);
   } else if (element.id == "spi") {
     updateSurvivalPoints(element);
+    updateStressPoints(element);
   }
+}
+
+/* Character Abilities */
+
+function addAbilityEntry(element, tableId, entryName) {
+  var classHistory = document.getElementById(tableId);
+  
+  var rowCount = document.getElementById(tableId).getElementsByTagName("tr").length;
+  var row = classHistory.insertRow(rowCount);
+  
+  var cellOne = row.insertCell(0);
+  cellOne.innerHTML = "<input id=\"" + entryName + "_" + rowCount + "\" type=\"text\" oninput=\"saveValue(this)\" />"
+  var cellTwo = row.insertCell(1);
+  cellTwo.innerHTML = "<input id=\"" + entryName + "_" + rowCount + "_effect\" type=\"text\" oninput=\"saveValue(this)\" />"
+}
+
+/* Character Techniques & Feats */
+
+function addTechniqueEntry(element, tableId, entryName) {
+  var classHistory = document.getElementById(tableId);
+  
+  var rowCount = document.getElementById(tableId).getElementsByTagName("tr").length;
+  var row = classHistory.insertRow(rowCount);
+  
+  var cellOne = row.insertCell(0);
+  cellOne.innerHTML = "<input id=\"" + entryName + "_" + rowCount + "\" type=\"text\" oninput=\"saveValue(this)\" />"
+  var cellTwo = row.insertCell(1);
+  cellTwo.innerHTML = "<input id=\"" + entryName + "_" + rowCount + "_desc\" type=\"text\" oninput=\"saveValue(this)\" />"
+}
+
+/* Afflictions Functions  */
+
+function addAfflictionEntry(element, tableId, entryName) {
+  var classHistory = document.getElementById(tableId);
+  
+  var rowCount = document.getElementById(tableId).getElementsByTagName("tr").length;
+  var row = classHistory.insertRow(rowCount);
+  
+  var cellOne = row.insertCell(0);
+  cellOne.innerHTML = "<input id=\"" + entryName + "_" + rowCount + "_name\" type=\"text\" oninput=\"saveValue(this)\" />"
+  var cellTwo = row.insertCell(1);
+  cellTwo.innerHTML = "<input id=\"" + entryName + "_" + rowCount + "_duration\" type=\"text\" oninput=\"saveValue(this)\" />"
+  var cellThree = row.insertCell(2);
+  cellThree.innerHTML = "<textarea id=\"" + entryName + "_" + rowCount + "_effect\" type=\"number\" oninput=\"saveValue(this)\" ></textarea>"
 }
 
 /* Trait Update Functions  */
 
 function updateHealth(element) {
   var vitality = document.getElementById("vit").value;
-  document.getElementById("health").innerHTML = vitality + " / ";
+  document.getElementById("health").innerHTML = " / " + vitality;
   document.getElementById("damage").value = vitality;
   document.getElementById("damage").max = vitality;
   document.getElementById("damage").min = 0;
 }
 
 function updateSurvivalPoints(element) {
-  var spirit = Math.floor(parseInt(document.getElementById("spi").value) / 3);
-  document.getElementById("survival-pts").innerHTML = spirit + " / ";
+  var spirit = Math.floor(parseInt(document.getElementById("spi").value) / 5);
+  document.getElementById("survival-pts").innerHTML = " / " + spirit;
   document.getElementById("survival-pts-used").value = spirit;
   document.getElementById("survival-pts-used").max = spirit;
   document.getElementById("survival-pts-used").min = 0;
 }
 
+function updateStressPoints(element) {
+  var stressPts = parseInt(document.getElementById("spi").value) * 2;
+  document.getElementById("stress-pts").innerHTML = " / " + stressPts;
+  document.getElementById("stress-pts-used").value = 0;
+  document.getElementById("stress-pts-used").min = 0;
+}
+
 function updateBodyWeightAndCapcity(element) {
   var str = document.getElementById("str").value;
-  document.getElementById("body-weight").innerHTML = parseInt(str) * 10;
+  var mod = 10;
+  var base = 20;
+  
+  document.getElementById("body-weight").innerHTML = (parseInt(str) * mod) + base;
   document.getElementById("capacity").innerHTML = "/ " + (parseInt(str) * 20) + " lb";
   document.getElementById("capacity-value").innerHTML = (parseInt(str) * 20);
 }
@@ -107,7 +162,7 @@ function updateDamage(element) {
 }
 
 function updateSurvivalPointsUsed(element) {
-  var spirit = Math.floor(parseInt(document.getElementById("spi").value) / 3);
+  var spirit = Math.floor(parseInt(document.getElementById("spi").value) / 5);
   if (parseInt(element.value) > spirit) {
     element.value = element.defaultValue;
   } else if (parseInt(element.value) < 0) {
@@ -117,10 +172,17 @@ function updateSurvivalPointsUsed(element) {
   document.getElementById("survival-pts-used").min = 0;
 }
 
+function updateStressPointsUsed(element) {
+  if (parseInt(element.value) < 0) {
+    element.value = 0;
+  }
+  document.getElementById("stress-pts-used").min = 0;
+}
+
 function updateKnowledgeAndSkills(element) {
   var wisdom = document.getElementById("wis").value;
   var knowledge = parseInt(wisdom) / 5;
-  document.getElementById("knl").innerHTML = Math.floor(knowledge) + " / ";
+  document.getElementById("knl").innerHTML = " / " + Math.floor(knowledge);
   document.getElementById("knl-used").max = knowledge;
   document.getElementById("knl-used").min = 0;
   
@@ -128,7 +190,7 @@ function updateKnowledgeAndSkills(element) {
   var skillPtsAssigned = parseInt(document.getElementById("skill_pts_assigned").innerHTML);
   var totalPts = skillPtsRemaining + skillPtsAssigned;
   
-  var skillPtsMax = Math.floor(wisdom / 3);
+  var skillPtsMax = Math.floor(wisdom / 3) + 2;
   var newSkillPts = 0;
   
   if (totalPts > skillPtsMax) {
@@ -165,27 +227,37 @@ function updateKnowledgeAndSkills(element) {
     
     document.getElementById("skill_pts").innerHTML = newSkillPts;
   }
-    
+  
   updateSkillProperties("alchemy", newSkillPts);
+  updateSkillProperties("arcane-sorcery", newSkillPts);
   updateSkillProperties("archery", newSkillPts);
   updateSkillProperties("art", newSkillPts);
   updateSkillProperties("blade", newSkillPts);
   updateSkillProperties("block", newSkillPts);
   updateSkillProperties("blunt", newSkillPts);
   updateSkillProperties("carpentry", newSkillPts);
-  updateSkillProperties("culinary_arts", newSkillPts);
+  updateSkillProperties("catalyst", newSkillPts);
+  updateSkillProperties("culinary-arts", newSkillPts);
+  updateSkillProperties("communing-arts", newSkillPts);
+  updateSkillProperties("void-sorcery", newSkillPts);
   updateSkillProperties("dodge", newSkillPts);
-  updateSkillProperties("duel_wield", newSkillPts);
-  updateSkillProperties("engineering", newSkillPts);
+  updateSkillProperties("duel-wield", newSkillPts);
+  updateSkillProperties("haggle", newSkillPts);
+  updateSkillProperties("mechanics", newSkillPts);
   updateSkillProperties("herbalism", newSkillPts);
   updateSkillProperties("literacy", newSkillPts);
-  updateSkillProperties("martial_arts", newSkillPts);
-  updateSkillProperties("pick_lock", newSkillPts);
-  updateSkillProperties("pick_pocket", newSkillPts);
+  updateSkillProperties("masonry", newSkillPts);
+  updateSkillProperties("martial-arts", newSkillPts);
+  updateSkillProperties("necromancy", newSkillPts);
+  updateSkillProperties("pick-lock", newSkillPts);
+  updateSkillProperties("pick-pocket", newSkillPts);
+  updateSkillProperties("psionics", newSkillPts);
+  updateSkillProperties("pyromancy", newSkillPts);
   updateSkillProperties("sewing", newSkillPts);
+  updateSkillProperties("shamanism", newSkillPts);
   updateSkillProperties("smithing", newSkillPts);
   updateSkillProperties("staff", newSkillPts);
-  updateSkillProperties("spell_craft", newSkillPts);
+  updateSkillProperties("spell-craft", newSkillPts);
   updateSkillProperties("swim", newSkillPts);
   updateSkillProperties("sneak", newSkillPts);
   updateSkillProperties("whip", newSkillPts);
@@ -219,25 +291,35 @@ function updateSkillPoints(element) {
   element.defaultValue = element.value;
   
   var assignedPts = assignedPts + updateSkillProperties("alchemy", remainingPts);
+  assignedPts = assignedPts + updateSkillProperties("arcane-sorcery", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("archery", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("art", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("blade", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("block", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("blunt", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("carpentry", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("culinary_arts", remainingPts);
+  assignedPts = assignedPts + updateSkillProperties("catalyst", remainingPts);
+  assignedPts = assignedPts + updateSkillProperties("culinary-arts", remainingPts);
+  assignedPts = assignedPts + updateSkillProperties("communing-arts", remainingPts);
+  assignedPts = assignedPts + updateSkillProperties("void-sorcery", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("dodge", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("duel_wield", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("engineering", remainingPts);
+  assignedPts = assignedPts + updateSkillProperties("duel-wield", remainingPts);
+  assignedPts = assignedPts + updateSkillProperties("haggle", remainingPts);
+  assignedPts = assignedPts + updateSkillProperties("mechanics", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("herbalism", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("literacy", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("martial_arts", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("pick_lock", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("pick_pocket", remainingPts);
+  assignedPts = assignedPts + updateSkillProperties("masonry", remainingPts);
+  assignedPts = assignedPts + updateSkillProperties("martial-arts", remainingPts);
+  assignedPts = assignedPts + updateSkillProperties("necromancy", remainingPts);
+  assignedPts = assignedPts + updateSkillProperties("pick-lock", remainingPts);
+  assignedPts = assignedPts + updateSkillProperties("pick-pocket", remainingPts);
+  assignedPts = assignedPts + updateSkillProperties("psionics", remainingPts);
+  assignedPts = assignedPts + updateSkillProperties("pyromancy", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("sewing", remainingPts);
+  assignedPts = assignedPts + updateSkillProperties("shamanism", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("smithing", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("staff", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("spell_craft", remainingPts);
+  assignedPts = assignedPts + updateSkillProperties("spell-craft", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("swim", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("sneak", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("whip", remainingPts);
@@ -260,11 +342,11 @@ function addInventoryItem(element) {
   var row = inventory.insertRow(rowCount);
   
   var cellOne = row.insertCell(0);
-  cellOne.innerHTML = "<input id=\"item_" + rowCount + "_name\" type=\"text\" oninput=\"saveValue(this)\" />"
+  cellOne.innerHTML = "<input id=\"item_" + rowCount + "_name\" type=\"text\" oninput=\"saveValue(this)\" />";
   var cellTwo = row.insertCell(1);
-  cellTwo.innerHTML = "<input id=\"item_" + rowCount + "_name\" type=\"text\" oninput=\"saveValue(this)\" />"
+  cellTwo.innerHTML = "<input id=\"item_" + rowCount + "_desc\" type=\"text\" oninput=\"saveValue(this)\" />";
   var cellThree = row.insertCell(2);
-  cellThree.innerHTML = "<input id=\"item_" + rowCount + "_name\" type=\"number\" oninput=\"updateTotalWeightUsed(this)\" />"
+  cellThree.innerHTML = "<input id=\"item_" + rowCount + "_weight\" type=\"number\" oninput=\"updateTotalWeightUsed(this)\" />";
 }
 
 function updateTotalWeightUsed(element) {
@@ -298,9 +380,9 @@ function addEntry(element, tableId, entryName) {
   var cellOne = row.insertCell(0);
   cellOne.innerHTML = "<input id=\"" + entryName + "_" + rowCount + "_name\" type=\"text\" oninput=\"saveValue(this)\" />"
   var cellTwo = row.insertCell(1);
-  cellTwo.innerHTML = "<input id=\"" + entryName + "_" + rowCount + "_name\" type=\"text\" oninput=\"saveValue(this)\" />"
+  cellTwo.innerHTML = "<input id=\"" + entryName + "_" + rowCount + "_years\" type=\"text\" oninput=\"saveValue(this)\" />"
   var cellThree = row.insertCell(2);
-  cellThree.innerHTML = "<textarea id=\"" + entryName + "_" + rowCount + "_name\" type=\"number\" oninput=\"saveValue(this)\" ></textarea>"
+  cellThree.innerHTML = "<textarea id=\"" + entryName + "_" + rowCount + "_notes\" type=\"number\" oninput=\"saveValue(this)\" ></textarea>"
 }
 
 function removeEntry(element, tableId) {
