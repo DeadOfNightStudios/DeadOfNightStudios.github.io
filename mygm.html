@@ -1,0 +1,2420 @@
+<link rel="stylesheet" href="mygm.style.css">
+<script src="mygm.script.js"></script>
+
+<div class="version-info">
+  <label>MyGM V1.0.0 - 2018</label>
+</div>
+<div class="mygm-border">
+  <button id="dice-btn" class="collapsible" onclick="collapseExpand('dice-btn', 'dice')">- Dice Emulator -</button>
+  <div id="dice" class="dice">
+    <div>
+      <label id="1d4">1d4</label>
+      <button onclick="rollOneDFour(this)" >Roll 1d4</button>  
+    </div>
+    <div>
+      <label id="1d5">1d5</label>
+      <button onclick="rollOneDFive(this)" >Roll 1d5</button>  
+    </div>
+    <div>
+      <label id="1d6">1d6</label>
+      <button onclick="rollOneDSix(this)" >Roll 1d6</button>  
+    </div>
+    <div>
+      <label id="1d7">1d7</label>
+      <button onclick="rollOneDSeven(this)" >Roll 1d7</button>  
+    </div>
+    <div>
+      <label id="1d8">1d8</label>
+      <button onclick="rollOneDEight(this)" >Roll 1d8</button>  
+    </div>
+    <div>
+      <label id="1d9">1d9</label>
+      <button onclick="rollOneDNine(this)" >Roll 1d9</button>  
+    </div>
+    <div>
+      <label id="1d10">1d10</label>
+      <button onclick="rollOneDTen(this)" >Roll 1d10</button>  
+    </div>
+    <div>
+      <label id="1d12">1d12</label>
+      <button onclick="rollOneDTwelve(this)" >Roll 1d12</button>  
+    </div>
+    <div>
+      <label id="1d20">1d20</label>
+      <button onclick="rollOneDTwenty(this)" >Roll 1d20</button>  
+    </div>
+  </div>
+  <button id="action-rules-btn" class="collapsible" onclick="collapseExpand('action-rules-btn', 'action-rules')">- Character Action Rules -</button>
+  <div id="action-rules" class="action-rules">
+    <label class="title">Combat Rules</label>
+    <label class="info">Once players enter combat a grid based map or a unit of measurement with terrian is used to determine movement and attacking angles. 
+    Back stabs are critical hits and deal twice as much damage. When a player attacks at minimum two dice are roled. 
+    One to determine if the attack is a hit or miss (1d20) and one to determine if the hit was a critical hit (1d20). 
+    A player will need to role more dice depending on the opponents' actions and abilities. 
+    If a player attempts to dodge or block an attack the player's AGI is measured against the attacker's AGI. 
+    If a player has 16 AGI and the attacker has 14 then the dodging player received a plus 2 on their dodge roll(s). 
+    If a player wishes to weild a two-handed weapon in one hand, one point five times as much STR is required based on the weapons requirements.
+    Two point five times as much if the player wishses to duel wield the weapons.</label>
+    <label class="title">Stealth Rules</label>
+    <label class="info">When a player is attempting to use stealth to achieve their goals that player will have to role against the Game Master who is acting as the opponent(s). 
+    Perception (PER) is the counter stat against Agility (AGI) when a player is sneaking. 
+    If a guard has 15 PER and a player has 16 AGI the player received a +1 against the opponent. 
+    This is done for each opponent within the area that the player is using stealth. 
+    If other players are in combat a hidden check will need to be performed each turn for the sneaking player.</label>
+  </div>
+  <button id="attribute-rules-btn" class="collapsible" onclick="collapseExpand('attribute-rules-btn', 'attribute-rules')">- Attribute Rules -</button>
+  <div id="attribute-rules" class="gm-rules">
+    <label>Strength (STR) is used to use weapons, determine base attack power, and carry equipment</label>
+    <label>Agility (AGI) is used to use weapons, determine movement per turn, determine actions per turn, and dodge attacks or spells.</label>
+    <label>Perception (PER) is used to accurately throw weapons, counter projectiles, counter spells, use weapons, and sense sneak attacks.</label>
+    <label>Vitality (VIT) is used to determine health.</label>
+    <label>Intelligence (INT) is used to determine ability to cast spells, use catalysts, use devices, and build special items or spells.</label>
+    <label>Wisdom (WIS) is used to determine skill points, knowledge of spells, and use various craftsman tools.</label>
+    <label>Charisma (CHR) is used to gather support, trade, communicate, perform some actions or events, and use some spells.</label>
+    <label>Spirit (SPI) is used to determine ability to live without foor or water, cast spells, and deal with stress to maintain sanity.</label>
+  </div>
+  <button id="trait-rules-btn" class="collapsible" onclick="collapseExpand('trait-rules-btn', 'trait-rules')">- Trait Rules -</button>
+  <div id="trait-rules" class="gm-rules">
+    <label>Weight Capcaity is calculated by taking the character's Strength (STR) multiplied by 20 lb.</label>
+    <label>Knowlege is increased every 5 Wisdom (WIS) points. One Knowledge slot allows for the character to remember a spell without using a scroll or book.</label>
+    <label>Speed will increase every 4 Agility (AGI) points. Movement is equalevent to Speed, an Action Point used reduces the movement that turn by one point.</label>
+    <label>Action Points will increase every 5 Agility (AGI) points. One Action Point is used per action meaning an attack, item use, environment interaction, or spell cast.</label>
+    <label>One Survival Point is equal to one day (24h) with no penalty to perception, health, hunger, or thirst.</label>
+    <label>If a character's Stress/Sanity level has exceeded their maximum that character will take 1 Damage Point for every 5 points of Stress/Santiy.</label>
+  </div>
+  <button id="weapons-btn" class="collapsible" onclick="collapseExpand('weapons-btn', 'weapons')">- Weapons -</button>
+  <div id="weapons" class="weapons">
+    
+    <button id="blunt-weapons-btn" class="collapsible" onclick="collapseExpand('blunt-weapons-btn', 'blunt-weapons')">- Blunt Weapons -</button>
+    <div id="blunt-weapons" class="weapons">
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Wooden Club</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d4</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">25</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">5</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>HARD WOOD</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>7 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Push Back 1 Square, 1d8 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Large Wooden Club</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d6</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">50</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">10</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>HARD WOOD</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>10 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Push Back 1 Square, 1d8 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Great Club</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d10</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">75</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">20</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>OAK WOOD</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>14 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Push Back 2 Square, 1d12 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Bone Club</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d6</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">45</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">10</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>BONE</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>10 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Push Back 1 Square, 1d10 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Obsidian Club</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d8</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">50</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">10</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>OBSIDIAN</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>10 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Bleed 1d10 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Iron Mace</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d6</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">45</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">20</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>IRON</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>12 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Push Back 1 Square, 1d10 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Large Iron Mace</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d12</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">75</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">30</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>IRON</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>17 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Push Back 2 Square, 1d12 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Spiked Iron Mace</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d10</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">65</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">30</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>IRON</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>18 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Bleed 1d10 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Large Spiked Iron Mace</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d12</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">75</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">30</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>IRON</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>18 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Bleed 1d10 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Spiked Steel Mace</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d12</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">65</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">40</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>STEEL</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>20 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Bleed 1d10 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Large Spiked Steel Mace</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d14</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">80</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">45</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>STEEL</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>24 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Bleed 1d10 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Morning Star</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d16</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">85</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">50</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>STEEL</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>26 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Bleed 1d8 chance, knock back 1 square 1d8</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Iron Throwing Axe</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d4</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">15</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">10</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>IRON</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>10 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Push back 1 square, 1d10 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Iron Axe</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d7</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">20</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">10</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>IRON</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>12 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label></label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Large Iron Axe</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d10</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">35</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">15</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>IRON</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>16 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Push back 1 square, 1d8 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Iron Battle Axe</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d13</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">35</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">20</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>IRON</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>18 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Push back 1 square, 1d6 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Iron Great Axe</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d14</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">55</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">20</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>IRON</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>20 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Push back 1 square, 1d4 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Steel Throwing Axe</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d6</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">10</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">20</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>STEEL</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>12 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Push back 1 square, 1d8 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Steel Axe</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d9</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">10</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">20</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>STEEL</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>14 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Push back 1 square, 1d8 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Large Steel Axe</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d12</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">35</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">20</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>STEEL</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>15 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Push back 2 square, 1d8 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Steel Battle Axe</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d15</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">45</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">30</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>STEEL</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>18 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Push back 2 square, 1d6 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Great Steel Axe</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d16</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">55</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">30</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>STEEL</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>20 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Push back 2 square, 1d6 chance</label>
+        </div>
+      </div>
+    </div>
+    <button id="blade-weapons-btn" class="collapsible" onclick="collapseExpand('blade-weapons-btn', 'blade-weapons')">- Blade Weapons -</button>
+    <div id="blade-weapons" class="weapons">
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Iron Dagger</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d4</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">5</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">10</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>IRON</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>6 AGI, 6 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>STR/AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label></label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Iron Shortsword</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d6</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">15</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">10</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>IRON</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>7 AGI, 7 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>STR/AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Bleed 1d12 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Iron Longsword</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d8</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">25</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">15</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>IRON</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>8 AGI, 10 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Bleed 1d12 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Iron Bastard Sword</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d10</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">35</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">15</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>IRON</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>9 AGI, 14 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Bleed 1d10 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Iron Great Sword</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d12</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">45</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">15</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>IRON</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>9 AGI, 16 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Bleed 1d10 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Iron Daito</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d6</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">15</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">10</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>IRON</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>10 AGI, 6 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Bleed 1d8 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Iron Katana</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d8</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">25</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">15</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>IRON</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>14 AGI, 10 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Bleed 1d8 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Iron Tachi</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d10</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">20</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">20</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>IRON</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>16 AGI, 10 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Bleed 1d7 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Iron Scimitar</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d8</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">15</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">10</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>IRON</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>15 AGI, 8 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Bleed 1d6 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Iron Sabre</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d8</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">20</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">15</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>IRON</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>15 AGI, 10 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Bleed 1d7 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Steel Dagger</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d6</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">8</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">15</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>STEEL</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>7 AGI, 8 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>STR/AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Bleed 1d10 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Steel Shortsword</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d8</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">15</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">20</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>STEEL</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>9 AGI, 10 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>STR/AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Bleed 1d10 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Steel Longsword</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d12</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">25</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">30</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>STEEL</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>10 AGI, 12 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Bleed 1d10 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Steel Bastard Sword</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d14</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">35</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">35</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>STEEL</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>11 AGI, 18 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Bleed 1d8 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Steel Great Sword</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d16</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">55</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">45</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>STEEL</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>11 AGI, 24 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Bleed 1d10 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Claymore</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d14</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">55</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">50</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>STEEL</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>12 AGI, 20 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Bleed 1d10 chance and push back 1 square 1d8</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Steel Daito</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d6</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">10</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">20</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>STEEL</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>11 AGI, 7 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Bleed 1d6 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Steel Katana</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d12</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">20</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">40</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>STEEL</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>18 AGI, 10 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Bleed 1d6 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Steel Tachi</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d14</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">25</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">40</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>STEEL</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>17 AGI, 10 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Bleed 1d6 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Steel Scimitar</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d10</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">15</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">30</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>STEEL</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>17 AGI, 8 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Bleed 1d5 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Steel Sabre</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d12</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">30</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">45</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>STEEL</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>18 AGI, 11 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Bleed 1d6 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Cutlass</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d12</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">25</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">45</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>STEEL</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>17 AGI, 9 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Bleed 1d10 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Rapier</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d10</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">15</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">25</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>STEEL</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>18 AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Bleed 1d12 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Estoc</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d8</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">10</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">25</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>STEEL</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>14 AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Bleed 1d8 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Falchion</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d14</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">25</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">30</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>STEEL</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>20 AGI, 12 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Bleed 1d10 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Pinuti</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d12</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">20</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">30</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>STEEL</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>18 AGI, 10 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Bleed 1d12 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Barong</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d8</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">15</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">30</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>STEEL</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>15 AGI, 8 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Bleed 1d6 chance</label>
+        </div>
+      </div>
+      
+    </div>
+    
+    <button id="ranged-weapons-btn" class="collapsible" onclick="collapseExpand('ranged-weapons-btn', 'ranged-weapons')">- Ranged Weapons -</button>
+    <div id="ranged-weapons" class="weapons">
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Short Bow</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d6</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">15</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">5</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>WOOD</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>8 AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Range of 6 squares in any direction</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Recurve Bow 50lb Draw</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d8</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">18</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">5</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>WOOD</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>10 AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Range of 8 squares in any direction</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Recurve Bow 65lb Draw</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d10</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">30</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">5</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>WOOD</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>14 AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Range of 12 squares in any direction</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Recurve Bow 75lb Draw</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d12</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">35</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">10</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>WOOD</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>16 AGI, 8 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Range of 12 squares in any direction</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Short Crossbow</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d8</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">35</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">20</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>STEEL</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>12 AGI, 9 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Range of 8 squares in any direction, requires one hand to use</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Crossbow</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d10</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">45</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">20</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>STEEL</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>14 AGI, 10 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Range of 10 squares in any direction</label>
+        </div>
+      </div>
+    </div>
+    <button id="staff-weapons-btn" class="collapsible" onclick="collapseExpand('staff-weapons-btn', 'staff-weapons')">- Staff Weapons -</button>
+    <div id="staff-weapons" class="weapons">
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Short Bo Staff</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d4</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">5</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">5</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>WOOD</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>8 AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label></label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Bo Staff</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d6</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">8</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">5</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>WOOD</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>10 AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label></label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Iron Tipped Bo Staff</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d8</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">15</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">10</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>WOOD/IRON</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>10 AGI, 8 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Push back  square, 1d12 chance</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Iron Pitch Fork</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d6</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">20</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">10</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>WOOD/IRON</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>8 AGI, 8 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label></label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Trident</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d10</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">45</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">30</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>STEEL</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>15 STR, 12 AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label></label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Iron Pike</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d8</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">20</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">10</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>IRON</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>8 AGI, 11 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label></label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Steel Pike</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d10</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">25</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">30</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>STEEL</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>10 AGI, 13 STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label></label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Iron Short Spear</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d6</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">15</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">15</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>IRON</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>10 AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label></label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Iron Spear</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d8</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">25</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">15</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>IRON</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>12 AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label></label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Iron Long Spear</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d8</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">30</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">20</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>IRON</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>14 AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Can reach two squares away in any direction</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Iron Halbred</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d10</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">45</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">15</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>IRON</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>15 STR, 10 AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Knock back by 1 square chance 1d8</label>
+        </div>
+      </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Steel Halbred</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d12</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">55</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">30</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>STEEL</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>18 STR, 11 AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>STR</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Knock back by 1 square chance 1d6</label>
+        </div>
+      </div>
+    </div>
+    
+    <button id="martial-weapons-btn" class="collapsible" onclick="collapseExpand('martial-weapons-btn', 'martial-weapons')">- Martial Arts Weapons -</button>
+    <div id="martial-weapons" class="weapons">
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Brass Knuckles</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d6</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">20</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">10</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>Brass</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>8 AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>AGI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label></label>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>

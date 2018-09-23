@@ -1,0 +1,109 @@
+/* MyGM Style Sheet */
+
+.version-info {
+  text-align: center;
+  margin-top: 2em;
+  font-family: "Arial", sans-serif;
+}
+
+.mygm-border {
+  text-align: center;
+  overflow: hidden;
+  font-size: 1.25em;
+  padding: 0.5em;
+  font-family: "Arial", sans-serif;
+  max-width: 100%;
+  margin-bottom: 4em;
+}
+
+.collapsible-div {
+  display: inline-block;
+}
+
+.collapsible {
+  background-color: #9E9E9E;
+  color: BLACK;
+  cursor: pointer;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  width: 100%;
+  border: none;
+  text-align: center;
+  outline: none;
+  font-size: 1.25em;
+}
+
+.collapsible:hover {
+    background-color: #555;
+}
+.gm-rules {
+  width: 100%;
+  display: block;
+}
+
+.gm-rules label {
+  width: 100%;
+  display: block;
+  text-align: left;
+  margin: 1em;
+}
+
+
+.title {
+  width: 100%;
+  display: block;
+  text-align: center;
+  margin: 1em;
+  font-weight: bold;
+}
+
+.info {
+  width: 100%;
+  display: block;
+  text-align: left;
+  margin: 1em;
+}
+
+/* Dice Emulator Style */
+
+.dice {
+  display: block;
+  width: 100%;
+}
+
+.dice div {
+  display: inline-block;
+  width: 30%;
+  margin: 0.25em;
+}
+
+/* Weapons Style */
+
+.weapons {
+  display: block;
+  width: 100%;
+  margin: 0.5em;
+}
+
+.weapon {
+  display: inline-block;
+  width: 30%;
+  height: 80%;
+  border-style: solid;
+  margin: 0.5em;
+  vertical-align: top;
+}
+
+.equipment-detail {
+  width: 100%;
+  display: inline-block;
+  text-align: left;
+  margin: 0.25em;
+  font-size: 0.90em;
+}
+
+.equipment-label {
+  font-weight: bold;
+  font-size: 1em;
+}

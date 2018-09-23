@@ -17,10 +17,11 @@ body {
   background-color: BLACK;
   padding: 2em;
   font-family: "Arial", sans-serif;
+  display: inline-block;
 }
 
 .header a {
-  width: 100%;
+  width: 30%;
   color: WHITE;
   padding: 0.5em;
   text-decoration: none;

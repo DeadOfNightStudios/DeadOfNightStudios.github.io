@@ -18,6 +18,15 @@ function loadMyrpgPage() {
   loadFile("myrpg.html");
 }
 
+function loadMygmPage() {
+  
+  // Hide Save & Load of Character Sheet
+  document.getElementById("character-functions").classList.remove('character-functions');
+  document.getElementById("character-functions").classList.add('character-functions-hidden');
+  
+  loadFile("mygm.html");
+}
+
 function loadHomePage() {
   window.location.reload(true); // Remove old settings
   

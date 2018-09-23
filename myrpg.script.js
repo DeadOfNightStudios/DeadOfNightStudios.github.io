@@ -40,15 +40,19 @@ function checkAttributeLimit(element) {
     element.defaultValue = element.value;
   }
   
-  if (element.id == "wis") {
+  updateTraits(element);
+}
+
+function updateTraits(element) {
+  if (element.id == "wis-mod" || element.id == "wis") {
     updateKnowledgeAndSkills(element);
-  } else if (element.id == "vit") {
+  } else if (element.id == "vit-mod" || element.id == "vit") {
     updateHealth(element);
-  } else if (element.id == "str") {
+  } else if (element.id == "str-mod" || element.id == "str") {
     updateBodyWeightAndCapcity(element);
-  } else if (element.id == "agi") {
+  } else if (element.id == "agi-mod" || element.id == "agi") {
     updateSpeed(element);
-  } else if (element.id == "spi") {
+  } else if (element.id == "spi-mod" || element.id == "spi") {
     updateSurvivalPoints(element);
     updateStressPoints(element);
   }
@@ -102,35 +106,38 @@ function addAfflictionEntry(element, tableId, entryName) {
 
 function updateHealth(element) {
   var vitality = document.getElementById("vit").value;
-  document.getElementById("health").innerHTML = " / " + vitality;
-  document.getElementById("damage").value = vitality;
-  document.getElementById("damage").max = vitality;
+  var vitMod = parseInt(document.getElementById("vit-mod").value);
+  document.getElementById("health").innerHTML = " / " + vitality + vitMod;
+  document.getElementById("damage").value = vitality + vitMod;
+  document.getElementById("damage").max = vitality + vitMod;
   document.getElementById("damage").min = 0;
 }
 
 function updateSurvivalPoints(element) {
   var spirit = Math.floor(parseInt(document.getElementById("spi").value) / 5);
-  document.getElementById("survival-pts").innerHTML = " / " + spirit;
-  document.getElementById("survival-pts-used").value = spirit;
-  document.getElementById("survival-pts-used").max = spirit;
+  var spiMod = parseInt(document.getElementById("spi-mod").value / 5);
+  document.getElementById("survival-pts").innerHTML = " / " + (spirit + spiMod);
+  document.getElementById("survival-pts-used").value = spirit + spiMod;
+  document.getElementById("survival-pts-used").max = spirit + spiMod;
   document.getElementById("survival-pts-used").min = 0;
 }
 
 function updateStressPoints(element) {
   var stressPts = parseInt(document.getElementById("spi").value) * 2;
-  document.getElementById("stress-pts").innerHTML = " / " + stressPts;
+  var spiMod = parseInt(document.getElementById("spi-mod").value) * 2;
+  document.getElementById("stress-pts").innerHTML = " / " + (stressPts + spiMod);
   document.getElementById("stress-pts-used").value = 0;
   document.getElementById("stress-pts-used").min = 0;
 }
 
 function updateBodyWeightAndCapcity(element) {
-  var str = document.getElementById("str").value;
-  var mod = 10;
-  var base = 20;
+  var str = parseInt(document.getElementById("str").value);
+  var strMod = parseInt(document.getElementById("str-mod").value);
+  var totalStr = str + strMod;
   
-  document.getElementById("body-weight").innerHTML = (parseInt(str) * mod) + base;
-  document.getElementById("capacity").innerHTML = "/ " + (parseInt(str) * 20) + " lb";
-  document.getElementById("capacity-value").innerHTML = (parseInt(str) * 20);
+  document.getElementById("body-weight").innerHTML = (totalStr * 10) + 20;
+  document.getElementById("capacity").innerHTML = "/ " + (totalStr * 20) + " lb";
+  document.getElementById("capacity-value").innerHTML = (totalStr * 20);
 }
 
 function updateSpeed(element) {
@@ -181,8 +188,9 @@ function updateStressPointsUsed(element) {
 
 function updateKnowledgeAndSkills(element) {
   var wisdom = document.getElementById("wis").value;
+  var wisdomMod = parseInt(document.getElementById("wis-mod").value);
   var knowledge = parseInt(wisdom) / 5;
-  document.getElementById("knl").innerHTML = " / " + Math.floor(knowledge);
+  document.getElementById("knl").innerHTML = " / " + Math.floor(knowledge + wisdomMod);
   document.getElementById("knl-used").max = knowledge;
   document.getElementById("knl-used").min = 0;
   
@@ -469,4 +477,45 @@ function loadCharacterArt(element) {
   reader.readAsDataURL(file); 
 }
 
+/* Dice Emulator Functions */
+
+function rollOneDFour(element) {
+  document.getElementById("1d4").innerHTML = Math.round((Math.random(4) * new Date().getTime()) % 4) + 1; 
+}
+
+function rollOneDFive(element) {
+  document.getElementById("1d5").innerHTML = Math.round((Math.random(5) * new Date().getTime()) % 5) + 1; 
+}
+
+function rollOneDSix(element) {
+  document.getElementById("1d6").innerHTML = Math.round((Math.random(6) * new Date().getTime()) % 6) + 1; 
+}
+
+function rollOneDSeven(element) {
+  document.getElementById("1d7").innerHTML = Math.round((Math.random(7) * new Date().getTime()) % 7) + 1; 
+}
+
+function rollOneDEight(element) {
+  document.getElementById("1d8").innerHTML = Math.round((Math.random(8) * new Date().getTime()) % 8) + 1; 
+}
+
+function rollOneDNine(element) {
+  document.getElementById("1d9").innerHTML = Math.round((Math.random(9) * new Date().getTime()) % 9) + 1; 
+}
+
+function rollOneDTen(element) {
+  document.getElementById("1d9").innerHTML = Math.round((Math.random(10) * new Date().getTime()) % 10) + 1; 
+}
+
+function rollOneDTen(element) {
+  document.getElementById("1d10").innerHTML = Math.round((Math.random(10) * new Date().getTime()) % 10) + 1; 
+}
+
+function rollOneDTwelve(element) {
+  document.getElementById("1d12").innerHTML = Math.round((Math.random(12) * new Date().getTime()) % 12) + 1; 
+}
+
+function rollOneDTwenty(element) {
+  document.getElementById("1d20").innerHTML = Math.round((Math.random(20) * new Date().getTime()) % 20) + 1; 
+}
 

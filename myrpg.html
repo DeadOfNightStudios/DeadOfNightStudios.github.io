@@ -2,7 +2,7 @@
 <script src="myrpg.script.js"></script>
 
 <div class="version-info">
-  <label>MyRPG V1.0.2</label>
+  <label>MyRPG V1.0.3 - 2018</label>
 </div>
 <div class="myrpg-border">
   <button id="character-info-btn" class="collapsible" onclick="collapseExpand('character-info-btn', 'character-info')">- Character Info -</button>
@@ -106,42 +106,42 @@
       </div>
       <div class="character-attribute">
         <label>Strength (STR)</label>
-        <input id="str_mod" type="number" value="0" />
+        <input id="str-mod" type="number" value="0" onfocusout="updateTraits(this)" />
         <input id="str" type="number" value="5" min="5" onfocusout="checkAttributeLimit(this)" />
       </div>
       <div class="character-attribute">
         <label>Agility (AGI)</label>
-        <input id="agi_mod" type="number" value="0" />
+        <input id="agi-mod" type="number" value="0" onfocusout="updateTraits(this)" />
         <input id="agi" type="number" value="5" min="5" onfocusout="checkAttributeLimit(this)" />
       </div>
       <div class="character-attribute">
         <label>Perception (PER)</label>
-        <input id="per_mod" type="number" value="0" />
+        <input id="per_mod" type="number" value="0" onfocusout="updateTraits(this)" />
         <input id="per" type="number" value="5" min="5" onfocusout="checkAttributeLimit(this)" />
       </div>
       <div class="character-attribute">
         <label>Vitality (VIT)</label>
-        <input id="vit_mod" type="number" value="0" />
+        <input id="vit-mod" type="number" value="0" onfocusout="updateTraits(this)" />
         <input id="vit" type="number" value="5" min="5" onfocusout="checkAttributeLimit(this)" />
       </div>
       <div class="character-attribute">
         <label>Intelligence (INT)</label>
-        <input id="int_mod" type="number" value="0" />
+        <input id="int-mod" type="number" value="0" onfocusout="updateTraits(this)" />
         <input id="int" type="number" value="5" min="5" onfocusout="checkAttributeLimit(this)" />
       </div>
       <div class="character-attribute">
         <label>Wisdom (WIS)</label>
-        <input id="wis_mod" type="number" value="0" />
+        <input id="wis-mod" type="number" value="0" onfocusout="updateTraits(this)" />
         <input id="wis" type="number" value="5" min="5" onfocusout="checkAttributeLimit(this)" />
       </div>
       <div class="character-attribute">
         <label>Charisma (CHR)</label>
-        <input id="chr_mod" type="number" value="0" />
+        <input id="chr-mod" type="number" value="0" onfocusout="updateTraits(this)" />
         <input id="chr" type="number" value="5" min="5" onfocusout="checkAttributeLimit(this)" />
       </div>
       <div class="character-attribute">
         <label>Spirit (SPI)</label>
-        <input id="spi_mod" type="number" value="0" />
+        <input id="spi-mod" type="number" value="0" onfocusout="updateTraits(this)" />
         <input id="spi" type="number" value="5" min="5" onfocusout="checkAttributeLimit(this)" />
       </div>
       <div class="character-attribute">
@@ -210,167 +210,167 @@
     <div>
       <label class="character-skill">Alchemy</label>
       <input id="alchemy" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
-      <input id="alchemy-mod" type="number" value="0" min="0" />
+      <input id="alchemy-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Arcane Sorcery</label>
       <input id="arcane-sorcery" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
-      <input id="arcane-sorcery-mod" type="number" value="0" min="0" />
+      <input id="arcane-sorcery-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Archery</label>
       <input id="archery" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
-      <input id="archery-mod" type="number" value="0" min="0" />
+      <input id="archery-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Art</label>
       <input id="art" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
-      <input id="art-mod" type="number" value="0" min="0" />
+      <input id="art-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Blade</label>
       <input id="blade" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
-      <input id="blade-mod" type="number" value="0" min="0" />
+      <input id="blade-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Block</label>
       <input id="block" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
-      <input id="block-mod" type="number" value="0" min="0" />
+      <input id="block-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Blunt</label>
       <input id="blunt" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
-      <input id="blunt-mod" type="number" value="0" min="0" />
+      <input id="blunt-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Carpentry</label>
       <input id="carpentry" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
-      <input id="carpentry-mod" type="number" value="0" min="0" />
+      <input id="carpentry-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Catalyst</label>
       <input id="catalyst" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
-      <input id="catalyst-mod" type="number" value="0" min="0" />
+      <input id="catalyst-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Communing Arts</label>
       <input id="communing-arts" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
-      <input id="communing-arts-mod" type="number" value="0" min="0" />
+      <input id="communing-arts-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Culinary Arts</label>
       <input id="culinary-arts" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
-      <input id="culinary-arts-mod" type="number" value="0" min="0" />
+      <input id="culinary-arts-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Void Scorcery</label>
       <input id="void-sorcery" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
-      <input id="void-sorcery-mod" type="number" value="0" min="0" />
+      <input id="void-sorcery-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Dodge</label>
       <input id="dodge" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
-      <input id="dodge-mod" type="number" value="0" min="0" />
+      <input id="dodge-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Duel Wield</label>
       <input id="duel-wield" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
-      <input id="duel-wield-mod" type="number" value="0" min="0" />
+      <input id="duel-wield-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Haggle</label>
       <input id="haggle" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
-      <input id="haggle-mod" type="number" value="0" min="0" />
+      <input id="haggle-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Herbalism</label>
       <input id="herbalism" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
-      <input id="herbalism-mod" type="number" value="0" min="0" />
+      <input id="herbalism-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Literacy</label>
       <input id="literacy" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
-      <input id="literacy-mod" type="number" value="0" min="0" />
+      <input id="literacy-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Masonry</label>
       <input id="masonry" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
-      <input id="masonry-mod" type="number" value="0" min="0" />
+      <input id="masonry-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Mechanics</label>
       <input id="mechanics" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
-      <input id="mechanics-mod" type="number" value="0" min="0" />
+      <input id="mechanics-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Martial Arts</label>
       <input id="martial-arts" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
-      <input id="martial-arts-mod" type="number" value="0" min="0" />
+      <input id="martial-arts-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Necromancy</label>
       <input id="necromancy" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
-      <input id="necromancy-mod" type="number" value="0" min="0" />
+      <input id="necromancy-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Pick Lock</label>
       <input id="pick-lock" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
-      <input id="pick-lock-mod" type="number" value="0" min="0" />
+      <input id="pick-lock-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Pick Pocket</label>
       <input id="pick-pocket" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
-      <input id="pick-pocket-mod" type="number" value="0" min="0" />
+      <input id="pick-pocket-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Psionics</label>
       <input id="psionics" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
-      <input id="psionics-mod" type="number" value="0" min="0" />
+      <input id="psionics-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Pyromancy</label>
       <input id="pyromancy" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
-      <input id="pyromancy-mod" type="number" value="0" min="0" />
+      <input id="pyromancy-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Sewing</label>
       <input id="sewing" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
-      <input id="sewing-mod" type="number" value="0" min="0" />
+      <input id="sewing-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Shamanism</label>
       <input id="shamanism" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
-      <input id="shamanism-mod" type="number" value="0" min="0" />
+      <input id="shamanism-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Smithing</label>
       <input id="smithing" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
-      <input id="smithing-mod" type="number" value="0" min="0" />
+      <input id="smithing-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Staff</label>
       <input id="staff" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
-      <input id="staff-mod" type="number" value="0" min="0" />
+      <input id="staff-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Spell Craft</label>
       <input id="spell-craft" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
-      <input id="spell-craft-mod" type="number" value="0" min="0" />
+      <input id="spell-craft-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Swim</label>
       <input id="swim" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
-      <input id="swim-mod" type="number" value="0" min="0" />
+      <input id="swim-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Sneak</label>
       <input id="sneak" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
-      <input id="sneak-mod" type="number" value="0" min="0" />
+      <input id="sneak-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Whip</label>
       <input id="whip" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
-      <input id="whip-mod" type="number" value="0" min="0" />
+      <input id="whip-mod" type="number" value="0" />
     </div>
   </div>
   <button id="character-abilities-btn" class="collapsible" onclick="collapseExpand('character-abilities-btn', 'character-abilities')">- Abilities -</button>
@@ -470,6 +470,10 @@
         <input id="right-hand-requirements" type="text" oninput="saveValue(this)" />
       </div>
       <div class="equipment-detail">
+        <label class="equipment-label">Modifier</label>
+        <input id="right-hand-modifier" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="equipment-detail">
         <label class="equipment-label">Effect</label>
         <textarea id="right-hand-effect" type="text" oninput="saveValue(this)" ></textarea>
       </div>
@@ -501,6 +505,10 @@
         <input id="left-hand-requirements" type="text" oninput="saveValue(this)" />
       </div>
       <div class="equipment-detail">
+        <label class="equipment-label">Modifier</label>
+        <input id="left-hand-modifier" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="equipment-detail">
         <label class="equipment-label">Effect</label>
         <textarea id="left-hand-effect" type="text" oninput="saveValue(this)" ></textarea>
       </div>
@@ -517,6 +525,10 @@
         <div class="equipment-detail">
           <label class="equipment-label">Armor Class</label>
           <input id="head-ac" type="text" oninput="saveValue(this)" />
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Resistance</label>
+          <input id="head-resistance" type="text" oninput="saveValue(this)" />
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Weight</label>
@@ -550,6 +562,10 @@
           <input id="shoulders-ac" type="text" oninput="saveValue(this)" />
         </div>
         <div class="equipment-detail">
+          <label class="equipment-label">Resistance</label>
+          <input id="shoulders-resistance" type="text" oninput="saveValue(this)" />
+        </div>
+        <div class="equipment-detail">
           <label class="equipment-label">Weight</label>
           <input id="shoulders-weight" type="number" oninput="updateTotalWeightUsed(this)" />
         </div>
@@ -579,6 +595,10 @@
         <div class="equipment-detail">
           <label class="equipment-label">Armor Class</label>
           <input id="torso-ac" type="text" oninput="saveValue(this)" />
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Resistance</label>
+          <input id="torso-resistance" type="text" oninput="saveValue(this)" />
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Weight</label>
@@ -612,6 +632,10 @@
           <input id="hands-ac" type="text" oninput="saveValue(this)" />
         </div>
         <div class="equipment-detail">
+          <label class="equipment-label">Resistance</label>
+          <input id="hands-resistance" type="text" oninput="saveValue(this)" />
+        </div>
+        <div class="equipment-detail">
           <label class="equipment-label">Weight</label>
           <input id="hands-weight" type="number" oninput="updateTotalWeightUsed(this)" />
         </div>
@@ -641,6 +665,10 @@
         <div class="equipment-detail">
           <label class="equipment-label">Armor Class</label>
           <input id="legs-ac" type="text" oninput="saveValue(this)" />
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Resistance</label>
+          <input id="legs-resistance" type="text" oninput="saveValue(this)" />
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Weight</label>
@@ -674,6 +702,10 @@
           <input id="feet-ac" type="text" oninput="saveValue(this)" />
         </div>
         <div class="equipment-detail">
+          <label class="equipment-label">Resistance</label>
+          <input id="feet-resistance" type="text" oninput="saveValue(this)" />
+        </div>
+        <div class="equipment-detail">
           <label class="equipment-label">Weight</label>
           <input id="feet-weight" type="number" oninput="updateTotalWeightUsed(this)" />
         </div>
@@ -704,6 +736,10 @@
           <input id="necklace-name" type="text" oninput="saveValue(this)" />
         </div>
         <div class="equipment-detail">
+          <label class="equipment-label">Resistance</label>
+          <input id="necklace-resistance" type="text" oninput="saveValue(this)" />
+        </div>
+        <div class="equipment-detail">
           <label class="equipment-label">Weight</label>
           <input id="necklace-weight" type="number" oninput="updateTotalWeightUsed(this)" />
         </div>
@@ -721,6 +757,10 @@
         <div class="equipment-detail">
           <label class="equipment-label">Name</label>
           <input id="necklace-two-name" type="text" oninput="saveValue(this)" />
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Resistance</label>
+          <input id="necklace-two-resistance" type="text" oninput="saveValue(this)" />
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Weight</label>
@@ -742,6 +782,10 @@
           <input id="bracelet-name" type="text" oninput="saveValue(this)" />
         </div>
         <div class="equipment-detail">
+          <label class="equipment-label">Resistance</label>
+          <input id="bracelet-resistance" type="text" oninput="saveValue(this)" />
+        </div>
+        <div class="equipment-detail">
           <label class="equipment-label">Weight</label>
           <input id="bracelet-weight" type="number" oninput="updateTotalWeightUsed(this)" />
         </div>
@@ -759,6 +803,10 @@
         <div class="equipment-detail">
           <label class="equipment-label">Name</label>
           <input id="bracelet-two-name" type="text" oninput="saveValue(this)" />
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Resistance</label>
+          <input id="bracelet-two-resistance" type="text" oninput="saveValue(this)" />
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Weight</label>
@@ -780,6 +828,10 @@
           <input id="ring-name" type="text" oninput="saveValue(this)" />
         </div>
         <div class="equipment-detail">
+          <label class="equipment-label">Resistance</label>
+          <input id="ring-resistance" type="text" oninput="saveValue(this)" />
+        </div>
+        <div class="equipment-detail">
           <label class="equipment-label">Weight</label>
           <input id="ring-weight" type="number" oninput="updateTotalWeightUsed(this)" />
         </div>
@@ -797,6 +849,10 @@
         <div class="equipment-detail">
           <label class="equipment-label">Name</label>
           <input id="ring-two-name" type="text" oninput="saveValue(this)" />
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Resistance</label>
+          <input id="ring-two-resistance" type="text" oninput="saveValue(this)" />
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Weight</label>
@@ -818,6 +874,10 @@
           <input id="ring-three-name" type="text" oninput="saveValue(this)" />
         </div>
         <div class="equipment-detail">
+          <label class="equipment-label">Resistance</label>
+          <input id="ring-three-resistance" type="text" oninput="saveValue(this)" />
+        </div>
+        <div class="equipment-detail">
           <label class="equipment-label">Weight</label>
           <input id="ring-three-weight" type="number" oninput="updateTotalWeightUsed(this)" />
         </div>
@@ -835,6 +895,10 @@
         <div class="equipment-detail">
           <label class="equipment-label">Name</label>
           <input id="ring-four-name" type="text" oninput="saveValue(this)" />
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Resistance</label>
+          <input id="ring-four-resistance" type="text" oninput="saveValue(this)" />
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Weight</label>
@@ -856,6 +920,10 @@
           <input id="ring-five-name" type="text" oninput="saveValue(this)" />
         </div>
         <div class="equipment-detail">
+          <label class="equipment-label">Resistance</label>
+          <input id="ring-five-resistance" type="text" oninput="saveValue(this)" />
+        </div>
+        <div class="equipment-detail">
           <label class="equipment-label">Weight</label>
           <input id="ring-five-weight" type="number" oninput="updateTotalWeightUsed(this)" />
         </div>
@@ -873,6 +941,10 @@
         <div class="equipment-detail">
           <label class="equipment-label">Name</label>
           <input id="ring-six-name" type="text" oninput="saveValue(this)" />
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Resistance</label>
+          <input id="ring-six-resistance" type="text" oninput="saveValue(this)" />
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Weight</label>
@@ -894,6 +966,10 @@
           <input id="ring-seven-name" type="text" oninput="saveValue(this)" />
         </div>
         <div class="equipment-detail">
+          <label class="equipment-label">Resistance</label>
+          <input id="ring-seven-resistance" type="text" oninput="saveValue(this)" />
+        </div>
+        <div class="equipment-detail">
           <label class="equipment-label">Weight</label>
           <input id="ring-seven-weight" type="number" oninput="updateTotalWeightUsed(this)" />
         </div>
@@ -911,6 +987,10 @@
         <div class="equipment-detail">
           <label class="equipment-label">Name</label>
           <input id="ring-eight-name" type="text" oninput="saveValue(this)" />
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Resistance</label>
+          <input id="ring-eight-resistance" type="text" oninput="saveValue(this)" />
         </div>
         <div class="equipment-detail">
           <label class="equipment-label">Weight</label>
