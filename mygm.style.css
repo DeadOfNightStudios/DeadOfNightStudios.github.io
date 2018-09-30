@@ -78,7 +78,51 @@
   margin: 0.25em;
 }
 
-/* Weapons Style */
+/* Sorcery Style */
+
+.sorceries {
+  display: block;
+  width: 100%;
+  margin: 0.5em;
+}
+
+.sorcery {
+  display: inline-block;
+  width: 30%;
+  height: 80%;
+  border-style: solid;
+  margin: 0.5em;
+  vertical-align: top;
+}
+
+/* Ancestry */
+
+.ancestries {
+  width: 100%;
+  display: block;
+}
+
+.ancestry {
+  width: 100%;
+  display: block;
+  margin: 1em;
+}
+
+.ancestry label {
+  width: 100%;
+  font-weight: bold;
+  text-align: center;
+  display: block;
+}
+
+
+.ancestry p {
+  width: 100%;
+  text-align: left;
+  display: block;
+}
+
+/* Weapons and Armor Style */
 
 .weapons {
   display: block;
@@ -87,6 +131,21 @@
 }
 
 .weapon {
+  display: inline-block;
+  width: 30%;
+  height: 80%;
+  border-style: solid;
+  margin: 0.5em;
+  vertical-align: top;
+}
+
+.armor-sets {
+  display: block;
+  width: 100%;
+  margin: 0.5em;
+}
+
+.armor {
   display: inline-block;
   width: 30%;
   height: 80%;
