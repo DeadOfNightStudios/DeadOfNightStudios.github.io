@@ -122,6 +122,33 @@
   display: block;
 }
 
+/* Class */
+
+.classes {
+  width: 100%;
+  display: block;
+}
+
+.class {
+  width: 100%;
+  display: block;
+  margin: 1em;
+}
+
+.class label {
+  width: 100%;
+  font-weight: bold;
+  text-align: center;
+  display: block;
+}
+
+
+.class p {
+  width: 100%;
+  text-align: left;
+  display: block;
+}
+
 /* Weapons and Armor Style */
 
 .weapons {
