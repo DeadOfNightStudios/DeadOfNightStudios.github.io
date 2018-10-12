@@ -50,26 +50,33 @@
   <div id="action-rules" class="action-rules">
     <label class="title">Combat Rules</label>
     <label class="info">Once players enter combat a grid based map or a unit of measurement with terrian is used to determine movement and attacking angles. 
-    Back stabs are critical hits and deal twice as much damage. When a player attacks at minimum two dice are roled. 
-    One to determine if the attack is a hit or miss (1d20) and one to determine if the hit was a critical hit (1d20). 
+    Each player first rolls a 1d20 for initiative and highest player moves first, initiative bonus of AGI.
+    If players describe their actions the Game Master may apply additional bonuses to help or hinder you as wanted. 
+    Back stabs are critical hits and deal twice as much damage. When a player attacks at minimum two dice are rolled. 
+    One to determine the attack based on their weapon, spell, item, or device and one to determine if the hit was a critical hit (1d20). 
     A player will need to role more dice depending on the opponents' actions and abilities. 
     If a player attempts to dodge or block an attack the player's AGI is measured against the attacker's AGI. 
     If a player has 16 AGI and the attacker has 14 then the dodging player received a plus 2 on their dodge roll(s). 
     If a player wishes to weild a two-handed weapon in one hand, one point five times as much STR is required based on the weapons requirements.
-    Two point five times as much if the player wishses to duel wield the weapons.</label>
+    Two point five times as much if the player wishses to duel wield the weapons.
+    When a player dies that player may spend two survival points to roll a 1d20 to stay alive, stress is increased by 25% when successfully saved by rolling above a 15.</label>
     <label class="title">Stealth Rules</label>
     <label class="info">When a player is attempting to use stealth to achieve their goals that player will have to role against the Game Master who is acting as the opponent(s). 
     Perception (PER) is the counter stat against Agility (AGI) when a player is sneaking. 
     If a guard has 15 PER and a player has 16 AGI the player received a +1 against the opponent. 
     This is done for each opponent within the area that the player is using stealth. 
     If other players are in combat a hidden check will need to be performed each turn for the sneaking player.</label>
+    <label class="title">Charisma Rules</label>
+    <label class="info">Players may wish to persuade, intimidate, haggle, or use diplomacy as they see fit and their CHR attribute is used as a modifier against their targets.
+    Each player rolls a 1d20 and the higher roll wins with modifiers added. 
+    When performing actions such as intimidate other player attributes can be compared and modifiers taken based on their attacking modifier.
+    </label>
   </div>
   
   <button id="attribute-rules-btn" class="collapsible" onclick="collapseExpand('attribute-rules-btn', 'attribute-rules')">- Attribute Rules -</button>
   <div id="attribute-rules" class="gm-rules">
     <label>Strength (STR) is used to use weapons, determine base attack power, and carry equipment</label>
-    <label>Agility (AGI) is used to use weapons, determine movement per turn, determine actions per turn, and dodge attacks or spells.</label>
-    <label>Perception (PER) is used to accurately throw weapons, counter projectiles, counter spells, use weapons, and sense sneak attacks.</label>
+    <label>Agility (AGI) is used to use weapons, determine movement per turn, determine actions per turn, use weapons, sneak, and dodge attacks or spells.</label>
     <label>Vitality (VIT) is used to determine health.</label>
     <label>Intelligence (INT) is used to determine ability to cast spells, use catalysts, use devices, and build special items or spells.</label>
     <label>Wisdom (WIS) is used to determine skill points, knowledge of spells, and use various craftsman tools.</label>
@@ -205,12 +212,17 @@
     <div class="class">
       <label>Assassin</label>
       <p>Assassins are fast, agile, intelligent, and cunning killers who rely on anything to win, survive, and gain wealth.</p>
-      <p>Skill Modifiers: +2 to Archery, Blade, Staff, or Whip   and +1 to Sneak</p>
+      <p>Skill Modifiers: +2 to sneak and +1 to Archery, Blade, Staff, or Whip</p>
     </div>
     <div class="class">
       <label>Bounty Hunter/Mercenary</label>
       <p>Bounty Hunters are agile, strong, and cunning fighters relying on anything to win and survive.</p>
-      <p>Skill Modifiers: +2 to Archery, Blade, Blunt, Staff, or Whip   and +1 to Ride</p>
+      <p>Skill Modifiers: +2 to Archery, Blade, Blunt, Staff, or Whip and +1 to Ride</p>
+    </div>
+    <div class="class">
+      <label>Cleric</label>
+      <p>Clerics are magic users that rely on their intelligence to heal themselves and others, create protective barriers, and modify allies and ememy stats.</p>
+      <p>Skill Modifiers: +2 to Communing Arts and +1 to Literacy</p>
     </div>
     <div class="class">
       <label>Cook</label>
@@ -218,10 +230,10 @@
       <p>Skill Modifiers: +2 to Culinary Arts and +1 to Herbalism</p>
     </div>
     <div class="class">
-      <label>Craftsman</label>
-      <p>Craftsmen are creators of great homes, foretress, items, and more. 
-      They rely on their wisdom and intelligence to create what they need to survive.</p>
-      <p>Skill Modifiers: +2 to Capentry, Mansory, or Sewing and +1 to Literacy</p>
+      <label>Druid</label>
+      <p>Druids are protectors of nature and masters of nature magic.
+      They rely on their undersanding of the spirits and their wisdom to survive and live in harmony with nature.</p>
+      <p>Skill Modifiers: +2 to Communing Arts and +1 to Herbalism</p>
     </div>
     <div class="class">
       <label>Enchanter</label>
@@ -246,11 +258,6 @@
       <p>Additional Skill Modifiers: +2 to Martial Arts and +1 to Block or Dodge</p>
     </div>
     <div class="class">
-      <label>Healer</label>
-      <p>Healer are magic users that rely on their intelligence to heal themselves and others, create protective barriers, and modify allies and ememy stats.</p>
-      <p>Skill Modifiers: +2 to Communing Arts and +1 to Literacy</p>
-    </div>
-    <div class="class">
       <label>Hunter</label>
       <p>Hunters are agile, cunning, and strategic killers relying on their agility and skill to take down their prey and survive.</p>
       <p>Skill Modifiers: +2 to Sneak and +1 to Archery, Blade, or Staff</p>
@@ -272,7 +279,7 @@
       <p>Skill Modifiers: +2 to Blade, Blunt, or Staff and +1 to Communing Arts</p>
     </div>
     <div class="class">
-      <label>Templars</label>
+      <label>Templar</label>
       <p>Templars are spiritual warriors who fight under the name of a devine deity, lord, or spiritual way. 
       They rely on their strength, agility, and spiritual prowess to win battles and survive.</p>
       <p>Skill Modifiers: +2 to Blade, Blunt, or Staff and +1 to Shamanism or Psionics</p>
@@ -284,14 +291,14 @@
       <p>Skill Modifiers: +2 Musical Arts and +1 to Literacy</p>
     </div>
     <div class="class">
-      <label>Psychic</label>
-      <p>Psychics are magic users that rely on their spiritual ability to create illusions, move objects, and telepathically communicate.</p>
+      <label>Psiconic</label>
+      <p>Psiconics are magic users that rely on their spiritual ability to create illusions, move objects, and telepathically communicate.</p>
       <p>Skill Modifiers: +2 to Psiconics and +1 to Literacy</p>
     </div>
     <div class="class">
-      <label>Priest</label>
+      <label>Priest/Sage</label>
       <p>Monks and Priests are spiritual guides who rely on their physical strength, agility, and spiritual inclination to survive.</p>
-      <p>Skill Modifiers: +2 to Psiconics and +1 to Martial Arts</p>
+      <p>Skill Modifiers: +2 to Communing Arts or Psiconics and +1 to Martial Arts</p>
     </div>
     <div class="class">
       <label>Pyromancer</label>
@@ -309,11 +316,6 @@
       <p>Skill Modifiers: +2 to Shamanism and +1 to Literacy</p>
     </div>
     <div class="class">
-      <label>Solider</label>
-      <p>Soliders are trained and skilled killers who fight for honor, glory, and wealth with strength, agility, and skill under a given Lord or King.</p>
-      <p>Additional Skill Modifiers: +2 to Blade, Blunt, Staff and +1 to Block or Dodge</p>
-    </div>
-    <div class="class">
       <label>Smith</label>
       <p>Smiths are creators of great items, weapons, armor, and more. 
       They rely on their wisdom and strength to create what they need and survive.</p>
@@ -322,7 +324,7 @@
     <div class="class">
       <label>Thief</label>
       <p>Thieves are cunning, agile, sneaky individuals relying on their agility, intelligence, and skill to win battles and survive.</p>
-      <p>Skill Modifiers: +1 to Pick Pocket, or Pick Lock and +1 to Sneak</p>
+      <p>Skill Modifiers: +2 to Pick Pocket or Pick Lock and +1 to Sneak</p>
     </div>
     <div class="class">
       <label>Trader</label>
