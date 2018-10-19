@@ -48,6 +48,16 @@
   
   <button id="action-rules-btn" class="collapsible" onclick="collapseExpand('action-rules-btn', 'action-rules')">- Character Action Rules -</button>
   <div id="action-rules" class="action-rules">
+    <label class="title">Character Rules</label>
+    <label class="info">At the start of the game the Game Master (GM) introduces the characters in any order while also setting the environment. 
+    Once a turn order is established, which can be determined by rolling dice, the actions occur and interaction with the GM is required to continue.
+    Scenes of great wars, stories of lost treasure, socities constructed of complex characters, and many other things will be described by the GM.
+    Players will need to use their creativity, cunning, and charisma to express their actions and moves to receive bonuses from the GM or prevent careless actions.
+    Be wary of traps, spies, lying characters, excessive generosity, and sheeps in wolves clothing.
+    Be curious of enchanted items, devices, allies, and lore of the land.
+    As your character's actions are what determine how long you live.
+    Character experience (EXP) per level increases by a factor of three starting at ten.
+    To reach level 2 a player will require 10 EXP and for level 3 the player will require 30 EXP.</label>
     <label class="title">Combat Rules</label>
     <label class="info">Once players enter combat a grid based map or a unit of measurement with terrian is used to determine movement and attacking angles. 
     Each player first rolls a 1d20 for initiative and highest player moves first, initiative bonus of AGI.
@@ -57,13 +67,13 @@
     A player will need to role more dice depending on the opponents' actions and abilities. 
     If a player attempts to dodge or block an attack the player's AGI is measured against the attacker's AGI. 
     If a player has 16 AGI and the attacker has 14 then the dodging player received a plus 2 on their dodge roll(s). 
-    If a player wishes to weild a two-handed weapon in one hand, one point five times as much STR is required based on the weapons requirements.
+    If a player wishes to wield a two-handed weapon in one hand, one point five times as much STR is required based on the weapons requirements.
     Two point five times as much if the player wishses to duel wield the weapons.
     When a player dies that player may spend two survival points to roll a 1d20 to stay alive, stress is increased by 25% when successfully saved by rolling above a 15.</label>
     <label class="title">Stealth Rules</label>
     <label class="info">When a player is attempting to use stealth to achieve their goals that player will have to role against the Game Master who is acting as the opponent(s). 
-    Perception (PER) is the counter stat against Agility (AGI) when a player is sneaking. 
-    If a guard has 15 PER and a player has 16 AGI the player received a +1 against the opponent. 
+    Agility (AGI) is the counter stat against Agility (AGI) when a player is sneaking. 
+    If a guard has 15 AGI and a player has 16 AGI the player received a +1 against the opponent. 
     This is done for each opponent within the area that the player is using stealth. 
     If other players are in combat a hidden check will need to be performed each turn for the sneaking player.</label>
     <label class="title">Charisma Rules</label>
@@ -118,7 +128,8 @@
       They are known for their trading, mining, crafting, and map drawings. 
       They have also brought many advancements to the fields of sorcery and machinery.</p>
       <p>Attribute Modifiers: +1 to AGI, INT, or WIS</p>
-      <p>Ability natural resistance to pyromancy: 2 defense</p>
+      <p>Ability night vision</p>
+      <p>Ability natural resistance to void sorcery: 2 defense</p>
     </div>
     <div class="ancestry">
       <label>Elf</label>
@@ -137,13 +148,15 @@
       Just for a vastly different spiritual goal.</p>
       <p>Attribute Modifiers: +1 to AGI, SPI, or INT</p>
       <p>Ability night vision</p>
+      <p>Ability natural resistance to pyromancy: 2 defense</p>
     </div>
     <div class="ancestry">
       <label>Orc</label>
       <p>Orcs are a large, burly, brutish race that relies solely on their strength to solve their issues. 
-      Isolated to the Wildlands continent the Orcs live among nature pursuing conquest.</p>
+      Identified by their size, green skin, and tusks or fangs which extend from their mouths, Orcs are feared across the land for their mastery in comabt and warfare. 
+      Isolated to the Wildlands continent the Orcs live among nature pursuing conquest, wealth, and power.</p>
       <p>Attribute Modifiers: +1 STR or SPI</p>
-      <p>Ability resist any stun or poison 1d10 chance</p>
+      <p>Ability resist any stun or poison 1d6 chance</p>
     </div>
     <div class="ancestry">
       <label>Spectre</label>
@@ -153,6 +166,7 @@
       Known for their void sorcery and stealth skills the Spectres are feared across the land as elite hunters.</p>
       <p>Attribute Modifiers: +1 to AGI or SPI</p>
       <p>Ability night vision</p>
+      <p>Ability levitate</p>
     </div>
     <div class="ancestry">
       <label>Gul</label>
@@ -2098,6 +2112,40 @@
           <label>Necromancy or Shmanism depending only, one spell slot</label>
         </div>
       </div>
+      <div class="weapon">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Fire Gem Catatylst</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d8</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight: </label>
+          <label id="weight">10</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability: </label>
+          <label id="durability">15</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material: </label>
+          <label>Crystal</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>14 INT</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>INT</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Pyromancy only, one spell slot</label>
+        </div>
+      </div>
     </div>
     
     
@@ -3705,6 +3753,72 @@
       <div class="sorcery">
         <div class="equipment-detail">
           <label class="equipment-label">Name: </label>
+          <label id="name">Bend Bone and Flesh</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">0</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>12 SPI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>SPI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Heal broken bones and bleeding wounds</label>
+        </div>
+      </div>
+      <div class="sorcery">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Remove Poison</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">0</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>12 SPI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>SPI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Heal poison</label>
+        </div>
+      </div>
+      <div class="sorcery">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Remove Curse</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">0</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>18 SPI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>SPI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Heal remove non 'Soul Bound' curse or non-eternal</label>
+        </div>
+      </div>
+      <div class="sorcery">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
           <label id="name">Minor Heal</label>
         </div>
         <div class="equipment-detail">
@@ -4377,6 +4491,28 @@
       <div class="sorcery">
         <div class="equipment-detail">
           <label class="equipment-label">Name: </label>
+          <label id="name">Bend Bone and Flesh</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">0</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>16 INT</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>INT</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Heal broken bones and bleeding wounds</label>
+        </div>
+      </div>
+      <div class="sorcery">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
           <label id="name">Poison Shot</label>
         </div>
         <div class="equipment-detail">
@@ -4416,6 +4552,28 @@
         <div class="equipment-detail">
           <label class="equipment-label">Effect: </label>
           <label>Radius of 2 squares in all directions, causes poison affliction for three turns</label>
+        </div>
+      </div>
+      <div class="sorcery">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Poison Fog</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">3d4</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>19 INT</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>INT</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Radius of 3 squares in all directions, causes poison affliction for three turns</label>
         </div>
       </div>
       <div class="sorcery">
@@ -4504,6 +4662,50 @@
         <div class="equipment-detail">
           <label class="equipment-label">Effect: </label>
           <label>Summon an undead humanoid skeleton creature, immune to poison and fire resistant 2</label>
+        </div>
+      </div>
+      <div class="sorcery">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Summon Restless Undead</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d8, bonus of 1d4 when fully feed</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>25 INT</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>INT</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Summon an undead humanoid creature, immune to poison and fire resistant 2, with perfect complection and working organs. Requires food to not look undead.</label>
+        </div>
+      </div>
+      <div class="sorcery">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Summon Undead Lord</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d12</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>30 INT</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>INT</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Summon an undead humanoid creature, immune to poison and fire resistant 2</label>
         </div>
       </div>
     </div>
@@ -4662,6 +4864,50 @@
         <div class="equipment-detail">
           <label class="equipment-label">Effect: </label>
           <label>Summon an old or future chaotic lord spirit to aid you and provide support for 12 turns, requires an extra two turns to cast and has burn affliction</label>
+        </div>
+      </div>
+      <div class="sorcery">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Summon Spirit Weapon</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d6</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>16 SPI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>SPI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Summon an spirit weapon of your own construction to aid you in combat</label>
+        </div>
+      </div>
+      <div class="sorcery">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Summon Great Spirit Weapon</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d10</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>22 SPI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>SPI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Summon an spirit weapon of your own construction to aid you in combat</label>
         </div>
       </div>
     </div>
