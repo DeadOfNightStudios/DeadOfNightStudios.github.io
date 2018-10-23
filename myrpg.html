@@ -2,7 +2,7 @@
 <script src="myrpg.script.js"></script>
 
 <div class="version-info">
-  <label>MyRPG V1.0.3 - 2018</label>
+  <label>MyRPG V1.0.4 - 2018</label>
 </div>
 <div class="myrpg-border">
   <button id="character-info-btn" class="collapsible" onclick="collapseExpand('character-info-btn', 'character-info')">- Character Info -</button>
@@ -13,8 +13,8 @@
         <input id="name" class="character-info-input" type="text" oninput="saveValue(this)" />
       </div>
       <div class="character-detail">
-        <label class="character-info-left-label">Class</label>
-        <input id="class" class="character-info-input" type="text" oninput="saveValue(this)" />
+        <label class="character-info-left-label">Title/Class</label>
+        <input id="title" class="character-info-input" type="text" oninput="saveValue(this)" />
       </div>
       <div class="character-detail">
         <label class="character-info-left-label">Ancestry</label>
@@ -44,10 +44,11 @@
       </div>
     </div>
     <div class="character-art-div">
-      <img id="character-art" class="character-art">
+      <img src="http://emblemsbf.com/img/23574.jpg" id="character-art" class="character-art">
       <input type="file" id="load-character-art" class="load-character-art" onchange="loadCharacterArt(this)" />
     </div>
   </div>
+  
   <button id="languages-btn" class="collapsible" onclick="collapseExpand('languages-btn', 'languages')">- Languages -</button>
   <div id="languages" class="languages">
     <table id="languages-table" class="languages">
@@ -72,6 +73,7 @@
       <button onclick="removeEntry(this, 'languages-table')">Remove Last Language Entry</button>
     </div>
   </div>
+  
   <button id="class-history-btn" class="collapsible" onclick="collapseExpand('class-history-btn', 'class-history')">- Class History -</button>
   <div id="class-history" class="class-history">
     <table id="class-history-table">
@@ -96,6 +98,7 @@
       <button onclick="removeEntry(this, 'class-history-table')">Remove Last Class Entry</button>
     </div>
   </div>
+  
   <button id="character-stats-btn" class="collapsible" onclick="collapseExpand('character-stats-btn', 'character-stats')">- Stats -</button>
   <div id="character-stats" class="character-stats">
     <div class="character-attributes">
@@ -196,6 +199,7 @@
       </div>
     </div>
   </div>
+  
   <button id="character-skills-btn" class="collapsible" onclick="collapseExpand('character-skills-btn', 'character-skills')">- Skills -</button>
   <div id="character-skills" class="character-skills">
     <label class="character-skills-pts">Remaining Skill Points: </label>
@@ -251,6 +255,11 @@
       <label class="character-skill">Communing Arts</label>
       <input id="communing-arts" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
       <input id="communing-arts-mod" type="number" value="0" />
+    </div>
+    <div>
+      <label class="character-skill">Cryokinesis</label>
+      <input id="cryokinesis" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
+      <input id="cryokinesis-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Culinary Arts</label>
@@ -373,6 +382,7 @@
       <input id="whip-mod" type="number" value="0" />
     </div>
   </div>
+  
   <button id="character-abilities-btn" class="collapsible" onclick="collapseExpand('character-abilities-btn', 'character-abilities')">- Abilities -</button>
   <div id="character-abilities" class="character-abilities">
     <table id="character-abilities-table">
@@ -394,6 +404,7 @@
       <button onclick="removeEntry(this, 'character-abilities-table')">Remove Last Ability Entry</button>
     </div>
   </div>
+  
   <button id="techniques-btn" class="collapsible" onclick="collapseExpand('techniques-btn', 'techniques')">- Techniques & Feats -</button>
   <div id="techniques" class="techniques">
     <table id="techniques-table">
@@ -415,6 +426,7 @@
       <button onclick="removeEntry(this, 'techniques-table')">Remove Last Technique Entry</button>
     </div>
   </div>
+  
   <button id="afflictions-btn" class="collapsible" onclick="collapseExpand('afflictions-btn', 'afflictions')">- Afflictions -</button>
   <div id="afflictions" class="afflictions">
     <table id="afflictions-table">
@@ -439,6 +451,7 @@
       <button onclick="removeEntry(this, 'afflictions-table')">Remove Last Affliction Entry</button>
     </div>
   </div>
+  
   <button id="character-equipment-btn" class="collapsible" onclick="collapseExpand('character-equipment-btn', 'character-equipment')">- Equipment -</button>
   <div id="character-equipment" class="character-equipment">
     <button id="character-weapons-btn" class="collapsible" onclick="collapseExpand('character-weapons-btn', 'character-equipment-weapons')">- Weapons -</button>
@@ -587,6 +600,41 @@
         </div>
       </div>
       <div class="equipment">
+        <label class="equipment-title">Full Body/Back</label>
+        <div class="equipment-detail">
+          <label class="equipment-label">Name</label>
+          <input id="back-name" type="text" oninput="saveValue(this)" />
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Armor Class</label>
+          <input id="back-ac" type="text" oninput="saveValue(this)" />
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Resistance</label>
+          <input id="back-resistance" type="text" oninput="saveValue(this)" />
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight</label>
+          <input id="back-weight" type="number" oninput="updateTotalWeightUsed(this)" />
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability</label>
+          <input id="back-durability" type="text" oninput="saveValue(this)" />
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material</label>
+          <input id="back-material" type="text" oninput="saveValue(this)" />
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements</label>
+          <input id="back-requirements" type="text" oninput="saveValue(this)" />
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect</label>
+          <textarea id="back-effect" type="text" oninput="saveValue(this)" ></textarea>
+        </div>
+      </div>
+      <div class="equipment">
         <label class="equipment-title">Torso</label>
         <div class="equipment-detail">
           <label class="equipment-label">Name</label>
@@ -619,6 +667,41 @@
         <div class="equipment-detail">
           <label class="equipment-label">Effect</label>
           <textarea id="torso-effect" type="text" oninput="saveValue(this)" ></textarea>
+        </div>
+      </div>
+      <div class="equipment">
+        <label class="equipment-title">Belt</label>
+        <div class="equipment-detail">
+          <label class="equipment-label">Name</label>
+          <input id="belt-name" type="text" oninput="saveValue(this)" />
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Armor Class</label>
+          <input id="belt-ac" type="text" oninput="saveValue(this)" />
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Resistance</label>
+          <input id="belt-resistance" type="text" oninput="saveValue(this)" />
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Weight</label>
+          <input id="belt-weight" type="number" oninput="updateTotalWeightUsed(this)" />
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Durability</label>
+          <input id="belt-durability" type="text" oninput="saveValue(this)" />
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Material</label>
+          <input id="belt-material" type="text" oninput="saveValue(this)" />
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements</label>
+          <input id="belt-requirements" type="text" oninput="saveValue(this)" />
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect</label>
+          <textarea id="belt-effect" type="text" oninput="saveValue(this)" ></textarea>
         </div>
       </div>
       <div class="equipment">
@@ -1007,6 +1090,12 @@
       </div>
     </div>
   </div>
+  
+  <button id="character-notes-btn" class="collapsible" onclick="collapseExpand('character-notes-btn', 'character-notes')">- Notes -</button>
+  <div id="character-notes" class="character-notes">
+    <textarea>Player Notes Here...</textarea>
+  </div>
+  
   <button id="character-inventory-btn" class="collapsible" onclick="collapseExpand('character-inventory-btn', 'character-inventory')">- Inventory -</button>
   <div id="character-inventory" class="character-inventory">
     <label class="character-inventory-title">Inventory</label>

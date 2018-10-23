@@ -56,6 +56,7 @@
     Be wary of traps, spies, lying characters, excessive generosity, and sheeps in wolves clothing.
     Be curious of enchanted items, devices, allies, and lore of the land.
     As your character's actions are what determine how long you live.
+    A player may gain bonuses equal to 1 damage point and 1 roll point for every 3 points additional the player has to the given attribute.
     Character experience (EXP) per level increases by a factor of three starting at ten.
     To reach level 2 a player will require 10 EXP and for level 3 the player will require 30 EXP.</label>
     <label class="title">Combat Rules</label>
@@ -172,7 +173,7 @@
       <label>Gul</label>
       <p>Guls are a reptilian race that inhabits the swamps of the realm. 
       They are known for their combat, hunting, cunning, and trading.
-      All Guls have tails and some have wings, though the wings are only able to glide.
+      All Guls have tails and some have horns, some tails, and some wings. The wings are only able to glide.
       Though all Guls walk on two legs, it is not uncommon for there to be four armed Guls.</p>
       <p>Attribute Modifiers: +1 STR, AGI, CHR, or INT</p>
       <p>Ability to breath underwater</p>
@@ -244,6 +245,11 @@
       <p>Skill Modifiers: +2 to Culinary Arts and +1 to Herbalism</p>
     </div>
     <div class="class">
+      <label>Cryomancer</label>
+      <p>Cryomancers are magic users that rely on their spiritual ability to create and manipulate ice telepathically.</p>
+      <p>Skill Modifiers: +2 to Cryokinesis and +1 to Literacy</p>
+    </div>
+    <div class="class">
       <label>Druid</label>
       <p>Druids are protectors of nature and masters of nature magic.
       They rely on their undersanding of the spirits and their wisdom to survive and live in harmony with nature.</p>
@@ -293,12 +299,6 @@
       <p>Skill Modifiers: +2 to Blade, Blunt, or Staff and +1 to Communing Arts</p>
     </div>
     <div class="class">
-      <label>Templar</label>
-      <p>Templars are spiritual warriors who fight under the name of a devine deity, lord, or spiritual way. 
-      They rely on their strength, agility, and spiritual prowess to win battles and survive.</p>
-      <p>Skill Modifiers: +2 to Blade, Blunt, or Staff and +1 to Shamanism or Psionics</p>
-    </div>animo, imperium, dis
-    <div class="class">
       <label>Performer</label>
       <p>Performers are story tellers, singers, and musical creators. 
       They rely on their charisma and skill to win over people and create amazing music.</p>
@@ -334,6 +334,12 @@
       <p>Smiths are creators of great items, weapons, armor, and more. 
       They rely on their wisdom and strength to create what they need and survive.</p>
       <p>Skill Modifiers: +2 to Smith and +1 to Archery, Blade, Blunt, or Staff</p>
+    </div>
+    <div class="class">
+      <label>Templar</label>
+      <p>Templars are spiritual warriors who fight under the name of a devine deity, lord, or spiritual way. 
+      They rely on their strength, agility, and spiritual prowess to win battles and survive.</p>
+      <p>Skill Modifiers: +2 to Blade, Blunt, or Staff and +1 to Shamanism or Psionics</p>
     </div>
     <div class="class">
       <label>Thief</label>
@@ -4908,6 +4914,274 @@
         <div class="equipment-detail">
           <label class="equipment-label">Effect: </label>
           <label>Summon an spirit weapon of your own construction to aid you in combat</label>
+        </div>
+      </div>
+    </div>
+    
+    <button id="cryokinesis-btn" class="collapsible" onclick="collapseExpand('cryokinesis-btn', 'cryokinesis')">- Cryokinesis -</button>
+    <div id="cryokinesis" >
+      <div class="sorcery">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Ice Shard</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d4</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>7 INT, 10 SPI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>SPI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Range 8 squares</label>
+        </div>
+      </div>
+      <div class="sorcery">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Ice Blast</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d6</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>9 INT, 12 SPI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>SPI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Range 8 squares</label>
+        </div>
+      </div>
+      <div class="sorcery">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Ice Shield</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Armor Class: </label>
+          <label id="attack">6</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>8 INT, 14 SPI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>SPI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Protects against all but fire</label>
+        </div>
+      </div>
+      <div class="sorcery">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Ice Bolt</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d8</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>10 INT, 16 SPI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>SPI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Range 8 squares</label>
+        </div>
+      </div>
+      <div class="sorcery">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Snowfall</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">2d6</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>12 INT, 20 SPI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>SPI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Radius of 3 squares</label>
+        </div>
+      </div>
+      <div class="sorcery">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Ice Walk</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">0</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>10 INT, 10 SPI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>SPI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Create stilts of ice to walk on and cross large gaps or reach high places, max of half a story per spririt point</label>
+        </div>
+      </div>
+      <div class="sorcery">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Ice Wind</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">3d4</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>10 INT, 14 SPI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>SPI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Radius of 3 squares</label>
+        </div>
+      </div>
+      <div class="sorcery">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Hailstorm</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">4d6</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>16 INT, 24 SPI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>SPI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Radius of 4 squares</label>
+        </div>
+      </div>
+      <div class="sorcery">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Ice Barrier</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Armor Class: </label>
+          <label id="attack">12</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>12 INT, 16 SPI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>SPI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Surrounds all sides and all attacks</label>
+        </div>
+      </div>
+      <div class="sorcery">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Ice Spike</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d10</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>15 INT, 24 SPI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>SPI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Range 8 squares</label>
+        </div>
+      </div>
+      <div class="sorcery">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Ice Spike Furry</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">3d8</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>20 INT, 28 SPI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>SPI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Range 8 squares</label>
+        </div>
+      </div>
+      <div class="sorcery">
+        <div class="equipment-detail">
+          <label class="equipment-label">Name: </label>
+          <label id="name">Ice Spear</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Attack: </label>
+          <label id="attack">1d12</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Requirements: </label>
+          <label>18 INT, 26 SPI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Modifier: </label>
+          <label>SPI</label>
+        </div>
+        <div class="equipment-detail">
+          <label class="equipment-label">Effect: </label>
+          <label>Range 8 squares</label>
         </div>
       </div>
     </div>

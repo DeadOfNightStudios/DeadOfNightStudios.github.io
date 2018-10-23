@@ -50,7 +50,6 @@
   margin: 1em;
 }
 
-
 /* Character Info  */
 
 .character-info {
@@ -581,6 +580,19 @@
 
 .inventory-functions button {
   font-size: 0.75em;
+}
+
+/* Character Notes Style */
+
+.character-notes {
+  width: 100%;
+}
+
+.character-notes textarea {
+  width: 80%;
+  margin: 2em;
+  min-height: 10em;
+  min-width: 80%;
 }
 
 /* Responsive Styles  */
