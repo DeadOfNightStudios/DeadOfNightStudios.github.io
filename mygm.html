@@ -48,6 +48,13 @@
   
   <button id="action-rules-btn" class="collapsible" onclick="collapseExpand('action-rules-btn', 'action-rules')">- Character Action Rules -</button>
   <div id="action-rules" class="action-rules">
+    <label class="title">Character Setup</label>
+    <label class="info">Each character is required to choose a backstory with a class and may describe their backstory during the game or choose not to depending on the game play.
+    Each character must first select from the base classes of Bard, Craftsman, Mage, Monk, Rouge, or Warrior and assign their modifiers as listed.
+    When a player reaches level 5 they may start to choose from the prestiege classes if avialble. 
+    Some prestiege classes require training by elite characters found in the game. 
+    Every year in the game, or some unit of time/level determined by the Game Master, the players may regain the bonsuses for their classes.
+    </label>
     <label class="title">Character Rules</label>
     <label class="info">At the start of the game the Game Master (GM) introduces the characters in any order while also setting the environment. 
     Once a turn order is established, which can be determined by rolling dice, the actions occur and interaction with the GM is required to continue.
@@ -58,7 +65,10 @@
     As your character's actions are what determine how long you live.
     A player may gain bonuses equal to 1 damage point and 1 roll point for every 3 points additional the player has to the given attribute.
     Character experience (EXP) per level increases by a factor of three starting at ten.
-    To reach level 2 a player will require 10 EXP and for level 3 the player will require 30 EXP.</label>
+    To reach level 2 a player will require 10 EXP and for level 3 the player will require 30 EXP.
+    Skills are used to add points to rolls of various various actions. 
+    Every point added to a skill is a single point added towards your roll.
+    If the action requires skill to perform then the total skill required is subtracted from the skills points assigned and the remaining is added to all rolls.</label>
     <label class="title">Combat Rules</label>
     <label class="info">Once players enter combat a grid based map or a unit of measurement with terrian is used to determine movement and attacking angles. 
     Each player first rolls a 1d20 for initiative and highest player moves first, initiative bonus of AGI.
@@ -108,39 +118,6 @@
   <button id="ancestry-btn" class="collapsible" onclick="collapseExpand('ancestry-btn', 'ancestry')">- Ancestry -</button>
   <div id="ancestry" class="ancestries">
     <div class="ancestry">
-      <label>Human</label>
-      <p>Humans are a tall, strong, hard working, and intelligent race that have brought many advancements to arcane sorcery, machinery, and medince. 
-      They battle constantly for domaniance as ruler of the realm, building great empires and waging wars. 
-      Through their use of intelligence and strength they have gained much in land, glory, power, and wealth.</p>
-      <p>Attribute Modifiers: +1 to STR, AGI, INT, or CHR</p>
-      <p>Ability Tradesmen, +1 to any skill based on character's backstory</p>
-    </div>
-    <div class="ancestry">
-      <label>Dwarf</label>
-      <p>Dwarves are a small, stout, strong, and resourceful race that dwell deep beneath the ground building magnificent fortresses and crafting powerful items. 
-      Fighting and war is a common occupation of the burly people as resources are difficult to find and mine.</p>
-      <p>Attribute Modifiers: +1 to STR, INT, or CHR</p>
-      <p>Ability night vision</p>
-      <p>Ability natural resistance to arcane sorcery: 2 defense</p>
-    </div>
-    <div class="ancestry">
-      <label>Gnome</label>
-      <p>Gnomes are a small, skilled, and exremely intelligent race that dwell deep within the mountains and forests of the realm.
-      They are known for their trading, mining, crafting, and map drawings. 
-      They have also brought many advancements to the fields of sorcery and machinery.</p>
-      <p>Attribute Modifiers: +1 to AGI, INT, or WIS</p>
-      <p>Ability night vision</p>
-      <p>Ability natural resistance to void sorcery: 2 defense</p>
-    </div>
-    <div class="ancestry">
-      <label>Elf</label>
-      <p>Elves are a tall, thin, agile, and spiritually inclined race that live within the great forests that cover the realm. 
-      It is because of the direct actions of the Elves that the trees, plants, and wildlife flourish and thrive. 
-      Many healing powers and spiritual enlightenment is spread from the Elves to the realm.</p>
-      <p>Attribute Modifiers: +1 to AGI, SPI, INT, or CHR</p>
-      <p>Ability to speak with animals and plants</p>
-    </div>
-    <div class="ancestry">
       <label>Dark Elf</label>
       <p>Dark Elf, kin to the Elves, were forced underground long ago due to the results of warring kingdoms. 
       Their white hair and dark skin easily distinguishes them from their Elven brothers and sisters. 
@@ -152,10 +129,66 @@
       <p>Ability natural resistance to pyromancy: 2 defense</p>
     </div>
     <div class="ancestry">
+      <label>Dwarf</label>
+      <p>Dwarves are a small, stout, strong, and resourceful race that dwell deep beneath the ground building magnificent fortresses and crafting powerful items. 
+      Fighting and war is a common occupation of the burly people as resources are difficult to find and mine.</p>
+      <p>Attribute Modifiers: +1 to STR, INT, or CHR</p>
+      <p>Ability night vision</p>
+      <p>Ability natural resistance to arcane sorcery: 2 defense</p>
+    </div>
+    <div class="ancestry">
+      <label>Elf</label>
+      <p>Elves are a tall, thin, agile, and spiritually inclined race that live within the great forests that cover the realm. 
+      It is because of the direct actions of the Elves that the trees, plants, and wildlife flourish and thrive. 
+      There are many different types of elves that live in various types of environments. The High Elves of the floating castles, 
+      the nomadic tribes of the Forest Elves and Sun Elves, and the hermit Moon Elves of the sunken valley.
+      Many healing powers and spiritual enlightenment is spread from the Elves to the realm.</p>
+      <p>Attribute Modifiers: +1 to AGI, SPI, INT, or CHR</p>
+      <p>Ability to speak with animals and plants</p>
+    </div>
+    <div class="ancestry">
+      <label>Gnome</label>
+      <p>Gnomes are a small, skilled, and exremely intelligent race that dwell deep within the mountains and forests of the realm.
+      They are known for their trading, mining, game playing, crafting, and map drawings. 
+      They have also brought many advancements to the fields of sorcery and machinery.</p>
+      <p>Attribute Modifiers: +1 to AGI, INT, or WIS</p>
+      <p>Ability night vision</p>
+      <p>Ability natural resistance to void sorcery: 2 defense</p>
+    </div>
+    <div class="ancestry">
+      <label>Goblin</label>
+      <p>Goblins are a small, cunning, skillful, and wise race that use whatever means are available to do what they want. 
+      Known to live underground, among orc tribes, and within their own fortresses. 
+      Identified by their small size, pointed ears, thick green or brown skin, and occasionally fanged appearance.
+      They are known for their hunting, cunning, and crafting.
+      </p>
+      <p>Attribute Modifiers: +1 AGI, WIS, SPI, or INT</p>
+      <p>Ability to climb trees and rocks with sharpened nails</p>
+      <p>Ability resist any poison 1d6 chance</p>
+    </div>
+    <div class="ancestry">
+      <label>Gul</label>
+      <p>Guls are a reptilian race that inhabits the swamps of the realm. 
+      They are known for their combat, hunting, cunning, and trading.
+      All Guls can have horns, tails, and/or wings. The wings are only able to glide.
+      Though all Guls walk on two legs, it is not uncommon for there to be four armed Guls.</p>
+      <p>Attribute Modifiers: +1 STR, AGI, CHR, SPI, or INT</p>
+      <p>Ability to breath underwater</p>
+      <p>Ability resist any poison 1d6 chance</p>
+    </div>
+    <div class="ancestry">
+      <label>Human</label>
+      <p>Humans are a tall, strong, hard working, and intelligent race that have brought many advancements to arcane sorcery, machinery, and medince. 
+      They battle constantly for domaniance as ruler of the realm, building great empires and waging wars. 
+      Through their use of intelligence and strength they have gained much in land, glory, power, and wealth.</p>
+      <p>Attribute Modifiers: +1 to STR, AGI, INT, or CHR</p>
+      <p>Ability Tradesmen, +1 to any skill based on character's backstory</p>
+    </div>
+    <div class="ancestry">
       <label>Orc</label>
-      <p>Orcs are a large, burly, brutish race that relies solely on their strength to solve their issues. 
-      Identified by their size, green skin, and tusks or fangs which extend from their mouths, Orcs are feared across the land for their mastery in comabt and warfare. 
-      Isolated to the Wildlands continent the Orcs live among nature pursuing conquest, wealth, and power.</p>
+      <p>Orcs are a large,burly, brutish race that relies solely on their strength to solve their issues. 
+      Identified by their size, thick green or brown skin, and tusks or fangs which extend from their mouths, Orcs are feared across the land for their mastery in comabt and warfare. 
+      Born in the Wildlands the Orcs live among nature pursuing conquest, wealth, and power.</p>
       <p>Attribute Modifiers: +1 STR or SPI</p>
       <p>Ability resist any stun or poison 1d6 chance</p>
     </div>
@@ -168,16 +201,6 @@
       <p>Attribute Modifiers: +1 to AGI or SPI</p>
       <p>Ability night vision</p>
       <p>Ability levitate</p>
-    </div>
-    <div class="ancestry">
-      <label>Gul</label>
-      <p>Guls are a reptilian race that inhabits the swamps of the realm. 
-      They are known for their combat, hunting, cunning, and trading.
-      All Guls have tails and some have horns, some tails, and some wings. The wings are only able to glide.
-      Though all Guls walk on two legs, it is not uncommon for there to be four armed Guls.</p>
-      <p>Attribute Modifiers: +1 STR, AGI, CHR, or INT</p>
-      <p>Ability to breath underwater</p>
-      <p>Ability resist any poison 1d12 chance</p>
     </div>
   </div>
   
@@ -202,7 +225,7 @@
     <div class="class">
       <label>Monk</label>
       <p>Monks are spirit guides who rely on their physical strength, agility, and spiritual inclination to survive.</p>
-      <p>Skill Modifiers: +1 to Communing Arts, Psiconics, or Shamanism and +1 to Martial Arts, Literacy, or Culinary Arts</p>
+      <p>Skill Modifiers: +1 to Communing Arts, Psiconics, Cryokinesis, or Shamanism and +1 to Martial Arts, Literacy, or Culinary Arts</p>
     </div>
     <div class="class">
       <label>Rogue</label>
@@ -227,7 +250,7 @@
     <div class="class">
       <label>Assassin</label>
       <p>Assassins are fast, agile, intelligent, and cunning killers who rely on anything to win, survive, and gain wealth.</p>
-      <p>Skill Modifiers: +2 to sneak and +1 to Archery, Blade, Staff, or Whip</p>
+      <p>Skill Modifiers: +2 to Sneak and +1 to Archery, Blade, Staff, or Whip</p>
     </div>
     <div class="class">
       <label>Bounty Hunter/Mercenary</label>
