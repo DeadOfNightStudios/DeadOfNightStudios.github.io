@@ -255,6 +255,7 @@ function updateKnowledgeAndSkills(element) {
   updateSkillProperties("mechanics", newSkillPts);
   updateSkillProperties("herbalism", newSkillPts);
   updateSkillProperties("literacy", newSkillPts);
+  updateSkillProperties("magnemancy", newSkillPts);
   updateSkillProperties("masonry", newSkillPts);
   updateSkillProperties("martial-arts", newSkillPts);
   updateSkillProperties("necromancy", newSkillPts);
@@ -319,6 +320,7 @@ function updateSkillPoints(element) {
   assignedPts = assignedPts + updateSkillProperties("mechanics", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("herbalism", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("literacy", remainingPts);
+  assignedPts = assignedPts + updateSkillProperties("magnemancy", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("masonry", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("martial-arts", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("necromancy", remainingPts);
