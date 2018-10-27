@@ -15,11 +15,11 @@ function addAttributePoints(element) {
   var difference = (element.value - element.defaultValue);
   
   if (element.defaultValue < element.value) {
-    var attributePts = parseInt(remainingPts) + (difference * 3);
-    if (level >= 30) {
+    var attributePts = parseInt(remainingPts) + (difference * 4);
+    if (level >= 20) {
+      attributePts = parseInt(remainingPts) + (difference * 3);
+    } else if (level >= 50) {
       attributePts = parseInt(remainingPts) + (difference * 2);
-    } else if (level >= 60) {
-      attributePts = parseInt(remainingPts) + (difference * 1);
     }
     element.defaultValue = element.value;
     document.getElementById("remaining_pts").innerHTML = attributePts;
@@ -142,8 +142,8 @@ function updateBodyWeightAndCapcity(element) {
 
 function updateSpeed(element) {
   var agi = document.getElementById("agi").value;
-  document.getElementById("speed").innerHTML = Math.floor(parseInt(agi)/4);
-  document.getElementById("action-pts").innerHTML = Math.floor(parseInt(agi)/5);
+  document.getElementById("speed").innerHTML = Math.floor(parseInt(agi)/2);
+  document.getElementById("action-pts").innerHTML = Math.floor(parseInt(agi)/4);
 }
 
 function updateKnowledgeUsed(element) {
