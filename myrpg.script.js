@@ -427,7 +427,7 @@ function loadCharacterSheet(element) {
 function saveCharacterSheet(element) {
   var characterName = document.getElementById("name").value;
   characterName = characterName.replace(new RegExp(" ", 'g'), "_");
-  var characterClass = document.getElementById("class").value;
+  var characterClass = document.getElementById("title").value;
   characterClass = characterClass.replace(new RegExp(" ", 'g'), "_");
   
   var characterSheet = document.getElementById("content").innerHTML;
