@@ -66,21 +66,15 @@ body {
 }
 
 .character-functions input {
-  float: none;
+  float: left;
   width: 50%;
+  height: 20%;
 }
 
 .save-character {
   float: none;
   width: 20%;
-}
-
-.load-demo {
-  width: 10%;
-  font-size: 0.6em;
-  text-align: center;
-  float: left;
-  margin-left: 3em;
+  height: 20%;
 }
 
 @media screen and (max-width: 500px) {

@@ -195,6 +195,48 @@
   font-size: 0.75em;
 }
 
+/* Spells */
+
+.spells {
+  margin-top: 1em;
+  margin-bottom: 2em;
+  display: block;
+  width: 100%;
+}
+
+.spells table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.spells input {
+    width: 90%;
+    text-align: left;
+}
+
+.spells td, th {
+    border: 1px solid BLACK;
+    text-align: center;
+    padding: 0.25em;
+}
+
+.spells tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.spells textarea {
+  min-width: 15em;
+}
+
+.spells-functions {
+  display: block;
+  margin: 1em;
+}
+
+.spells-functions button {
+  font-size: 0.75em;
+}
+
 /* Languages */
 
 .languages {
@@ -536,6 +578,10 @@
   text-align: left;
   margin: 1em;
   width: 50%;
+}
+
+.unit-label {
+  text-align: right;
 }
 
 /* Inventory */

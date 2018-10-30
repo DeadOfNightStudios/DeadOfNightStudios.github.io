@@ -2,7 +2,7 @@
 <script src="myrpg.script.js"></script>
 
 <div class="version-info">
-  <label>MyRPG V1.0.5 - 2018</label>
+  <label>MyRPG V2.0.0 - 2018</label>
 </div>
 <div class="myrpg-border">
   <button id="character-info-btn" class="collapsible" onclick="collapseExpand('character-info-btn', 'character-info')">- Character Info -</button>
@@ -13,7 +13,7 @@
         <input id="name" class="character-info-input" type="text" oninput="saveValue(this)" />
       </div>
       <div class="character-detail">
-        <label class="character-info-left-label">Title/Class</label>
+        <label class="character-info-left-label">Title</label>
         <input id="title" class="character-info-input" type="text" oninput="saveValue(this)" />
       </div>
       <div class="character-detail">
@@ -21,8 +21,22 @@
         <input id="ancestry" class="character-info-input" type="text" oninput="saveValue(this)" />
       </div>
       <div class="character-detail">
+        <label class="character-info-right-label">Age</label>
+        <input id="age" class="character-info-input" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="character-detail">
         <label class="character-info-left-label">Alignment</label>
-        <input id="alignment" class="character-info-input" type="text" oninput="saveValue(this)" />
+        <select id="alignment" class="character-info-input" oninput="saveValue(this)">
+          <option>Lawful Good</option>
+          <option>Neutral Good</option>
+          <option>Chatoic Good</option>
+          <option>Lawful Neutral</option>
+          <option selected>Neutral</option>
+          <option>Chatoic Neutral</option>
+          <option>Lawful Evil</option>
+          <option>Neutral Evil</option>
+          <option>Chatoic Evil</option>
+        </select>
       </div>
     </div>
     <div class="character-info-right">
@@ -33,6 +47,10 @@
       <div class="character-detail">
         <label class="character-info-right-label">Hair Color</label>
         <input id="hair" class="character-info-input" type="text" oninput="saveValue(this)" />
+      </div>
+      <div class="character-detail">
+        <label class="character-info-right-label">Hair Style</label>
+        <input id="hair-style" class="character-info-input" type="text" oninput="saveValue(this)" />
       </div>
       <div class="character-detail">
         <label class="character-info-right-label">Eye Color</label>
@@ -46,56 +64,6 @@
     <div class="character-art-div">
       <img id="character-art" class="character-art">
       <input type="file" id="load-character-art" class="load-character-art" onchange="loadCharacterArt(this)" />
-    </div>
-  </div>
-  
-  <button id="languages-btn" class="collapsible" onclick="collapseExpand('languages-btn', 'languages')">- Languages -</button>
-  <div id="languages" class="languages">
-    <table id="languages-table" class="languages">
-      <tr>
-        <th>Languages</th>
-        <th>Years Spoken</th>
-        <th>Notes</th>
-      </tr>
-      <tr class="languages-entry">
-        <th><input id="language_1" type="text" oninput="saveValue(this)" /></th>
-        <th><input id="language_1_years" type="text" oninput="saveValue(this)" /></th>
-        <th><textarea id="language_1_notes" type="text" oninput="saveValue(this)" ></textarea></th>
-      </tr>
-      <tr class="languages-entry">
-        <th><input id="language_2" type="text" oninput="saveValue(this)" /></th>
-        <th><input id="language_2_years" type="text" oninput="saveValue(this)" /></th>
-        <th><textarea id="language_2_notes" type="text" oninput="saveValue(this)" ></textarea></th>
-      </tr>
-    </table>
-    <div class="languages-functions">
-      <button onclick="addEntry(this, 'languages-table', 'language')">Add New Language Entry</button>
-      <button onclick="removeEntry(this, 'languages-table')">Remove Last Language Entry</button>
-    </div>
-  </div>
-  
-  <button id="class-history-btn" class="collapsible" onclick="collapseExpand('class-history-btn', 'class-history')">- Class History -</button>
-  <div id="class-history" class="class-history">
-    <table id="class-history-table">
-      <tr>
-        <th>Class</th>
-        <th>Years Served</th>
-        <th>Notes</th>
-      </tr>
-      <tr class="class-history-entry">
-        <th><input id="class_1" type="text" oninput="saveValue(this)" /></th>
-        <th><input id="class_1_years" type="text" oninput="saveValue(this)" /></th>
-        <th><textarea id="class_1_notes" type="text" oninput="saveValue(this)" ></textarea></th>
-      </tr>
-      <tr class="class-history-entry">
-        <th><input id="class_2" type="text" oninput="saveValue(this)" /></th>
-        <th><input id="class_2_years" type="text" oninput="saveValue(this)" /></th>
-        <th><textarea id="class_2_notes" type="text" oninput="saveValue(this)" ></textarea></th>
-      </tr>
-    </table>
-    <div class="class-history-functions">
-      <button onclick="addEntry(this, 'class-history-table', 'class')">Add New Class Entry</button>
-      <button onclick="removeEntry(this, 'class-history-table')">Remove Last Class Entry</button>
     </div>
   </div>
   
@@ -367,9 +335,14 @@
       <input id="staff-mod" type="number" value="0" />
     </div>
     <div>
-      <label class="character-skill">Spell Craft</label>
-      <input id="spell-craft" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
-      <input id="spell-craft-mod" type="number" value="0" />
+      <label class="character-skill">Speechcraft</label>
+      <input id="speechcraft" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
+      <input id="speechcraft-mod" type="number" value="0" />
+    </div>
+    <div>
+      <label class="character-skill">Spellcraft</label>
+      <input id="spellcraft" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
+      <input id="spellcraft-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Swim</label>
@@ -385,6 +358,56 @@
       <label class="character-skill">Whip</label>
       <input id="whip" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="1" />
       <input id="whip-mod" type="number" value="0" />
+    </div>
+  </div>
+  
+  <button id="languages-btn" class="collapsible" onclick="collapseExpand('languages-btn', 'languages')">- Languages -</button>
+  <div id="languages" class="languages">
+    <table id="languages-table" class="languages">
+      <tr>
+        <th>Languages</th>
+        <th>Years Spoken</th>
+        <th>Notes</th>
+      </tr>
+      <tr class="languages-entry">
+        <th><input id="language_1" type="text" oninput="saveValue(this)" /></th>
+        <th><input id="language_1_years" type="text" oninput="saveValue(this)" /></th>
+        <th><textarea id="language_1_notes" type="text" oninput="saveValue(this)" ></textarea></th>
+      </tr>
+      <tr class="languages-entry">
+        <th><input id="language_2" type="text" oninput="saveValue(this)" /></th>
+        <th><input id="language_2_years" type="text" oninput="saveValue(this)" /></th>
+        <th><textarea id="language_2_notes" type="text" oninput="saveValue(this)" ></textarea></th>
+      </tr>
+    </table>
+    <div class="languages-functions">
+      <button onclick="addEntry(this, 'languages-table', 'language')">Add New Language Entry</button>
+      <button onclick="removeEntry(this, 'languages-table')">Remove Last Language Entry</button>
+    </div>
+  </div>
+  
+  <button id="class-history-btn" class="collapsible" onclick="collapseExpand('class-history-btn', 'class-history')">- Class History -</button>
+  <div id="class-history" class="class-history">
+    <table id="class-history-table">
+      <tr>
+        <th>Class</th>
+        <th>Years Served</th>
+        <th>Notes</th>
+      </tr>
+      <tr class="class-history-entry">
+        <th><input id="class_1" type="text" oninput="saveValue(this)" /></th>
+        <th><input id="class_1_years" type="text" oninput="saveValue(this)" /></th>
+        <th><textarea id="class_1_notes" type="text" oninput="saveValue(this)" ></textarea></th>
+      </tr>
+      <tr class="class-history-entry">
+        <th><input id="class_2" type="text" oninput="saveValue(this)" /></th>
+        <th><input id="class_2_years" type="text" oninput="saveValue(this)" /></th>
+        <th><textarea id="class_2_notes" type="text" oninput="saveValue(this)" ></textarea></th>
+      </tr>
+    </table>
+    <div class="class-history-functions">
+      <button onclick="addEntry(this, 'class-history-table', 'class')">Add New Class Entry</button>
+      <button onclick="removeEntry(this, 'class-history-table')">Remove Last Class Entry</button>
     </div>
   </div>
   
@@ -441,19 +464,44 @@
         <th>Effect(s)</th>
       </tr>
       <tr class="afflictions-entry">
-        <th><input id="affliction_1" type="text" oninput="saveValue(this)" /></th>
-        <th><input id="affliction_1_years" type="text" oninput="saveValue(this)" /></th>
-        <th><textarea id="affliction_1_notes" type="text" oninput="saveValue(this)" ></textarea></th>
+        <th><input id="affliction_1_name" type="text" oninput="saveValue(this)" /></th>
+        <th><input id="affliction_1_duration" type="text" oninput="saveValue(this)" /></th>
+        <th><textarea id="affliction_1_effects" type="text" oninput="saveValue(this)" ></textarea></th>
       </tr>
       <tr class="afflictions-entry">
-        <th><input id="affliction_2" type="text" oninput="saveValue(this)" /></th>
-        <th><input id="affliction_2_years" type="text" oninput="saveValue(this)" /></th>
-        <th><textarea id="affliction_2_notes" type="text" oninput="saveValue(this)" ></textarea></th>
+        <th><input id="affliction_2_name" type="text" oninput="saveValue(this)" /></th>
+        <th><input id="affliction_2_duration" type="text" oninput="saveValue(this)" /></th>
+        <th><textarea id="affliction_2_effects" type="text" oninput="saveValue(this)" ></textarea></th>
       </tr>
     </table>
     <div class="afflictions-functions">
       <button onclick="addAfflictionEntry(this, 'afflictions-table', 'affliction')">Add New Affliction Entry</button>
       <button onclick="removeEntry(this, 'afflictions-table')">Remove Last Affliction Entry</button>
+    </div>
+  </div>
+  
+  <button id="spells-btn" class="collapsible" onclick="collapseExpand('spells-btn', 'spells')">- Spells -</button>
+  <div id="spells" class="spells">
+    <table id="spells-table">
+      <tr>
+        <th>Name</th>
+        <th>Requirements</th>
+        <th>Effect(s)</th>
+      </tr>
+      <tr class="spells-entry">
+        <th><input id="spell_1_name" type="text" oninput="saveValue(this)" /></th>
+        <th><input id="spell_1_requirements" type="text" oninput="saveValue(this)" /></th>
+        <th><textarea id="spell_1_effects" type="text" oninput="saveValue(this)" ></textarea></th>
+      </tr>
+      <tr class="spells-entry">
+        <th><input id="spell_2_name" type="text" oninput="saveValue(this)" /></th>
+        <th><input id="spell_2_years" type="text" oninput="saveValue(this)" /></th>
+        <th><textarea id="spell_2_effects" type="text" oninput="saveValue(this)" ></textarea></th>
+      </tr>
+    </table>
+    <div class="spells-functions">
+      <button onclick="addSpellEntry(this, 'spells-table', 'spells')">Add New Spell Entry</button>
+      <button onclick="removeEntry(this, 'spells-table')">Remove Last Spell Entry</button>
     </div>
   </div>
   

@@ -99,15 +99,31 @@ function addAfflictionEntry(element, tableId, entryName) {
   var cellTwo = row.insertCell(1);
   cellTwo.innerHTML = "<input id=\"" + entryName + "_" + rowCount + "_duration\" type=\"text\" oninput=\"saveValue(this)\" />"
   var cellThree = row.insertCell(2);
-  cellThree.innerHTML = "<textarea id=\"" + entryName + "_" + rowCount + "_effect\" type=\"number\" oninput=\"saveValue(this)\" ></textarea>"
+  cellThree.innerHTML = "<textarea id=\"" + entryName + "_" + rowCount + "_effects\" type=\"number\" oninput=\"saveValue(this)\" ></textarea>"
+}
+
+/* Spell Functions  */
+
+function addSpellEntry(element, tableId, entryName) {
+  var classHistory = document.getElementById(tableId);
+  
+  var rowCount = document.getElementById(tableId).getElementsByTagName("tr").length;
+  var row = classHistory.insertRow(rowCount);
+  
+  var cellOne = row.insertCell(0);
+  cellOne.innerHTML = "<input id=\"" + entryName + "_" + rowCount + "_name\" type=\"text\" oninput=\"saveValue(this)\" />"
+  var cellTwo = row.insertCell(1);
+  cellTwo.innerHTML = "<input id=\"" + entryName + "_" + rowCount + "_requirements\" type=\"text\" oninput=\"saveValue(this)\" />"
+  var cellThree = row.insertCell(2);
+  cellThree.innerHTML = "<textarea id=\"" + entryName + "_" + rowCount + "_effects\" type=\"number\" oninput=\"saveValue(this)\" ></textarea>"
 }
 
 /* Trait Update Functions  */
 
 function updateHealth(element) {
-  var vitality = document.getElementById("vit").value;
+  var vitality = parseInt(document.getElementById("vit").value);
   var vitMod = parseInt(document.getElementById("vit-mod").value);
-  document.getElementById("health").innerHTML = " / " + vitality + vitMod;
+  document.getElementById("health").innerHTML = " / " + (vitality + vitMod);
   document.getElementById("damage").value = vitality + vitMod;
   document.getElementById("damage").max = vitality + vitMod;
   document.getElementById("damage").min = 0;
@@ -268,7 +284,8 @@ function updateKnowledgeAndSkills(element) {
   updateSkillProperties("shamanism", newSkillPts);
   updateSkillProperties("smithing", newSkillPts);
   updateSkillProperties("staff", newSkillPts);
-  updateSkillProperties("spell-craft", newSkillPts);
+  updateSkillProperties("spellcraft", newSkillPts);
+  updateSkillProperties("speechcraft", newSkillPts);
   updateSkillProperties("swim", newSkillPts);
   updateSkillProperties("sneak", newSkillPts);
   updateSkillProperties("whip", newSkillPts);
@@ -333,7 +350,8 @@ function updateSkillPoints(element) {
   assignedPts = assignedPts + updateSkillProperties("shamanism", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("smithing", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("staff", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("spell-craft", remainingPts);
+  assignedPts = assignedPts + updateSkillProperties("spellcraft", remainingPts);
+  assignedPts = assignedPts + updateSkillProperties("speechcraft", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("swim", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("sneak", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("whip", remainingPts);
