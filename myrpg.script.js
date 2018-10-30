@@ -288,6 +288,7 @@ function updateKnowledgeAndSkills(element) {
   updateSkillProperties("speechcraft", newSkillPts);
   updateSkillProperties("swim", newSkillPts);
   updateSkillProperties("sneak", newSkillPts);
+  updateSkillProperties("throw", newSkillPts);
   updateSkillProperties("whip", newSkillPts);
   
 }
@@ -354,6 +355,7 @@ function updateSkillPoints(element) {
   assignedPts = assignedPts + updateSkillProperties("speechcraft", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("swim", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("sneak", remainingPts);
+  assignedPts = assignedPts + updateSkillProperties("throw", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("whip", remainingPts);
 }
 
@@ -422,8 +424,34 @@ function removeEntry(element, tableId) {
 
   var rowCount = document.getElementById(tableId).getElementsByTagName("tr").length;
   if (rowCount > 1) {
-    var row = classHistory.deleteRow(rowCount - 1 );
+    classHistory.deleteRow(rowCount - 1 );
+    removeWeightFromTotalWeight(tableId, rowCount);
   }
+}
+
+function removeWeightFromTotalWeight(tableId, rowCount) {
+  var table = document.getElementById(tableId);
+  if (table == undefined || table == null 
+      || table.rows[rowCount - 1] == undefined 
+      || table.rows[rowCount - 1] == null
+      || table.rows[rowCount - 1].cells[2] == undefined
+      || table.rows[rowCount - 1].cells[2] == null
+      || table.rows[rowCount - 1].cells[2].children[0] == undefined
+      || table.rows[rowCount - 1].cells[2].children[0] == null) {
+    return;
+  }
+  var element = table.rows[rowCount - 1].cells[2].children[0];
+  
+  var totalCapcityUsed = parseInt(document.getElementById("used-capacity").innerHTML);
+  document.getElementById("used-capacity").innerHTML = (totalCapcityUsed - parseInt(element.value)).toFixed(2);
+  
+  var overCapcity = parseInt(document.getElementById("capacity-value").innerHTML) - parseInt(document.getElementById("used-capacity").innerHTML);
+  var agiModifier = " ";
+  if (overCapcity < 0) {
+    var agiModValue = Math.floor(overCapcity/2);
+    agiModifier = " (" + agiModValue + " AGI)";
+  }
+  document.getElementById("capacity").innerHTML = " / " + document.getElementById("capacity-value").innerHTML + " lb " + agiModifier;
 }
 
 /* Load and Save Character Sheet Functions */
@@ -542,4 +570,3 @@ function rollOneDTwelve(element) {
 function rollOneDTwenty(element) {
   document.getElementById("1d20").innerHTML = Math.round((Math.random(20) * new Date().getTime()) % 20) + 1; 
 }
-

@@ -552,9 +552,24 @@
   margin: 1em;
 }
 
-.equipment input {
+.equipment-input {
   float: right;
   width: 50%;
+}
+
+.equipment-input-weight {
+  width: 80%;
+}
+
+
+.equipment-label-weight {
+  width: 20%;
+}
+
+.equipment-weight-container {
+  float: right;
+  width: 50%;
+  padding: 0;
 }
 
 .equipment textarea {
