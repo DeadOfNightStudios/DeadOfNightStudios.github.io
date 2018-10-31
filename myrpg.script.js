@@ -454,6 +454,22 @@ function removeWeightFromTotalWeight(tableId, rowCount) {
   document.getElementById("capacity").innerHTML = " / " + document.getElementById("capacity-value").innerHTML + " lb " + agiModifier;
 }
 
+/* Mounts Functions  */
+
+function addMountOrChampionEntry(element, tableId, entryName) {
+  var classHistory = document.getElementById(tableId);
+  
+  var rowCount = document.getElementById(tableId).getElementsByTagName("tr").length;
+  var row = classHistory.insertRow(rowCount);
+  
+  var cellOne = row.insertCell(0);
+  cellOne.innerHTML = "<input id=\"" + entryName + "_" + rowCount + "_name\" type=\"text\" oninput=\"saveValue(this)\" />"
+  var cellTwo = row.insertCell(1);
+  cellTwo.innerHTML = "<input id=\"" + entryName + "_" + rowCount + "_requirements\" type=\"text\" oninput=\"saveValue(this)\" />"
+  var cellThree = row.insertCell(2);
+  cellThree.innerHTML = "<textarea id=\"" + entryName + "_" + rowCount + "_desc\" type=\"number\" oninput=\"saveValue(this)\" ></textarea>"
+}
+
 /* Load and Save Character Sheet Functions */
 
 function loadCharacterSheet(element) {

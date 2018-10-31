@@ -109,172 +109,67 @@
   display: block;
 }
 
-/* Class History */
+/* Mounts & Champions */
 
-.class-history {
+.tables {
   margin-top: 1em;
   margin-bottom: 2em;
   display: block;
   width: 100%;
 }
 
-.class-history table {
+.tables table {
     border-collapse: collapse;
     width: 100%;
 }
 
-.class-history input {
+.tables input {
     width: 90%;
     text-align: left;
 }
 
-.class-history td, th {
+.tables td, th {
     border: 1px solid BLACK;
     text-align: center;
     padding: 0.25em;
 }
 
-.class-history tr:nth-child(even) {
+.tables tr:nth-child(even) {
     background-color: #dddddd;
 }
 
-
-.class-history textarea {
+.tables textarea {
   min-width: 15em;
 }
 
-.class-history-functions {
+.tables-functions {
   display: block;
   margin: 1em;
 }
 
-.class-history-functions button {
+.tables-functions button {
   font-size: 0.75em;
 }
 
-/* Afflictions */
+/* Character Background */
 
-.afflictions {
-  margin-top: 1em;
-  margin-bottom: 2em;
-  display: block;
+.character-background {
   width: 100%;
-}
-
-.afflictions table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-.afflictions input {
-    width: 90%;
-    text-align: left;
-}
-
-.afflictions td, th {
-    border: 1px solid BLACK;
-    text-align: center;
-    padding: 0.25em;
-}
-
-.afflictions tr:nth-child(even) {
-    background-color: #dddddd;
-}
-
-
-.afflictions textarea {
-  min-width: 15em;
-}
-
-.afflictions-functions {
   display: block;
-  margin: 1em;
 }
 
-.afflictions-functions button {
-  font-size: 0.75em;
-}
-
-/* Spells */
-
-.spells {
-  margin-top: 1em;
-  margin-bottom: 2em;
-  display: block;
+.character-background label {
   width: 100%;
-}
-
-.spells table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-.spells input {
-    width: 90%;
-    text-align: left;
-}
-
-.spells td, th {
-    border: 1px solid BLACK;
-    text-align: center;
-    padding: 0.25em;
-}
-
-.spells tr:nth-child(even) {
-    background-color: #dddddd;
-}
-
-.spells textarea {
-  min-width: 15em;
-}
-
-.spells-functions {
-  display: block;
   margin: 1em;
-}
-
-.spells-functions button {
-  font-size: 0.75em;
-}
-
-/* Languages */
-
-.languages {
-  margin-top: 1em;
-  margin-bottom: 1em;
-}
-
-.languages table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-.languages input {
-    width: 90%;
-    text-align: left;
-}
-
-.languages td, th {
-    border: 1px solid BLACK;
-    text-align: center;
-    padding: 0.25em;
-}
-
-.languages tr:nth-child(even) {
-    background-color: #dddddd;
-}
-
-.languages textarea {
-  min-width: 15em;
-}
-
-.languages-functions {
   display: block;
-  margin: 1em;
 }
 
-.languages-functions button {
-  font-size: 0.75em;
+.character-background textarea {
+  width: 80%;
+  min-width: 80%;
+  min-height: 30%;
+  margin: auto;
+  display: block;
 }
 
 /* Character Stats */
@@ -450,88 +345,6 @@
   margin: 0.5em;
 }
 
-/* Character Abilities */
-
-
-.character-abilities {
-  margin-top: 1em;
-  margin-bottom: 2em;
-  display: block;
-  width: 100%;
-}
-
-.character-abilities table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-.character-abilities input {
-    width: 90%;
-    text-align: left;
-}
-
-.character-abilities td, th {
-    border: 1px solid BLACK;
-    text-align: center;
-    padding: 0.25em;
-}
-
-.character-abilities tr:nth-child(even) {
-    background-color: #dddddd;
-}
-
-.character-abilities textarea {
-  min-width: 15em;
-}
-
-.character-abilities-functions {
-  display: block;
-  margin: 1em;
-}
-
-.character-abilities-functions button {
-  font-size: 0.75em;
-}
-
-/* Techniques & Feats */
-
-.techniques {
-  margin-top: 1em;
-  margin-bottom: 2em;
-  display: block;
-  width: 100%;
-}
-
-.techniques table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-.techniques input {
-    width: 90%;
-    text-align: left;
-}
-
-.techniques td, th {
-    border: 1px solid BLACK;
-    text-align: center;
-    padding: 0.25em;
-}
-
-.techniques tr:nth-child(even) {
-    background-color: #dddddd;
-}
-
-.techniques-functions {
-  display: block;
-  margin: 1em;
-}
-
-.techniques-functions button {
-  font-size: 0.75em;
-}
-
-
 /* Equipment  */
 
 .character-equipment {
@@ -603,7 +416,7 @@
 
 .character-inventory {
   margin-top: 1em;
-  margin-bottom: 4em;
+  margin-bottom: 1em;
 }
 
 .character-inventory-title {
