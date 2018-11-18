@@ -15,9 +15,12 @@ body {
   margin: 0;
   text-align: center;
   background-color: BLACK;
-  padding: 2em;
   font-family: "Arial", sans-serif;
   display: inline-block;
+}
+
+.header-button-container {
+  padding: 2em;
 }
 
 .header a {
@@ -35,7 +38,7 @@ body {
   font-weight: bold;
 }
 
-.header :hover {
+.header a:hover {
   background-color: WHITE;
   color: BLACK;
 }
