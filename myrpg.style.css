@@ -156,12 +156,14 @@
 .character-background {
   width: 100%;
   display: block;
+  margin: 1em;
 }
 
 .character-background label {
   width: 100%;
   margin: 1em;
   display: block;
+  float: left;
 }
 
 .character-background textarea {
