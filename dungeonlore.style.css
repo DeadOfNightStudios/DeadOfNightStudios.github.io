@@ -6,7 +6,7 @@
   font-family: "Arial", sans-serif;
 }
 
-.myrpg-border {
+.dungeonlore-border {
   text-align: center;
   overflow: hidden;
   font-size: 1.25em;
@@ -224,7 +224,7 @@
 
 .character-traits-title {
   font-weight: bold;
-  font-size: 1.25em; 
+  font-size: 1.25em;
   float: none;
   text-align: center;
   width: 100%;
@@ -474,28 +474,28 @@
 /* Responsive Styles  */
 
 @media screen and (max-width: 65em) {
-  .myrpg-border {
+  .dungeonlore-border {
     font-size: 1em;
     display: block;
   }
-  
+
   .character-info {
     margin: 0em;
     width: 100%;
     display: block;
   }
-  
+
   .character-info-right {
     width: 100%;
     display: block;
   }
-  
+
   .character-info-left {
     width: 100%;
     display: block;
   }
-  
-  
+
+
   .character-skills {
     margin: 1em;
     width: 100%;
