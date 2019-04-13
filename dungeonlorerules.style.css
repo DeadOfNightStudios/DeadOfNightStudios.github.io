@@ -38,8 +38,10 @@
     background-color: #555;
 }
 .gm-rules {
-  width: 100%;
+  width: 90%;
   display: block;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .gm-rules label {
@@ -59,10 +61,11 @@
 }
 
 .info {
-  width: 100%;
+  width: 90%;
   display: block;
   text-align: left;
-  margin: 1em;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 /* Dice Emulator Style */
@@ -103,9 +106,10 @@
 }
 
 .ancestry {
-  width: 100%;
+  width: 90%;
   display: block;
-  margin: 1em;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .ancestry label {
