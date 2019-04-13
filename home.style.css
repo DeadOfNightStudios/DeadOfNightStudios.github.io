@@ -31,15 +31,14 @@
 }
 
 @media screen and (max-width: 65em) {
-
   .company-about-container {
-    width: 50%;
+    width: 60%;
     display: block;
     margin: auto;
   }
 
   .company-logo-container {
-    width: 50%;
+    width: 80%;
     display: block;
     margin: auto;
   }
