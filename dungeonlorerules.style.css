@@ -148,6 +148,8 @@
   width: 100%;
   text-align: left;
   display: block;
+  margin-right: 5%;
+  margin-left: 5%;
 }
 
 /* Weapons and Armor Style */
