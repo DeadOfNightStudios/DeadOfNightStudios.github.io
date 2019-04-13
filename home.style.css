@@ -29,3 +29,18 @@
   margin: 1em;
   vertical-align: top;
 }
+
+@media screen and (max-width: 65em) {
+
+  .company-logo-container {
+    width: 50%;
+    display: block;
+    margin: auto;
+  }
+
+  .company-logo-container {
+    width: 50%;
+    display: block;
+    margin: auto;
+  }
+}
