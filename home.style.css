@@ -28,6 +28,7 @@
   text-align: left;
   margin: 1em;
   vertical-align: top;
+  margin-bottom: 20%;
 }
 
 @media screen and (max-width: 65em) {
@@ -35,6 +36,7 @@
     width: 60%;
     display: block;
     margin: auto;
+    margin-bottom: 20%;
   }
 
   .company-logo-container {
