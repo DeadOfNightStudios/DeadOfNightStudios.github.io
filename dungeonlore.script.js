@@ -525,13 +525,13 @@ function collapseExpand(btnName, elementName) {
 
   var nameOfBtn = document.getElementById(btnName).innerHTML
   nameOfBtn = nameOfBtn.substring(1, nameOfBtn.length-1);
-  if (display === "block") {
-    element.style.display = "none";
-    document.getElementById(btnName).innerHTML = "+ " + nameOfBtn + " +";
-  } else {
+   if (display === "none") {
     element.style.display = "block";
     document.getElementById(btnName).innerHTML = "- " + nameOfBtn + " -";
-  }
+  } else {
+   element.style.display = "none";
+   document.getElementById(btnName).innerHTML = "+ " + nameOfBtn + " +";
+ }
 }
 
 function loadCharacterArt(element) {
