@@ -21,6 +21,7 @@
 }
 
 .collapsible {
+  display: block;
   background-color: #9E9E9E;
   color: BLACK;
   cursor: pointer;
