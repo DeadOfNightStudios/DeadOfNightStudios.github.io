@@ -269,6 +269,7 @@ function updateKnowledgeAndSkills(element) {
   updateSkillProperties("deception", newSkillPts);
   updateSkillProperties("dodge", newSkillPts);
   updateSkillProperties("duel-wield", newSkillPts);
+  updateSkillProperties("enchantment", newSkillPts);
   updateSkillProperties("mechanics", newSkillPts);
   updateSkillProperties("herbalism", newSkillPts);
   updateSkillProperties("lore", newSkillPts);
@@ -298,29 +299,32 @@ function updateKnowledgeAndSkills(element) {
 
 /* Skill Update Functions  */
 
-function updateSkillPoints(element) {
+function updateSkillPoints(skill) {
   var remainingPts = parseInt(document.getElementById("skill_pts").innerHTML);
   var skillPtsAssigned = parseInt(document.getElementById("skill_pts_assigned").innerHTML);
   var totalPts = remainingPts + skillPtsAssigned;
-  var elementValue = parseInt(element.value);
-  var elementDefaultValue = parseInt(element.defaultValue);
-  if (elementValue > totalPts) {
-    element.value = element.defaultValue;
-  } else if (elementValue < 0) {
-    element.value = 0;
-  } else if (elementValue <= elementDefaultValue) {
-    var diff = element.defaultValue - element.value;
+  var skillValue = parseInt(skill.value);
+  var skillDefaultValue = parseInt(skill.defaultValue);
+
+  console.log('Total: ' + totalPts);
+  console.log('Skill pts assigned: ' + skillValue);
+  if (skillValue > totalPts) {
+    skill.value = skill.defaultValue;
+  } else if (skillValue < 0) {
+    skill.value = 0;
+  } else if (skillValue <= skillDefaultValue) {
+    var diff = skill.defaultValue - skill.value;
     document.getElementById("skill_pts").innerHTML = remainingPts + diff;
     document.getElementById("skill_pts_assigned").innerHTML = skillPtsAssigned - diff;
     remainingPts = parseInt(document.getElementById("skill_pts").innerHTML);
-  } else if (elementValue >= elementDefaultValue && remainingPts > 0) {
-    var difference = parseInt(element.value) - parseInt(element.defaultValue);
+  } else if (skillValue >= skillDefaultValue && remainingPts > 0) {
+    var difference = parseInt(skill.value) - parseInt(skill.defaultValue);
     document.getElementById("skill_pts").innerHTML = remainingPts - difference;
     document.getElementById("skill_pts_assigned").innerHTML = skillPtsAssigned + difference;
   } else if (remainingPts === 0) {
-    element.value = element.defaultValue;
+    skill.value = skill.defaultValue;
   }
-  element.defaultValue = element.value;
+  skill.defaultValue = skill.value;
 
   var assignedPts = assignedPts + updateSkillProperties("acrobatics", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("alchemy", remainingPts);
@@ -339,6 +343,7 @@ function updateSkillPoints(element) {
   assignedPts = assignedPts + updateSkillProperties("deception", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("dodge", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("duel-wield", remainingPts);
+  assignedPts = assignedPts + updateSkillProperties("enchantment", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("mechanics", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("herbalism", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("literacy", remainingPts);
