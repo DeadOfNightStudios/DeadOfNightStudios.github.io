@@ -151,7 +151,7 @@ function updateBodyWeightAndCapcity(element) {
   var strMod = parseInt(document.getElementById("str-mod").value);
   var totalStr = str + strMod;
 
-  document.getElementById("body-weight").innerHTML = (totalStr * 10) + 20;
+  document.getElementById("body-weight").innerHTML = (totalStr * 10) + 30;
   document.getElementById("capacity").innerHTML = "/ " + (totalStr * 20) + " lb";
   document.getElementById("capacity-value").innerHTML = (totalStr * 20);
 }
@@ -214,7 +214,7 @@ function updateKnowledgeAndSkills(element) {
   var skillPtsAssigned = parseInt(document.getElementById("skill_pts_assigned").innerHTML);
   var totalPts = skillPtsRemaining + skillPtsAssigned;
 
-  var skillPtsMax = Math.floor(wisdom / 3) + 2;
+  var skillPtsMax = wisdom;
   var newSkillPts = 0;
 
   if (totalPts > skillPtsMax) {
