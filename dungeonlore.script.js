@@ -205,8 +205,8 @@ function updateStressPointsUsed(element) {
 function updateKnowledgeAndSkills(element) {
   var wisdom = document.getElementById("wis").value;
   var wisdomMod = parseInt(document.getElementById("wis-mod").value);
-  var knowledge = parseInt(wisdom) / 5;
-  document.getElementById("knl").innerHTML = " / " + Math.floor(knowledge + wisdomMod);
+  var knowledge = (parseInt(wisdom) + wisdomMod) / 5;
+  document.getElementById("knl").innerHTML = " / " + Math.floor(knowledge);
   document.getElementById("knl-used").max = knowledge;
   document.getElementById("knl-used").min = 0;
 
@@ -287,6 +287,7 @@ function updateKnowledgeAndSkills(element) {
   updateSkillProperties("shamanism", newSkillPts);
   updateSkillProperties("smithing", newSkillPts);
   updateSkillProperties("staff", newSkillPts);
+  updateSkillProperties("spellcraft", newSkillPts);
   updateSkillProperties("swim", newSkillPts);
   updateSkillProperties("sneak", newSkillPts);
   updateSkillProperties("throw", newSkillPts);
