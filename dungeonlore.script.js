@@ -252,10 +252,12 @@ function updateKnowledgeAndSkills(element) {
     document.getElementById("skill_pts").innerHTML = newSkillPts;
   }
 
+  updateSkillProperties("acrobatics", newSkillPts);
   updateSkillProperties("alchemy", newSkillPts);
   updateSkillProperties("arcane-sorcery", newSkillPts);
   updateSkillProperties("archery", newSkillPts);
   updateSkillProperties("art", newSkillPts);
+  updateSkillProperties("atheltics", newSkillPts);
   updateSkillProperties("blade", newSkillPts);
   updateSkillProperties("block", newSkillPts);
   updateSkillProperties("blunt", newSkillPts);
@@ -264,7 +266,6 @@ function updateKnowledgeAndSkills(element) {
   updateSkillProperties("culinary-arts", newSkillPts);
   updateSkillProperties("communing-arts", newSkillPts);
   updateSkillProperties("cryokinesis", newSkillPts);
-  updateSkillProperties("void-sorcery", newSkillPts);
   updateSkillProperties("deception", newSkillPts);
   updateSkillProperties("dodge", newSkillPts);
   updateSkillProperties("duel-wield", newSkillPts);
@@ -286,10 +287,10 @@ function updateKnowledgeAndSkills(element) {
   updateSkillProperties("shamanism", newSkillPts);
   updateSkillProperties("smithing", newSkillPts);
   updateSkillProperties("staff", newSkillPts);
-  updateSkillProperties("speechcraft", newSkillPts);
   updateSkillProperties("swim", newSkillPts);
   updateSkillProperties("sneak", newSkillPts);
   updateSkillProperties("throw", newSkillPts);
+  updateSkillProperties("void-sorcery", newSkillPts);
   updateSkillProperties("whip", newSkillPts);
 
 }
@@ -320,10 +321,12 @@ function updateSkillPoints(element) {
   }
   element.defaultValue = element.value;
 
-  var assignedPts = assignedPts + updateSkillProperties("alchemy", remainingPts);
+  var assignedPts = assignedPts + updateSkillProperties("acrobatics", remainingPts);
+  assignedPts = assignedPts + updateSkillProperties("alchemy", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("arcane-sorcery", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("archery", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("art", remainingPts);
+  assignedPts = assignedPts + updateSkillProperties("atheltics", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("blade", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("block", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("blunt", remainingPts);
@@ -332,7 +335,6 @@ function updateSkillPoints(element) {
   assignedPts = assignedPts + updateSkillProperties("culinary-arts", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("communing-arts", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("cryokinesis", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("void-sorcery", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("deception", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("dodge", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("duel-wield", remainingPts);
@@ -358,6 +360,7 @@ function updateSkillPoints(element) {
   assignedPts = assignedPts + updateSkillProperties("swim", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("sneak", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("throw", remainingPts);
+  assignedPts = assignedPts + updateSkillProperties("void-sorcery", remainingPts);
   assignedPts = assignedPts + updateSkillProperties("whip", remainingPts);
 }
 

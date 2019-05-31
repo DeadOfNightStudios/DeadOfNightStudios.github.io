@@ -175,202 +175,207 @@
   <button id="character-skills-btn" class="collapsible" onclick="collapseExpand('character-skills-btn', 'character-skills')">- Skills -</button>
   <div id="character-skills" class="character-skills">
     <label class="character-skills-pts">Remaining Skill Points: </label>
-    <label id="skill_pts" class="character-skills-pts-label">3</label>
+    <label id="skill_pts" class="character-skills-pts-label">5</label>
     <label class="character-skills-pts-assigned-label">Assigned Skill Points: </label>
     <label id="skill_pts_assigned" class="character-skills-pts-assigned">0</label>
     <div>
+      <label class="character-skill">Acrobatics</label>
+      <input id="acrobatics" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
+      <input id="acrobatics-mod" type="number" value="0" />
+    </div>
+    <div>
       <label class="character-skill">Alchemy</label>
-      <input id="alchemy" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="3" />
+      <input id="alchemy" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="alchemy-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Arcane Sorcery</label>
-      <input id="arcane-sorcery" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="3" />
+      <input id="arcane-sorcery" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="arcane-sorcery-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Archery</label>
-      <input id="archery" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="3" />
+      <input id="archery" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="archery-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Art</label>
-      <input id="art" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="3" />
+      <input id="art" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="art-mod" type="number" value="0" />
     </div>
     <div>
+      <label class="character-skill">Atheltics</label>
+      <input id="atheltics" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
+      <input id="atheltics-mod" type="number" value="0" />
+    </div>
+    <div>
       <label class="character-skill">Blade</label>
-      <input id="blade" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="3" />
+      <input id="blade" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="blade-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Block</label>
-      <input id="block" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="3" />
+      <input id="block" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="block-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Blunt</label>
-      <input id="blunt" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="3" />
+      <input id="blunt" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="blunt-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Carpentry</label>
-      <input id="carpentry" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="3" />
+      <input id="carpentry" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="carpentry-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Catalyst</label>
-      <input id="catalyst" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="3" />
+      <input id="catalyst" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="catalyst-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Communing Arts</label>
-      <input id="communing-arts" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="3" />
+      <input id="communing-arts" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="communing-arts-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Cryokinesis</label>
-      <input id="cryokinesis" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="3" />
+      <input id="cryokinesis" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="cryokinesis-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Culinary Arts</label>
-      <input id="culinary-arts" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="3" />
+      <input id="culinary-arts" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="culinary-arts-mod" type="number" value="0" />
     </div>
     <div>
-      <label class="character-skill">Void Scorcery</label>
-      <input id="void-sorcery" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="3" />
-      <input id="void-sorcery-mod" type="number" value="0" />
-    </div>
-    <div>
       <label class="character-skill">Deception</label>
-      <input id="deception" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="3" />
+      <input id="deception" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="deception-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Dodge</label>
-      <input id="dodge" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="3" />
+      <input id="dodge" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="dodge-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Duel Wield</label>
-      <input id="duel-wield" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="3" />
+      <input id="duel-wield" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="duel-wield-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Herbalism</label>
-      <input id="herbalism" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="3" />
+      <input id="herbalism" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="herbalism-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Literacy</label>
-      <input id="literacy" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="3" />
+      <input id="literacy" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="literacy-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Lore</label>
-      <input id="lore" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="3" />
+      <input id="lore" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="lore-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Magnemancy</label>
-      <input id="magnemancy" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="3" />
+      <input id="magnemancy" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="magnemancy-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Masonry</label>
-      <input id="masonry" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="3" />
+      <input id="masonry" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="masonry-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Mechanics</label>
-      <input id="mechanics" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="3" />
+      <input id="mechanics" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="mechanics-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Martial Arts</label>
-      <input id="martial-arts" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="3" />
+      <input id="martial-arts" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="martial-arts-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Necromancy</label>
-      <input id="necromancy" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="3" />
+      <input id="necromancy" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="necromancy-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Persuasion</label>
-      <input id="persuasion" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="3" />
+      <input id="persuasion" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="persuasion-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Pick Lock</label>
-      <input id="pick-lock" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="3" />
+      <input id="pick-lock" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="pick-lock-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Pick Pocket</label>
-      <input id="pick-pocket" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="3" />
+      <input id="pick-pocket" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="pick-pocket-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Psionics</label>
-      <input id="psionics" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="3" />
+      <input id="psionics" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="psionics-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Pyromancy</label>
-      <input id="pyromancy" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="3" />
+      <input id="pyromancy" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="pyromancy-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Ride</label>
-      <input id="ride" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="3" />
+      <input id="ride" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="ride-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Sewing</label>
-      <input id="sewing" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="3" />
+      <input id="sewing" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="sewing-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Shamanism</label>
-      <input id="shamanism" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="3" />
+      <input id="shamanism" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="shamanism-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Smithing</label>
-      <input id="smithing" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="3" />
+      <input id="smithing" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="smithing-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Staff</label>
-      <input id="staff" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="3" />
+      <input id="staff" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="staff-mod" type="number" value="0" />
     </div>
     <div>
-      <label class="character-skill">Spellcraft</label>
-      <input id="spellcraft" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="3" />
-      <input id="spellcraft-mod" type="number" value="0" />
-    </div>
-    <div>
       <label class="character-skill">Swim</label>
-      <input id="swim" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="3" />
+      <input id="swim" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="swim-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Sneak</label>
-      <input id="sneak" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="3" />
+      <input id="sneak" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="sneak-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Throw</label>
-      <input id="throw" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="3" />
+      <input id="throw" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="throw-mod" type="number" value="0" />
     </div>
     <div>
+      <label class="character-skill">Void Scorcery</label>
+      <input id="void-sorcery" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
+      <input id="void-sorcery-mod" type="number" value="0" />
+    </div>
+    <div>
       <label class="character-skill">Whip</label>
-      <input id="whip" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="3" />
+      <input id="whip" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="whip-mod" type="number" value="0" />
     </div>
   </div>
