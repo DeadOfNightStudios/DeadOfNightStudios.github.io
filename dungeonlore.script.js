@@ -63,7 +63,7 @@ function updateTraits(element) {
 function addAbilityEntry(element, tableId, entryName) {
   var classHistory = document.getElementById(tableId);
 
-  var rowCount = document.getElementById(tableId).getElementsByTagName("tr").length;
+  var rowCount = document.getElementById(tableId).getElementsByTagName("tr").length + 1;
   var row = classHistory.insertRow(rowCount);
 
   var cellOne = row.insertCell(0);
@@ -77,7 +77,7 @@ function addAbilityEntry(element, tableId, entryName) {
 function addTechniqueEntry(element, tableId, entryName) {
   var classHistory = document.getElementById(tableId);
 
-  var rowCount = document.getElementById(tableId).getElementsByTagName("tr").length;
+  var rowCount = document.getElementById(tableId).getElementsByTagName("tr").length + 1;
   var row = classHistory.insertRow(rowCount);
 
   var cellOne = row.insertCell(0);
@@ -91,7 +91,7 @@ function addTechniqueEntry(element, tableId, entryName) {
 function addAfflictionEntry(element, tableId, entryName) {
   var classHistory = document.getElementById(tableId);
 
-  var rowCount = document.getElementById(tableId).getElementsByTagName("tr").length;
+  var rowCount = document.getElementById(tableId).getElementsByTagName("tr").length + 1;
   var row = classHistory.insertRow(rowCount);
 
   var cellOne = row.insertCell(0);
@@ -107,15 +107,21 @@ function addAfflictionEntry(element, tableId, entryName) {
 function addSpellEntry(element, tableId, entryName) {
   var classHistory = document.getElementById(tableId);
 
-  var rowCount = document.getElementById(tableId).getElementsByTagName("tr").length;
+  var rowCount = document.getElementById(tableId).getElementsByTagName("tr").length + 1;
   var row = classHistory.insertRow(rowCount);
 
   var cellOne = row.insertCell(0);
   cellOne.innerHTML = "<input id=\"" + entryName + "_" + rowCount + "_name\" type=\"text\" oninput=\"saveValue(this)\" />"
   var cellTwo = row.insertCell(1);
-  cellTwo.innerHTML = "<input id=\"" + entryName + "_" + rowCount + "_requirements\" type=\"text\" oninput=\"saveValue(this)\" />"
+  cellTwo.innerHTML = "<input id=\"" + entryName + "_" + rowCount + "_attack\" type=\"text\" oninput=\"saveValue(this)\" />"
   var cellThree = row.insertCell(2);
-  cellThree.innerHTML = "<textarea id=\"" + entryName + "_" + rowCount + "_effects\" type=\"number\" oninput=\"saveValue(this)\" ></textarea>"
+  cellThree.innerHTML = "<input id=\"" + entryName + "_" + rowCount + "_mod\" type=\"text\" oninput=\"saveValue(this)\" />"
+  var cellFour = row.insertCell(3);
+  cellFour.innerHTML = "<input id=\"" + entryName + "_" + rowCount + "_usage\" type=\"text\" oninput=\"saveValue(this)\" />"
+  var cellFive = row.insertCell(4);
+  cellFive.innerHTML = "<input id=\"" + entryName + "_" + rowCount + "_requirements\" type=\"text\" oninput=\"saveValue(this)\" />"
+  var cellSix = row.insertCell(5);
+  cellSix.innerHTML = "<textarea id=\"" + entryName + "_" + rowCount + "_effects\" type=\"number\" oninput=\"saveValue(this)\" ></textarea>"
 }
 
 /* Trait Update Functions  */
