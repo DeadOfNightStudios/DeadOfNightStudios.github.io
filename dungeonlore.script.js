@@ -63,7 +63,7 @@ function updateTraits(element) {
 function addAbilityEntry(element, tableId, entryName) {
   var classHistory = document.getElementById(tableId);
 
-  var rowCount = document.getElementById(tableId).getElementsByTagName("tr").length + 1;
+  var rowCount = document.getElementById(tableId).getElementsByTagName("tr").length;
   var row = classHistory.insertRow(rowCount);
 
   var cellOne = row.insertCell(0);
@@ -77,7 +77,7 @@ function addAbilityEntry(element, tableId, entryName) {
 function addTechniqueEntry(element, tableId, entryName) {
   var classHistory = document.getElementById(tableId);
 
-  var rowCount = document.getElementById(tableId).getElementsByTagName("tr").length + 1;
+  var rowCount = document.getElementById(tableId).getElementsByTagName("tr").length;
   var row = classHistory.insertRow(rowCount);
 
   var cellOne = row.insertCell(0);
@@ -91,7 +91,7 @@ function addTechniqueEntry(element, tableId, entryName) {
 function addAfflictionEntry(element, tableId, entryName) {
   var classHistory = document.getElementById(tableId);
 
-  var rowCount = document.getElementById(tableId).getElementsByTagName("tr").length + 1;
+  var rowCount = document.getElementById(tableId).getElementsByTagName("tr").length;
   var row = classHistory.insertRow(rowCount);
 
   var cellOne = row.insertCell(0);
@@ -107,7 +107,7 @@ function addAfflictionEntry(element, tableId, entryName) {
 function addSpellEntry(element, tableId, entryName) {
   var classHistory = document.getElementById(tableId);
 
-  var rowCount = document.getElementById(tableId).getElementsByTagName("tr").length + 1;
+  var rowCount = document.getElementById(tableId).getElementsByTagName("tr").length;
   var row = classHistory.insertRow(rowCount);
 
   var cellOne = row.insertCell(0);
