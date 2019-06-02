@@ -156,10 +156,9 @@ function updateBodyWeightAndCapcity(element) {
   var str = parseInt(document.getElementById("str").value);
   var strMod = parseInt(document.getElementById("str-mod").value);
   var totalStr = str + strMod;
-  var overCapcity = parseInt(document.getElementById("capacity-value").innerHTML) - parseInt(document.getElementById("used-capacity").innerHTML);
 
   document.getElementById("body-weight").innerHTML = (totalStr * 10) + 30;
-  document.getElementById("capacity").innerHTML = "/ " + (totalStr * 20) + " lb " + calculateAGIModifier(overCapcity);
+  document.getElementById("capacity").innerHTML = "/ " + (totalStr * 20) + " lb " + calculateAGIModifier();
   document.getElementById("capacity-value").innerHTML = (totalStr * 20);
 }
 
@@ -383,15 +382,32 @@ function updateTotalWeightUsed(element) {
   document.getElementById("used-capacity").innerHTML = (totalCapcityUsed - diff).toFixed(2);
   element.defaultValue = element.value;
 
-  var overCapcity = parseInt(document.getElementById("capacity-value").innerHTML) - parseInt(document.getElementById("used-capacity").innerHTML);
-  document.getElementById("capacity").innerHTML = " / " + document.getElementById("capacity-value").innerHTML + " lb " + calculateAGIModifier(overCapcity);
+  document.getElementById("capacity").innerHTML = " / " + document.getElementById("capacity-value").innerHTML + " lb " + calculateAGIModifier();
 }
 
-function calculateAGIModifier(overCapcity) {
+function calculateAGIModifier() {
+  var capcityValue = parseInt(document.getElementById("capacity-value").innerHTML);
+  var usedCapacity = parseInt(document.getElementById("used-capacity").innerHTML);
+  var overCapcity = capcityValue - usedCapacity;
+  var ratio = Math.ceiling(usedCapacity / capcityValue) * 100;
+  var agi = parseInt(document.getElementById("agi").innerHTML);
   var agiModifier = " ";
   if (overCapcity < 0) {
+    // Over capacity calculator
     var agiModValue = Math.floor(overCapcity/2);
     agiModifier = " (" + agiModValue + " AGI)";
+  } else if (ratio >= 75) {
+    // Over 50% body weight, AGI decrease of 25%
+    var agiModValue = Math.floor(agi / 4);
+    agiModifier = " (-" + agiModValue + " AGI)";
+  } else if (ratio >= 50) {
+    // Over 50% body weight, AGI decrease of 20%
+    var agiModValue = Math.floor(agi / 7);
+    agiModifier = " (-" + agiModValue + " AGI)";
+  } else if (ratio >= 25) {
+    // Over 50% body weight, AGI decrease of 5%
+    var agiModValue = Math.floor(agi / 20);
+    agiModifier = " (-" + agiModValue + " AGI)";
   }
   return agiModifier;
 }
