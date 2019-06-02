@@ -164,8 +164,14 @@ function updateBodyWeightAndCapcity(element) {
 
 function updateSpeed(element) {
   var agi = document.getElementById("agi").value;
-  document.getElementById("speed").innerHTML = Math.floor(parseInt(agi)/2);
-  document.getElementById("action-pts").innerHTML = Math.floor(parseInt(agi)/4);
+  document.getElementById("speed").innerHTML = Math.floor(parseInt(agi)/4);
+  var intAGI = parseInt(agi);
+  if (intAGI >= 6) {
+    document.getElementById("action-pts").innerHTML = Math.floor(intAGI/6);
+  } else {
+    // default of 1 for 6 or lower
+    document.getElementById("action-pts").innerHTML = 1;
+  }
 }
 
 function updateKnowledgeUsed(element) {
