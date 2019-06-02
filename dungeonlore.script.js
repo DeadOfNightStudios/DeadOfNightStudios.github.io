@@ -224,6 +224,7 @@ function updateKnowledgeAndSkills(element) {
   var newSkillPts = 0;
 
   if (totalPts > skillPtsMax) {
+    // Remove skill points path
     document.getElementById("skill_pts").innerHTML = "0";
     document.getElementById("skill_pts_assigned").innerHTML = skillPtsMax;
     var pointsToRemove = totalPts - skillPtsMax;
@@ -251,56 +252,16 @@ function updateKnowledgeAndSkills(element) {
         index++;
       }
     }
+    skillPtsRemaining = parseInt(document.getElementById("skill_pts").innerHTML);
+    updateAllSkillProperties(skillPtsRemaining);
   } else if (totalPts <= skillPtsMax) {
+    // Add skill points path
     var difference = skillPtsMax - totalPts;
     newSkillPts = skillPtsRemaining + difference;
 
     document.getElementById("skill_pts").innerHTML = newSkillPts;
+    updateAllSkillProperties(newSkillPts);
   }
-
-  updateSkillProperties("acrobatics", newSkillPts);
-  updateSkillProperties("alchemy", newSkillPts);
-  updateSkillProperties("arcane-sorcery", newSkillPts);
-  updateSkillProperties("archery", newSkillPts);
-  updateSkillProperties("art", newSkillPts);
-  updateSkillProperties("atheltics", newSkillPts);
-  updateSkillProperties("blade", newSkillPts);
-  updateSkillProperties("block", newSkillPts);
-  updateSkillProperties("blunt", newSkillPts);
-  updateSkillProperties("carpentry", newSkillPts);
-  updateSkillProperties("catalyst", newSkillPts);
-  updateSkillProperties("culinary-arts", newSkillPts);
-  updateSkillProperties("communing-arts", newSkillPts);
-  updateSkillProperties("cryokinesis", newSkillPts);
-  updateSkillProperties("deception", newSkillPts);
-  updateSkillProperties("dodge", newSkillPts);
-  updateSkillProperties("duel-wield", newSkillPts);
-  updateSkillProperties("enchantment", newSkillPts);
-  updateSkillProperties("mechanics", newSkillPts);
-  updateSkillProperties("herbalism", newSkillPts);
-  updateSkillProperties("lore", newSkillPts);
-  updateSkillProperties("literacy", newSkillPts);
-  updateSkillProperties("magnemancy", newSkillPts);
-  updateSkillProperties("masonry", newSkillPts);
-  updateSkillProperties("martial-arts", newSkillPts);
-  updateSkillProperties("necromancy", newSkillPts);
-  updateSkillProperties("persuasion", newSkillPts);
-  updateSkillProperties("pick-lock", newSkillPts);
-  updateSkillProperties("pick-pocket", newSkillPts);
-  updateSkillProperties("psionics", newSkillPts);
-  updateSkillProperties("pyromancy", newSkillPts);
-  updateSkillProperties("ride", newSkillPts);
-  updateSkillProperties("sewing", newSkillPts);
-  updateSkillProperties("shamanism", newSkillPts);
-  updateSkillProperties("smithing", newSkillPts);
-  updateSkillProperties("staff", newSkillPts);
-  updateSkillProperties("spellcraft", newSkillPts);
-  updateSkillProperties("swim", newSkillPts);
-  updateSkillProperties("sneak", newSkillPts);
-  updateSkillProperties("throw", newSkillPts);
-  updateSkillProperties("void-sorcery", newSkillPts);
-  updateSkillProperties("whip", newSkillPts);
-
 }
 
 /* Skill Update Functions  */
@@ -331,52 +292,58 @@ function updateSkillPoints(skill) {
   }
   skill.defaultValue = skill.value;
 
-  var assignedPts = assignedPts + updateSkillProperties("acrobatics", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("alchemy", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("arcane-sorcery", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("archery", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("art", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("atheltics", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("blade", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("block", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("blunt", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("carpentry", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("catalyst", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("culinary-arts", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("communing-arts", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("cryokinesis", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("deception", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("dodge", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("duel-wield", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("enchantment", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("mechanics", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("herbalism", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("literacy", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("lore", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("magnemancy", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("masonry", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("martial-arts", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("necromancy", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("persuasion", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("pick-lock", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("pick-pocket", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("psionics", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("pyromancy", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("ride", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("sewing", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("shamanism", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("smithing", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("staff", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("spellcraft", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("swim", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("sneak", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("throw", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("void-sorcery", remainingPts);
-  assignedPts = assignedPts + updateSkillProperties("whip", remainingPts);
+  updateAllSkillProperties(remainingPts);
+}
+
+
+function updateAllSkillProperties(remainingPts) {
+  updateSkillProperties("acrobatics", remainingPts);
+  updateSkillProperties("alchemy", remainingPts);
+  updateSkillProperties("arcane-sorcery", remainingPts);
+  updateSkillProperties("archery", remainingPts);
+  updateSkillProperties("art", remainingPts);
+  updateSkillProperties("atheltics", remainingPts);
+  updateSkillProperties("blade", remainingPts);
+  updateSkillProperties("block", remainingPts);
+  updateSkillProperties("blunt", remainingPts);
+  updateSkillProperties("carpentry", remainingPts);
+  updateSkillProperties("catalyst", remainingPts);
+  updateSkillProperties("culinary-arts", remainingPts);
+  updateSkillProperties("communing-arts", remainingPts);
+  updateSkillProperties("cryokinesis", remainingPts);
+  updateSkillProperties("deception", remainingPts);
+  updateSkillProperties("dodge", remainingPts);
+  updateSkillProperties("duel-wield", remainingPts);
+  updateSkillProperties("enchantment", remainingPts);
+  updateSkillProperties("mechanics", remainingPts);
+  updateSkillProperties("herbalism", remainingPts);
+  updateSkillProperties("lore", remainingPts);
+  updateSkillProperties("literacy", remainingPts);
+  updateSkillProperties("magnemancy", remainingPts);
+  updateSkillProperties("masonry", remainingPts);
+  updateSkillProperties("martial-arts", remainingPts);
+  updateSkillProperties("necromancy", remainingPts);
+  updateSkillProperties("persuasion", remainingPts);
+  updateSkillProperties("pick-lock", remainingPts);
+  updateSkillProperties("pick-pocket", remainingPts);
+  updateSkillProperties("psionics", remainingPts);
+  updateSkillProperties("pyromancy", remainingPts);
+  updateSkillProperties("ride", remainingPts);
+  updateSkillProperties("sewing", remainingPts);
+  updateSkillProperties("shamanism", remainingPts);
+  updateSkillProperties("smithing", remainingPts);
+  updateSkillProperties("staff", remainingPts);
+  updateSkillProperties("spellcraft", remainingPts);
+  updateSkillProperties("swim", remainingPts);
+  updateSkillProperties("sneak", remainingPts);
+  updateSkillProperties("throw", remainingPts);
+  updateSkillProperties("void-sorcery", remainingPts);
+  updateSkillProperties("whip", remainingPts);
 }
 
 function updateSkillProperties(elementName, remainingPts) {
   var value = parseInt(document.getElementById(elementName).value);
+  // Set the max value to the already assigned points plus remaining
   document.getElementById(elementName).max = (value + remainingPts);
   document.getElementById(elementName).min = 0;
 
