@@ -390,12 +390,11 @@ function calculateAGIModifier() {
   var usedCapacity = parseInt(document.getElementById("used-capacity").innerHTML);
   var overCapcity = capcityValue - usedCapacity;
   var ratio = (usedCapacity / capcityValue) * 100;
-    console.log('ratio ' + ratio);
   var agi = parseInt(document.getElementById("agi").value);
   var agiModifier = " ";
   if (overCapcity < 0) {
     // Over capacity calculator
-    var agiModValue = Math.floor(overCapcity/2);
+    var agiModValue = agi;
     agiModifier = " (" + agiModValue + " AGI)";
   } else if (ratio >= 75) {
     // Over 50% body weight, AGI decrease of 25%
@@ -404,14 +403,12 @@ function calculateAGIModifier() {
   } else if (ratio >= 50) {
     // Over 50% body weight, AGI decrease of 10%
     var agiModValue = Math.ceil(agi / 10);
-      console.log('AGI ' + agiModValue);
     agiModifier = " (-" + agiModValue + " AGI)";
   } else if (ratio >= 25) {
     // Over 50% body weight, AGI decrease of 5%
     var agiModValue = Math.ceil(agi / 20);
     agiModifier = " (-" + agiModValue + " AGI)";
   }
-    console.log('Mod ' + agiModifier);
   return agiModifier;
 }
 
