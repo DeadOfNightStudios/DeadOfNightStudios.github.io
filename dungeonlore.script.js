@@ -274,11 +274,8 @@ function updateSkillPoints(skill) {
   var skillDefaultValue = parseInt(skill.defaultValue);
 
   console.log("Value: " + skillValue);
-  console.log("Remaining: " + remainingPts);  
-  if (skillValue > remainingPts) {
-    // Skip as player does not have enough points...
-    skill.value = skill.defaultValue;
-  } else if (skillValue < 0) {
+  console.log("Remaining: " + remainingPts);
+  if (skillValue < 0) {
     skill.value = 0;
   } else if (skillValue <= skillDefaultValue) {
     var diff = skill.defaultValue - skill.value;
@@ -289,7 +286,8 @@ function updateSkillPoints(skill) {
     var difference = parseInt(skill.value) - parseInt(skill.defaultValue);
     document.getElementById("skill_pts").innerHTML = remainingPts - difference;
     document.getElementById("skill_pts_assigned").innerHTML = skillPtsAssigned + difference;
-  } else if (remainingPts === 0) {
+  } else if (skillValue > remainingPts || remainingPts === 0) {
+    // Skip as player does not have enough points...
     skill.value = skill.defaultValue;
   }
   skill.defaultValue = skill.value;
@@ -349,7 +347,6 @@ function updateSkillProperties(elementName, remainingPts) {
   // Set the max value to the already assigned points plus remaining)
   document.getElementById(elementName).max = (value + remainingPts);
   document.getElementById(elementName).min = 0;
-  console.log("Total: " + document.getElementById(elementName).max);
 
   return value;
 }
