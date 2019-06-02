@@ -343,9 +343,10 @@ function updateAllSkillProperties(remainingPts) {
 
 function updateSkillProperties(elementName, remainingPts) {
   var value = parseInt(document.getElementById(elementName).value);
-  // Set the max value to the already assigned points plus remaining
+  // Set the max value to the already assigned points plus remaining)
   document.getElementById(elementName).max = (value + remainingPts);
   document.getElementById(elementName).min = 0;
+  consol.log("Total: " + document.getElementById(elementName).max);
 
   return value;
 }
