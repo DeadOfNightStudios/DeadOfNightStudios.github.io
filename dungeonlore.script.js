@@ -156,15 +156,16 @@ function updateBodyWeightAndCapcity(element) {
   var str = parseInt(document.getElementById("str").value);
   var strMod = parseInt(document.getElementById("str-mod").value);
   var totalStr = str + strMod;
+  var overCapcity = parseInt(document.getElementById("capacity-value").innerHTML) - parseInt(document.getElementById("used-capacity").innerHTML);
 
   document.getElementById("body-weight").innerHTML = (totalStr * 10) + 30;
-  document.getElementById("capacity").innerHTML = "/ " + (totalStr * 20) + " lb";
+  document.getElementById("capacity").innerHTML = "/ " + (totalStr * 20) + " lb " + calculateAGIModifier(overCapcity);
   document.getElementById("capacity-value").innerHTML = (totalStr * 20);
 }
 
 function updateSpeed(element) {
   var agi = document.getElementById("agi").value;
-  document.getElementById("speed").innerHTML = Math.floor(parseInt(agi)/4);
+  document.getElementById("speed").innerHTML = Math.floor(parseInt(agi)/3);
   var intAGI = parseInt(agi);
   if (intAGI >= 6) {
     document.getElementById("action-pts").innerHTML = Math.floor(intAGI/6);
@@ -383,12 +384,16 @@ function updateTotalWeightUsed(element) {
   element.defaultValue = element.value;
 
   var overCapcity = parseInt(document.getElementById("capacity-value").innerHTML) - parseInt(document.getElementById("used-capacity").innerHTML);
+  document.getElementById("capacity").innerHTML = " / " + document.getElementById("capacity-value").innerHTML + " lb " + calculateAGIModifier(overCapcity);
+}
+
+function calculateAGIModifier(overCapcity) {
   var agiModifier = " ";
   if (overCapcity < 0) {
     var agiModValue = Math.floor(overCapcity/2);
     agiModifier = " (" + agiModValue + " AGI)";
   }
-  document.getElementById("capacity").innerHTML = " / " + document.getElementById("capacity-value").innerHTML + " lb " + agiModifier;
+  return agiModifier;
 }
 
 /* Table Functions  */
