@@ -292,6 +292,7 @@ function updateSkillPoints(skill) {
   }
   skill.defaultValue = skill.value;
 
+  remainingPts = parseInt(document.getElementById("skill_pts").innerHTML);
   updateAllSkillProperties(remainingPts);
 }
 
