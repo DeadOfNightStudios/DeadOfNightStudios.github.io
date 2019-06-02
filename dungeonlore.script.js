@@ -398,15 +398,15 @@ function calculateAGIModifier() {
     agiModifier = " (" + agiModValue + " AGI)";
   } else if (ratio >= 75) {
     // Over 50% body weight, AGI decrease of 25%
-    var agiModValue = Math.floor(agi / 4);
+    var agiModValue = Math.ceiling(agi / 4);
     agiModifier = " (-" + agiModValue + " AGI)";
   } else if (ratio >= 50) {
     // Over 50% body weight, AGI decrease of 20%
-    var agiModValue = Math.floor(agi / 7);
+    var agiModValue = Math.ceiling(agi / 7);
     agiModifier = " (-" + agiModValue + " AGI)";
   } else if (ratio >= 25) {
     // Over 50% body weight, AGI decrease of 5%
-    var agiModValue = Math.floor(agi / 20);
+    var agiModValue = Math.ceiling(agi / 20);
     agiModifier = " (-" + agiModValue + " AGI)";
   }
   return agiModifier;
