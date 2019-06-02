@@ -273,8 +273,6 @@ function updateSkillPoints(skill) {
   var skillValue = parseInt(skill.value);
   var skillDefaultValue = parseInt(skill.defaultValue);
 
-  console.log("Value: " + skillValue);
-  console.log("Remaining: " + remainingPts);
   if (skillValue < 0) {
     skill.value = 0;
   } else if (skillValue <= skillDefaultValue) {
