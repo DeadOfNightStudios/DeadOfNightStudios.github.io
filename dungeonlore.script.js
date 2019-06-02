@@ -273,6 +273,8 @@ function updateSkillPoints(skill) {
   var skillValue = parseInt(skill.value);
   var skillDefaultValue = parseInt(skill.defaultValue);
 
+  console.log("Value: " + skillValue);
+  console.log("Remaining: " + remainingPts);  
   if (skillValue > remainingPts) {
     // Skip as player does not have enough points...
     skill.value = skill.defaultValue;
