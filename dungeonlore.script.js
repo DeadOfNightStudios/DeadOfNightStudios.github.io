@@ -390,6 +390,7 @@ function calculateAGIModifier() {
   var usedCapacity = parseInt(document.getElementById("used-capacity").innerHTML);
   var overCapcity = capcityValue - usedCapacity;
   var ratio = Math.ceil(usedCapacity / capcityValue) * 100;
+    console.log('ratio ' + ratio);
   var agi = parseInt(document.getElementById("agi").value);
   var agiModifier = " ";
   if (overCapcity < 0) {
