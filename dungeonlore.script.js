@@ -406,7 +406,7 @@ function calculateAGIModifier() {
     agiModifier = " (-" + agiModValue + " AGI)";
   } else if (ratio >= 25) {
     // Over 50% body weight, AGI decrease of 5%
-    var agiModValue = Math.ceil(agi / 20);
+    var agiModValue = Math.floor(agi / 20);
     agiModifier = " (-" + agiModValue + " AGI)";
   }
   return agiModifier;
