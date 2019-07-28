@@ -471,18 +471,40 @@
         <th>Ability</th>
         <th>Effect</th>
       </tr>
-      <tr class="afflictions-entry">
+      <tr class="abilities-entry">
         <th><input id="ability_1" type="text" oninput="saveValue(this)" /></th>
         <th><input id="ability_1_effect" type="text" oninput="saveValue(this)" /></th>
       </tr>
-      <tr class="afflictions-entry">
+      <tr class="abilities-entry">
         <th><input id="ability_2" type="text" oninput="saveValue(this)" /></th>
         <th><input id="ability_2_effect" type="text" oninput="saveValue(this)" /></th>
       </tr>
     </table>
     <div class="tables-functions">
-      <button onclick="addAbilityEntry(this, 'character-abilities-table', 'affliction')">Add New Ability Entry</button>
+      <button onclick="addAbilityEntry(this, 'character-abilities-table', 'ability')">Add New Ability Entry</button>
       <button onclick="removeEntry(this, 'character-abilities-table')">Remove Last Ability Entry</button>
+    </div>
+  </div>
+  
+  <button id="character-talents-btn" class="collapsible" onclick="collapseExpand('character-talents-btn', 'character-talents')">- Talents -</button>
+  <div id="character-talents" class="tables">
+    <table id="character-talents-table">
+      <tr>
+        <th>Talent</th>
+        <th>Effect</th>
+      </tr>
+      <tr class="talents-entry">
+        <th><input id="talent_1" type="text" oninput="saveValue(this)" /></th>
+        <th><input id="talent_1_effect" type="text" oninput="saveValue(this)" /></th>
+      </tr>
+      <tr class="talents-entry">
+        <th><input id="talent_2" type="text" oninput="saveValue(this)" /></th>
+        <th><input id="talent_2_effect" type="text" oninput="saveValue(this)" /></th>
+      </tr>
+    </table>
+    <div class="tables-functions">
+      <button onclick="addTalentEntry(this, 'character-talents-table', 'talent')">Add New Talent Entry</button>
+      <button onclick="removeEntry(this, 'character-talents-table')">Remove Last Talent Entry</button>
     </div>
   </div>
 
