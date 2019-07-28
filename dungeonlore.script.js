@@ -164,12 +164,20 @@ function updateBodyWeightAndCapcity(element) {
 
 function updateSpeed(element) {
   var agi = document.getElementById("agi").value;
-  document.getElementById("speed").innerHTML = Math.floor(parseInt(agi)/3);
   var intAGI = parseInt(agi);
-  if (intAGI >= 6) {
-    document.getElementById("action-pts").innerHTML = Math.floor(intAGI/6);
+  document.getElementById("speed").innerHTML = Math.floor(intAGI/5);
+  if (intAGI < 16) {
+    document.getElementById("quick-actions").innerHTML = 1;
+  } else if (intAGI < 31) {
+    document.getElementById("quick-actions").innerHTML = 2;
+  } else if (intAGI < 61) {
+    document.getElementById("quick-actions").innerHTML = 3;
+  } else if (intAGI >= 61) {
+    document.getElementById("quick-actions").innerHTML = 4;
+  }
+  if (intAGI > 20) {
+    document.getElementById("action-pts").innerHTML = Math.floor(intAGI/20) + 1;
   } else {
-    // default of 1 for 6 or lower
     document.getElementById("action-pts").innerHTML = 1;
   }
 }
