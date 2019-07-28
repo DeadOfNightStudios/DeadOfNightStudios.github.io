@@ -335,7 +335,7 @@ function updateAllSkillProperties(remainingPts) {
   updateSkillProperties("persuasion", remainingPts);
   updateSkillProperties("psionics", remainingPts);
   updateSkillProperties("pyromancy", remainingPts);
-  updateSkillProperties("resilance", remainingPts);
+  updateSkillProperties("resilience", remainingPts);
   updateSkillProperties("ride", remainingPts);
   updateSkillProperties("sewing", remainingPts);
   updateSkillProperties("shamanism", remainingPts);
