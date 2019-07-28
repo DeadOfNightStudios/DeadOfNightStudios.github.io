@@ -165,7 +165,7 @@ function updateBodyWeightAndCapcity(element) {
 function updateSpeed(element) {
   var agi = document.getElementById("agi").value;
   var intAGI = parseInt(agi);
-  document.getElementById("speed").innerHTML = Math.floor(intAGI/5);
+  document.getElementById("speed").innerHTML = Math.floor(intAGI/4);
   if (intAGI < 16) {
     document.getElementById("quick-action-pts").innerHTML = 1;
   } else if (intAGI < 31) {
