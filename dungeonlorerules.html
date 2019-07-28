@@ -51,8 +51,8 @@
     <label class="title">Character Setup</label>
     <label class="info">Each character is required to choose a backstory with a class and may describe their backstory during the game or choose not to depending on the game play.
     Each character must first select from the base classes of Bard, Craftsman, Mage, Monk, Rouge, or Warrior and assign their modifiers as listed.
-    When a player reaches level 5 they may start to choose from the prestige classes if avialble.
-    Every level the player will select either a base class or prestige class depending on their actions, role, and desired growth for their character.
+    Each level a character will receive one talent points assignable to a reachable node in a characer's class talent tree.
+    When a player reaches level 5 they may start to choose from the prestige classes if avialble and their talent trees.
     Some prestige classes require training by elite characters found in the game.
     </label>
     <label class="title">Character Rules</label>
@@ -63,15 +63,15 @@
     Be wary of traps, spies, lying characters, excessive generosity, and sheeps in wolves clothing.
     Be curious of enchanted items, devices, allies, and lore of the land.
     As your character's actions are what determine how long you live.
-    A player receives modifier bonuses equal to 1 damage point and 1 roll point for every 2 points additional points assigned to the modifier attribute.
-    If a plyaer has a sword that requires 15 strength to use and they have 17 strength they receive an additional damage point for every hit with the sword.
+    If a plyaer has a sword that requires 15 strength to use and they have 19 strength, they receive an additional damage point for every four attribute points above the sword requirement.
     Character experience (EXP) per level increases by a factor of three starting at ten.
-    To reach level 2 a player will require 10 EXP and for level 3 the player will require 30 EXP.
+    To reach level 2 a player will require 10 EXP and for level 3 the player will require 30 EXP. 
+    EXP is not reset after leveing up.
     Skills are used to add points to rolls of various various actions.
     Every point added to a skill that is over the main requirement for a given action, weapon, or spell is a single point added towards your roll.</label>
     <label class="title">Charisma Rules</label>
     <label class="info">Players may wish to persuade, intimidate, haggle, or use diplomacy as they see fit and their CHR attribute is used as a modifier against their targets.
-    Each player rolls a 1d20 and the higher roll wins with modifiers added.
+    Each player rolls a 1d20, adds their skill dice modifiers for success chance, adds their attribute modifier.
     When performing actions such as intimidate other player attributes can be compared and modifiers taken based on their attacking modifier such as Strength (STR) or Intelligence (INT).
     </label>
     <label class="title">Crafting Rules</label>
@@ -89,13 +89,23 @@
     Each player first rolls a 1d20 for initiative and highest player moves first, initiative bonus of speed trait.
     If players describe their actions the Game Master may apply additional bonuses to help or hinder you as wanted.
     Back stabs are critical hits and deal twice as much damage. When a player attacks at minimum two dice are rolled.
-    One to determine the attack based on their weapon, spell, item, or device and one to determine if the hit was a critical hit or a miss (1d20).
-    A player will need to role more dice depending on the opponents' actions and abilities.
-    If a player attempts to dodge or block an attack the player's AGI is measured against the attacker's AGI.
-    If a player has 16 AGI and the attacker has 14 then the dodging player receives a plus 2 on their dodge roll(s).
-    If a player wishes to wield a two-handed weapon in one hand, one point five times as much STR is required based on the weapons requirements.
+    One to determine if the attack succeds based on their weapon, spell, item, or device against the opponents Block or Dodge skill.
+    And one to determine the amount of damage dealt, with four attribute points above attacking weapon's requirement adds one attack.
+    A player will need to role more dice depending their or their opponents' talents, skills, techniques, and abilities.
+    If a player attempts to dodge or block an attack the player's additional dice are added to the 1d20 roll based on their skill level.
+    For each skill point added to a skill that player may add one dice equal to their skill points assigned. 
+    If a player has one skill point assigned to their Blade skill they receive a 1d2 bonus on all attack hit rolls.
+    If a player has two skill points assigned to their Blade skill they receive a 1d4 bonus, 1d6 for three, 1d8 for four, and so on.
+    If a player has 16 AGI and their weapon only requires 12, since they have four additional attribute points they receive a modifier of plus one to all attack rolls.   
+    If a player wishes to wield a two-handed weapon in one hand, two times as much STR is required based on the weapons requirements.
     Two point five times as much if the player wishses to duel wield the weapons.
-    When a player dies that player may spend two survival points to roll a 1d20 to stay alive, stress is increased by 25% when successfully saved by rolling above a 15.</label>
+    When duel wielding attacks strike, they strike with both weapons in hand at once for one action point.
+    Quick action points are used for drawing weapons, taking or tossing potions/items, some sorcery spells, and various other small actions approved by the GM.
+    When a player reaches zero or negative health, that player becomes unconsious and wounded.
+    That player may spend one survival points to roll a 1d20 to stay alive, stress is increased by 25% when successfully saved by rolling above a 15.
+    They the saving throw is failed, they remain unconsious until one of their allies can assit them. 
+    Additional rest time is required, and sometimes medical attention, for wounds or afflictions dealt to characters. 
+    </label>
     <label class="title">Sorcery Rules</label>
     <label class="info">If a player wishes to use sorcery they either need an enchanted device which has built in sorcery functions or enough intelligence/spirit, skill, and wisdom to
       learn and cast the spell using their spirit ability, catalyst, or gathered materials.
@@ -105,7 +115,7 @@
     <label class="title">Stealth Rules</label>
     <label class="info">When a player is attempting to use stealth to achieve their goals that player will have to role against the Game Master who is acting as the opponent(s).
     Agility (AGI) is the counter stat against Spirit (SPI) when a player is sneaking.
-    If a guard has 15 SPI and a player has 16 AGI the player receives a +1 against the opponent.
+    If a guard has 2 Vigilance skill and a character has 3 Sneak skill the character receives a +1d6 against the opponent's +1d4 on their 1d20 roll.
     This is done for each opponent within the area that the player is using stealth and a separate roll is needed for each guard.
     </label>
   </div>
@@ -128,10 +138,11 @@
     <label>Skill points are calculated by taking the character's Wisdom (WIS). All weapons, armor, devices, tools, and spells require a certain level skill to use.
       A character is unable to perform actions if no skill points are allocated, for every skill point you assign you receive a plus one to any roll involoving that skil.</label>
     <label>Knowledge is increased every 5 Wisdom (WIS) points. One Knowledge slot allows for the character to remember a spell or technique without using a scroll or book.</label>
-    <label>Speed will increase every 3 Agility (AGI) points. Movement is equivalent to Speed, an Action Point used reduces the movement that turn by one point.</label>
-    <label>Action Points will increase every 6 Agility (AGI) points. One Action Point is used per action meaning an attack, item use, environment interaction, or spell cast.</label>
-    <label>One Survival Point is equal to one day (24h) with no penalty to perception, health, hunger, or thirst.</label>
-    <label>If a character's Stress/Sanity level has exceeded their maximum that character will take 1 Damage Point for every 5 points of Stress/Santiy.</label>
+    <label>Speed will increase every 4 Agility (AGI) points. Movement is equivalent to Speed, an Action Point used reduces the movement that turn by one point.</label>
+    <label>Action Points will increase every 20 Agility (AGI) points. One Action Point is used per action meaning an attack, item use, environment interaction, or spell cast.</label>
+    <label>Quick Action Points will increase every 15 to 20 Agility (AGI) points. One Action Point is used per action meaning select items, environment interactions, or select spells.</label>
+    <label>One Survival Point is equal to one day (24h) with no penalty to perception, health, hunger, or thirst. Can also be used for additional saving throws.</label>
+    <label>If a character's Stress/Sanity level has exceeded their maximum that character will roll to take damage based on the amount over the limit. For every two points over the stress limit, that character will take one damage.</label>
   </div>
 
   <button id="ancestry-btn" class="collapsible" onclick="collapseExpand('ancestry-btn', 'ancestry')">- Ancestry -</button>
