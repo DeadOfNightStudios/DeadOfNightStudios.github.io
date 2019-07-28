@@ -167,13 +167,13 @@ function updateSpeed(element) {
   var intAGI = parseInt(agi);
   document.getElementById("speed").innerHTML = Math.floor(intAGI/5);
   if (intAGI < 16) {
-    document.getElementById("quick-actions").innerHTML = 1;
+    document.getElementById("quick-action-pts").innerHTML = 1;
   } else if (intAGI < 31) {
-    document.getElementById("quick-actions").innerHTML = 2;
+    document.getElementById("quick-action-pts").innerHTML = 2;
   } else if (intAGI < 61) {
-    document.getElementById("quick-actions").innerHTML = 3;
+    document.getElementById("quick-action-pts").innerHTML = 3;
   } else if (intAGI >= 61) {
-    document.getElementById("quick-actions").innerHTML = 4;
+    document.getElementById("quick-action-pts").innerHTML = 4;
   }
   if (intAGI > 20) {
     document.getElementById("action-pts").innerHTML = Math.floor(intAGI/20) + 1;
