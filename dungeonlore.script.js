@@ -72,6 +72,21 @@ function addAbilityEntry(element, tableId, entryName) {
   cellTwo.innerHTML = "<input id=\"" + entryName + "_" + rowCount + "_effect\" type=\"text\" oninput=\"saveValue(this)\" />"
 }
 
+
+/* Character Talents */
+
+function addTalentEntry(element, tableId, entryName) {
+  var classHistory = document.getElementById(tableId);
+
+  var rowCount = document.getElementById(tableId).getElementsByTagName("tr").length;
+  var row = classHistory.insertRow(rowCount);
+
+  var cellOne = row.insertCell(0);
+  cellOne.innerHTML = "<input id=\"" + entryName + "_" + rowCount + "\" type=\"text\" oninput=\"saveValue(this)\" />"
+  var cellTwo = row.insertCell(1);
+  cellTwo.innerHTML = "<input id=\"" + entryName + "_" + rowCount + "_effect\" type=\"text\" oninput=\"saveValue(this)\" />"
+}
+
 /* Character Techniques & Feats */
 
 function addTechniqueEntry(element, tableId, entryName) {
