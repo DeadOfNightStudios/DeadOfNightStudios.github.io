@@ -51,7 +51,9 @@
     <label class="title">Character Setup</label>
     <label class="info">Each character is required to choose a backstory with a goal in mind for their character.
     Each player will start with 50 experience points which they can spend on attribute points, abilities, or skills for 10 experience points.
-    No attribute may go higher than 15 at character creation, or lower than 5.
+    No attribute may go higher than 15 at character creation, or lower than 5, unless bought with experience points.
+    Dice checks are determined by two people rolling a 1d20 with their conflicting attributes subtracted from each other. 
+    No player takes negative scores on their rolls, only the player with the higher attributes receives a bonus to their roll.
     </label>
     <label class="title">Character Rules</label>
     <label class="info">At the start of the game the Game Master (GM) introduces the characters in any order while also setting the environment.
@@ -65,8 +67,9 @@
     <label class="info">Players may wish to persuade, intimidate, haggle, or use diplomacy as they see fit and their CHR attribute is used as a modifier against their targets.
     Each player rolls a 1d20, adds their skill dice modifiers for success chance, along with their attribute modifier. 
     Skill dice modifiers are 1d2 per skill points assigned, so if a player has three they will have a +1d6 chance to their 1d20 roll. 
-    The roll's threshold is determined by taking 20 - your-attribute-point-value - (your-attribute-point-value - their-attribute-point-value). 
-    If a bard were to have 10 Charisma and charming someone with only 15 points in Willpower, they will receive a +5 to your threshold which places it at 15 as 20 - 10 - (10 - 15) = 15. 
+    Given an example of a bard trying to charm a patron, the bard would have to roll a 1d20 with his Charisma against the patron's 1d20 with Willpower.
+    If the bard has 15 Charisma and the patron has 10 Willpower the bard would receive a plus 5 on his 1d20 roll against the patron. 
+    Whomever rolls highest wins the check. Skill or ability modifiers are added at this round with +1d2, +1d4, +1d6, +1d8, etc. depending on the skill ranking. 
     </label>
     <label class="title">Crafting Rules</label>
     <label class="info">When a player is attempting to create armor, weapons, or items first an idea or instructions for the object are needed.
@@ -74,9 +77,8 @@
       Once an object has been choosen and the wanted attribute modifier selected for the object the Game Master (GM) will inform you of all skill rolls required.
       If the object being created has several materials in it that span a range of skills, such as building a catapult which requires both smithing and carpentry, the player will make multiple rolls.
       The player who is creating the catapult will roll both a 1d20 for their smith and carpentry skill checks against the catapult's requirements.
-      Your check threshold will be calculated by your Intelligence for crafting based on 20 - your-attribute-point-value - (your-attribute-point-value - their-attribute-point-value).
-      Example of this would be if a player had 15 Intelligence and received a plus 3 as Catapult as a requirement of 18 Intelligence to create. 
-      This would then give us 20 - 15 - (15 - 18) = 20 - 15 - (-3) = 5 + 3 = 8.
+      Example of this would be if a player had 15 Intelligence, but the Catapult had a requirement of 18 Intelligence to create. 
+      The GM would roll a 1d20 as would the player and the GM's roll would recieve a plus 3.
     </label>
     <label class="title">Combat Rules</label>
     <label class="info">Once players enter combat a grid based map or a unit of measurement with terrian is used to determine movement and attacking angles.
@@ -84,10 +86,10 @@
     If players describe their actions the Game Master may apply additional bonuses to help or hinder you as wanted.
     When a player attacks an enemy they shift to an engaged status, meaning that they cannot move away from their enemy without possibly being attacked.
     An action point is also required to disenage an opponent in order to flee, as you will have to successfully dodge or block their attack.   
-    Whenever a player attacks they will roll a 1d20 using their Accuracy attirbute for their threshold calculations.
+    Whenever a player attacks they will both roll a 1d20 with the attacker using their Accuracy attirbute and the defender their Agility attribute.
     If that attack succeeds, then a damage dice roll is made and an armor roll is made for the defender. 
-    Example of a ranger with 14 Accuracy attacking a bandit with 13 Agility would be 20 - 14 - (14 - 13) = 5.  
-    A player will need to role more dice depending their or their opponents' talents, skills, techniques, and abilities.
+    Example of a ranger with 14 Accuracy attacking a bandit with 13 Agility would provide the ranger with a plus 1 on their 1d20 roll versus the bandits 1d20.
+    A player will need to role more dice depending on their or their opponents' talents, skills, techniques, and abilities.
     Quick action points are used for drawing weapons, taking or tossing potions/items, some sorcery spells, and various other small actions approved by the GM.
     When a player reaches zero or negative health, that player becomes unconsious and dangerously injured.
     That player may spend one survival points to roll a 1d20 to stay alive, stress is increased by 25% when successfully saved by rolling above a their calculated threshold.
@@ -102,8 +104,8 @@
     </label>
     <label class="title">Stealth Rules</label>
     <label class="info">When a player is attempting to use stealth to achieve their goals that player will have to role against the Game Master who is acting as the opponent(s).
-    If a guard has 7 Perception and a character has 10 Agility with 1 Sneak skill that character receives a bonus +1d2 for their check.
-    20 - 10 - (10 - 7) = 20 - 10 - 3 = 7 threshold to roll at or above along with their 1d2 plus chance.
+    If a guard has 7 Perception and a character has 10 Agility then the character recieves a plus 3 on their roll.
+    Since they also have 1 in Sneak they receive a 1d2 bonus to their check roll.
     This is done for each opponent within the area that the player is using stealth and a separate roll is needed for each guard.
     </label>
   </div>
@@ -142,17 +144,14 @@
       They rely on their agility and cunning to survive in the dark depths of the realm.
       Walking a different path than the Elves that walk the surface, the Dark Elves still share their spiritual inclination.
       Just for a vastly different spiritual goal.</p>
-      <p>Attribute Modifiers: +1 to AGI, SPI, or INT</p>
+      <p>Attribute Modifiers: +1 to AGI, WILL, or INT</p>
       <p>Ability night vision</p>
-      <p>Ability natural resistance to pyromancy: 1 defense</p>
     </div>
     <div class="ancestry">
       <label>Dwarf</label>
       <p>Dwarves are a small, stout, strong, and resourceful race that dwell deep beneath the ground building magnificent fortresses and crafting powerful items.
       Fighting and war is a common occupation of the burly people as resources are difficult to find and mine.</p>
       <p>Attribute Modifiers: +1 to STR, INT, or CHR</p>
-      <p>Ability night vision</p>
-      <p>Ability natural resistance to arcane sorcery: 1 defense</p>
     </div>
     <div class="ancestry">
       <label>Elf</label>
@@ -161,8 +160,7 @@
       There are many different types of elves that live in various types of environments. The High Elves of the floating castles,
       the nomadic tribes of the Wild Elves, the agricultural Forest Elves and Sun Elves who built large thriving cities, and the hermit Moon Elves of the sunken valleys and mountains.
       Many healing powers and spiritual enlightenment is spread from the Elven tribes to the realm.</p>
-      <p>Attribute Modifiers: +1 to AGI, SPI, INT, or CHR</p>
-      <p>Ability to speak with animals or plants</p>
+      <p>Attribute Modifiers: +1 to AGI, WILL, INT, or CHR</p>
     </div>
     <div class="ancestry">
       <label>Gnome</label>
@@ -171,7 +169,6 @@
       They have also brought many advancements to the fields of sorcery and machinery.</p>
       <p>Attribute Modifiers: +1 to AGI, INT, or WIS</p>
       <p>Ability night vision</p>
-      <p>Ability natural resistance to void sorcery: 1 defense</p>
     </div>
     <div class="ancestry">
       <label>Goblin</label>
@@ -180,9 +177,8 @@
       Identified by their small size, long flappy pointed ears, thick green or brown skin, and occasionally fanged appearance.
       They are known for their hunting, cunning, and crafting.
       </p>
-      <p>Attribute Modifiers: +1 AGI, WIS, SPI, or INT</p>
-      <p>Ability to climb trees and rocks with sharpened nails</p>
-      <p>Ability resist any poison 1d6 chance</p>
+      <p>Attribute Modifiers: +1 AGI, WIS, WILL, or INT</p>
+      <p>Ability of strong smell</p>
     </div>
     <div class="ancestry">
       <label>Gul</label>
@@ -190,9 +186,8 @@
       They are known for their combat, hunting, cunning, and trading.
       All Guls can have horns, tails, and/or wings. The wings are only able to glide.
       Though all Guls walk on two legs, it is not uncommon for there to be four armed Guls.</p>
-      <p>Attribute Modifiers: +1 STR, AGI, CHR, SPI, or INT</p>
+      <p>Attribute Modifiers: +1 STR, AGI, CHR, WILL, or INT</p>
       <p>Ability to breath underwater</p>
-      <p>Ability resist any poison 1d4 chance</p>
     </div>
     <div class="ancestry">
       <label>Human</label>
@@ -200,15 +195,13 @@
       They battle constantly for domaniance as ruler of the realm, building great empires and waging wars.
       Through their use of intelligence and strength they have gained much in land, glory, power, and wealth.</p>
       <p>Attribute Modifiers: +1 to STR, AGI, INT, or CHR</p>
-      <p>Ability Tradesmen, +1 to any skill based on character's backstory</p>
     </div>
     <div class="ancestry">
       <label>Orc</label>
       <p>Orcs are a large,burly, brutish race that relies solely on their strength to solve their issues.
       Identified by their size, thick green or brown skin, and tusks or fangs which extend from their mouths, Orcs are feared across the land for their mastery in comabt and warfare.
       Born in the Wildlands the Orcs live among nature pursuing conquest, wealth, and power.</p>
-      <p>Attribute Modifiers: +1 STR or SPI</p>
-      <p>Ability resist any stun or poison 1d6 chance</p>
+      <p>Attribute Modifiers: +1 STR or WILL</p>
     </div>
     <div class="ancestry">
       <label>Spectre</label>
@@ -216,9 +209,8 @@
       Most of the seen Spectres are rouge, separated, or enslaved.
       Their large lanky figures with their pale teal or purple skin makes them stand out in cities and crowds.
       Known for their void sorcery and stealth skills the Spectres are feared across the land as elite hunters.</p>
-      <p>Attribute Modifiers: +1 to AGI or SPI</p>
-      <p>Ability night vision</p>
-      <p>Ability levitate</p>
+      <p>Attribute Modifiers: +1 to AGI or WILL</p>
+      <p>Ability vigilent rest</p>
     </div>
     <div class="ancestry">
       <label>Tengu</label>
@@ -226,8 +218,7 @@
       Most of the Tengu live out their lives in hermitage deep within the mountains and forests of the world.
       Known for their craftsmanship, skill with weaponns, alchemy, and spiritual beliefs.</p>
       <p>Attribute Modifiers: +1 to AGI, WIS or SPI</p>
-      <p>Ability high jump, jump up to three times your character's height</p>
-      <p>Ability natural resistance to psionic: 1 defense</p>
+      <p>Ability high jump, jump two times their height</p>
     </div>
     <div class="ancestry">
       <label>Undead</label>
@@ -245,33 +236,33 @@
     <div class="class">
       <label>Bard</label>
       <p>Bards are story tellers, traders, performers, and diplomats who rely on their charisma and intelligence to resolve their issues and survive.</p>
-      <p>Skill Modifiers: +1 to Culinary Arts, Deception, Haggle, Herbalism, Musical Arts, or Persuasion and +1 to Literacy</p>
+      <p>Skill Modifiers: +1 to Culinary Arts, Deception, Haggle, Herbalism, Musical Arts, or Persuasion</p>
     </div>
     <div class="class">
       <label>Craftsman</label>
       <p>Craftsmen are creators of great homes, foretress, items, weapons, armor, and more.
       They rely on their wisdom and intelligence to create what they need to resolve their issues and survive.</p>
-      <p>Skill Modifiers: +2 to Alchemy, Capentry, Mansory, Mechanics, Sewing, or Smithing</p>
+      <p>Skill Modifiers: +1 to Alchemy, Capentry, Mansory, Mechanics, Sewing, Smithing, or Spellcraft</p>
     </div>
     <div class="class">
       <label>Mage</label>
       <p>Mages are magic using being that rely on their intelligence to create magical items and cast powerful spells.</p>
-      <p>Skill Modifiers: +1 to Arcane Sorcery, Pyromancy, Necromancy, or Void Sorcery and +1 to Alchemy, Literacy, or Spellcraft</p>
+      <p>Skill Modifiers: +1 to Arcane Sorcery, Pyromancy, Necromancy, or Void Sorcery</p>
     </div>
     <div class="class">
       <label>Monk</label>
       <p>Monks are spirit guides who rely on their physical strength, agility, and spiritual inclination to survive.</p>
-      <p>Skill Modifiers: +1 to Communing Arts, Psiconics, Cryokinesis, or Shamanism and +1 to Martial Arts, Literacy, or Culinary Arts</p>
+      <p>Skill Modifiers: +1 to Brawl, Communing Arts, Culinary Arts, Grapple, Psiconics, Cryokinesis, or Shamanism</p>
     </div>
     <div class="class">
       <label>Rogue</label>
       <p>Rogues are crafty, cunning, and strategic fighters relying on their agility, intelligence, and skill to win battles, games, or just survive.</p>
-      <p>Skill Modifiers: +1 to Archery, Blade, Martial Arts, Staff, or Whip and +1 to Acrobatics, Dodge, Pick Pocket, Pick Lock, or Sneak</p>
+      <p>Skill Modifiers: +1 to Acrobatics, Archery, Blade, Brawl, Grapple, Staff, Slight of Hand, Sneak, or Whip</p>
     </div>
     <div class="class">
       <label>Warrior</label>
       <p>Warriors are raised with their communities, cities, or tribes to fight for honor and wealth with strength, agility, and skill.</p>
-      <p>Skill Modifiers: +1 to Blade, Blunt, Staff, or Martial Arts and +1 to Acrobatics, Atheltics, Block, or Dodge</p>
+      <p>Skill Modifiers: +1 to Acrobatics, Athletics, Blade, Blunt, Brawl, Grapple, or Staff</p>
     </div>
   </div>
 
@@ -281,7 +272,7 @@
       <label>Alchemist</label>
       <p>Alchemists are creators of great potions.
       They rely on their intelligence and wisdom to create what they need and survive.</p>
-      <p>Skill Modifiers: +2 to Alchemy, Literacy, or Herbalism</p>
+      <p>Skill Modifiers: +1 to Alchemy and Herbalism</p>
     </div>
     <div class="class">
       <label>Assassin</label>
@@ -291,129 +282,129 @@
     <div class="class">
       <label>Bounty Hunter/Mercenary</label>
       <p>Bounty Hunters are agile, strong, and cunning fighters relying on anything to win and survive.</p>
-      <p>Skill Modifiers: +2 to Acrobatics, Archery, Atheltics, Blade, Blunt, Staff, Ride, or Whip</p>
+      <p>Skill Modifiers: +1 to Acrobatics, Athletics, or Rise and +1 to Archery, Blade, Blunt, Brawl, Grapple, Staff, or Whip</p>
     </div>
     <div class="class">
       <label>Cleric</label>
       <p>Clerics are magic users that rely on their intelligence to heal themselves and others, create protective barriers, and modify allies and ememy stats.</p>
-      <p>Skill Modifiers: +2 Blunt, Blade, Communing Arts, Literacy, or Lore </p>
+      <p>Skill Modifiers: +1 Blunt, Blade, Lore, or Staff and +1 to Communing Arts</p>
     </div>
     <div class="class">
       <label>Cook</label>
       <p>Cooks are creators of delicious cusine and knowledable about the land in order to survive and make wealth.</p>
-      <p>Skill Modifiers: +2 to Alchemy, Culinary Arts, Herbalism, Literacy, or Lore</p>
+      <p>Skill Modifiers: +1 to Culinary Arts and Herbalism</p>
     </div>
     <div class="class">
       <label>Cryomancer</label>
       <p>Cryomancers are magic users that rely on their spiritual ability to create and manipulate ice telepathically.</p>
-      <p>Skill Modifiers: +2 to Cryokinesis, Literacy, or Lore</p>
+      <p>Skill Modifiers: +1 to Cryokinesis and +1 to Lore</p>
     </div>
     <div class="class">
       <label>Druid</label>
       <p>Druids are protectors of nature and masters of nature magic.
       They rely on their undersanding of the spirits and their wisdom to survive and live in harmony with nature.</p>
-      <p>Skill Modifiers: +2 to Alchemy, Communing Arts, Herbalism, or Lore</p>
+      <p>Skill Modifiers: +1 to Communing Arts and +1 to Alchemy, Herbalism, or Lore</p>
     </div>
     <div class="class">
       <label>Enchanter</label>
       <p>Enchanters are casters and creators of great spells.
       They rely on their intelligence and wisdom to create what they need and survive.</p>
-      <p>Skill Modifiers: +2 to Enchantment, Literacy, Lore, or Spellcraft</p>
+      <p>Skill Modifiers: +1 to Enchantment and +1 to Alchemy, Carpentry, Lore, or Spellcraft</p>
     </div>
     <div class="class">
       <label>Engineer</label>
       <p>Engineers are creators of great items, devices, weapons, armor, and more.
       They rely on their wisdom and intelligence to create what they need and survive.</p>
-      <p>Skill Modifiers: +2 to Arcane Sorcery, Carpentry, Mechanics, Literacy, Lore, or Smithing</p>
+      <p>Skill Modifiers: +1 to Carpentry, Mechanics, or Smithing and +1 to Arcane Sorcery or Lore</p>
     </div>
     <div class="class">
       <label>Explorer</label>
       <p>Explorers are travelers of the realm in such of great treasure, new territory, items, and delicious food.</p>
-      <p>Skill Modifiers: +2 to Alchemy, Culinary Arts, Haggle, Herbalism, Literacy, Lore, Musical Arts, or Persuasion</p>
+      <p>Skill Modifiers: +1 to Alchemy, Culinary Arts, or Herbalism and +1 to Haggle, Lore, or Persuasion</p>
     </div>
     <div class="class">
       <label>Fighter</label>
       <p>Fighters are hardened, trained, killers who fight for honor, glory, and wealth.</p>
-      <p>Additional Skill Modifiers: +2 to Acrobatics, Atheltics, Blade, Block, Blunt, Dodge, Martial Arts, or Staff</p>
+      <p>Additional Skill Modifiers: +1 to Acrobatics, Atheltics and +1 to Blade, Blunt, Brawl, Grapple, or Staff</p>
     </div>
     <div class="class">
       <label>Knight</label>
       <p>Knights are trained and skilled protectors of the land who fight for honor.</p>
-      <p>Additional Skill Modifiers: +2 to Atheltics, Blade, Block, Blunt, Lore, or Ride</p>
+      <p>Additional Skill Modifiers: +1 to Atheltics, Lore, or Ride and +1 to Blade, Blunt, or Staff</p>
     </div>
     <div class="class">
       <label>Necromancer</label>
       <p>Necromancers are magic users that rely on their intelligence to summon the dead, cast devastating hexes, and curse their enemies.</p>
-      <p>Skill Modifiers: +2 to Literacy, Lore, or Necromancy</p>
+      <p>Skill Modifiers: +1 to Necromancy and +1 to Medicine or Lore</p>
     </div>
     <div class="class">
       <label>Paladin</label>
       <p>Paldins are spiritual warriors who fight under the name of a devine deity.
       They rely on their strength, agility, and spiritual prowess to win battles and survive.</p>
-      <p>Skill Modifiers: +2 to Atheltics, Blade, Block, Blunt, Communing Arts, Dodge, Ride, or Staff</p>
+      <p>Skill Modifiers: +1 to Atheltics, Blade, Block, Blunt, Brawl, or Staff and +1 to Communing Arts, Medicine, or Ride</p>
     </div>
     <div class="class">
       <label>Performer</label>
       <p>Performers are story tellers, singers, and musical creators.
       They rely on their charisma and skill to win over people and create amazing music.</p>
-      <p>Skill Modifiers: +2 Deception, Literacy, Lore, Musical Arts, or Persuasion</p>
+      <p>Skill Modifiers: +1 Deception, Lore, or Persuasion and +1 to Perform or Play Musical Instruament</p>
     </div>
     <div class="class">
       <label>Psiconic</label>
       <p>Psiconics are magic users that rely on their spiritual ability to create illusions, move objects, and telepathically communicate.</p>
-      <p>Skill Modifiers: +2 to Literacy, Lore, or Psiconics </p>
+      <p>Skill Modifiers: +1 to Lore and Psiconics </p>
     </div>
     <div class="class">
       <label>Priest/Sage</label>
       <p>Monks and Priests are spiritual guides who rely on their physical strength, agility, and spiritual inclination to survive.</p>
-      <p>Skill Modifiers: +2 to Communing Arts, Deception, Literacy, Persuasion, or Psiconics</p>
+      <p>Skill Modifiers: +1 to Communing Arts, Medicine, Lore, or Psiconics and +1 to Deception, Persuasion, or Haggle</p>
     </div>
     <div class="class">
       <label>Pyromancer</label>
       <p>Pyromancer are magic users that rely on their intelligence to create, manipulate, and control fire.</p>
-      <p>Skill Modifiers: +2 to Literacy, Lore, or Pyromancy</p>
+      <p>Skill Modifiers: +1 to Lore and Pyromancy</p>
     </div>
     <div class="class">
       <label>Ranger</label>
       <p>Rangers are agile, cunning, and strategic fighters relying on their agility, intelligence, and skill to win battles and survive.</p>
-      <p>Skill Modifiers: +2 to Acrobatics, Archery, Blade, Dodge, Herbalism, Ride, Staff, or Whip</p>
+      <p>Skill Modifiers: +1 to Acrobatics, Athletics, Herbalism, Medicine, or Ride and +1 to Archery, Blade, Staff, or Whip</p>
     </div>
     <div class="class">
       <label>Shaman</label>
       <p>Shamen are magic users that rely on their spiritual inclination to summon great spirits or spirit weapons and armor to win battles.</p>
-      <p>Skill Modifiers: +2 to Literacy, Lore, or Shamanism</p>
+      <p>Skill Modifiers: +1 to Lore and Shamanism</p>
     </div>
     <div class="class">
       <label>Tradesman</label>
       <p>Tradesmen are creators of great buildings, items, weapons, armor, and tools.
       They rely on their skill to create what they need and survive.</p>
-      <p>Skill Modifiers: +2 to Carpentry, Literacy, Lore, Masonry, or Smith</p>
+      <p>Skill Modifiers: +1 to Carpentry, Masonry, Mechanics, or Smith and +1 to Lore</p>
     </div>
     <div class="class">
       <label>Templar</label>
       <p>Templars are spiritual warriors who fight under the name of a devine deity, lord, or spiritual way.
       They rely on their strength, agility, and spiritual prowess to win battles and survive.</p>
-      <p>Skill Modifiers: +2 to Atheltics, Blade, Block, Blunt, Psiconics, Ride, Shamanism, or Staff</p>
+      <p>Skill Modifiers: +1 to Atheltics, Blade, Block, Blunt, Ride, or Staff and +1 to Lore, Psiconics, or Shamanism</p>
     </div>
     <div class="class">
       <label>Thief</label>
       <p>Thieves are cunning, agile, sneaky individuals relying on their agility, intelligence, and skill to win battles and survive.</p>
-      <p>Skill Modifiers: +2 to Lore, Pick Pocket, Pick Lock, or Sneak</p>
+      <p>Skill Modifiers: +1 to Slight of Hand and Sneak</p>
     </div>
     <div class="class">
       <label>Trader</label>
       <p>Traders are travelers of the realm constantly providing goods and services to people while making a profit.</p>
-      <p>Skill Modifiers: +2 to Deception, Haggle, Literacy, Lore, or Persuasion</p>
+      <p>Skill Modifiers: +1 to Deception, Lore, or Persuasion and +1 to Haggle</p>
     </div>
     <div class="class">
       <label>Warlock</label>
       <p>Warlocks are magic users that rely on their intelligence to generate dark corruptous matter, gaps in space that irradiate the body, and construct spirits of great devastation.</p>
-      <p>Skill Modifiers: +2 to Literacy, Lore, or Void Sorcery</p>
+      <p>Skill Modifiers: +1 to Lore and Void Sorcery</p>
     </div>
     <div class="class">
       <label>Wizard</label>
       <p>Wizards are magic users that rely on their intelligence to generate lighting bolts, cast laser beams, and create protective light barriers.</p>
-      <p>Skill Modifiers: +2 to Arcane Sorcery, Literacy, or Lore</p>
+      <p>Skill Modifiers: +1 to Arcane Sorcery and Lore</p>
     </div>
   </div>
 
