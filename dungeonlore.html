@@ -2,7 +2,7 @@
 <script src="dungeonlore.script.js"></script>
 
 <div class="version-info">
-  <label>Dungeon Lore V2.0.2 - 2018-2019</label>
+  <label>Dungeon Lore V3.0.1 - 2018-2019</label>
 </div>
 <div class="myrpg-border">
   <button id="character-info-btn" class="collapsible" onclick="collapseExpand('character-info-btn', 'character-info')">- Character Info -</button>
@@ -80,9 +80,9 @@
         <label class="mod-label">Stat</label>
       </div>
       <div class="character-attribute">
-        <label>Strength (STR)</label>
-        <input id="str-mod" type="number" value="0" onfocusout="updateTraits(this)" />
-        <input id="str" type="number" value="5" min="5" onfocusout="checkAttributeLimit(this)" />
+        <label>Accuracy (ACC)</label>
+        <input id="acc-mod" type="number" value="0" onfocusout="updateTraits(this)" />
+        <input id="acc" type="number" value="5" min="5" onfocusout="checkAttributeLimit(this)" />
       </div>
       <div class="character-attribute">
         <label>Agility (AGI)</label>
@@ -90,9 +90,9 @@
         <input id="agi" type="number" value="5" min="5" onfocusout="checkAttributeLimit(this)" />
       </div>
       <div class="character-attribute">
-        <label>Vitality (VIT)</label>
-        <input id="vit-mod" type="number" value="0" onfocusout="updateTraits(this)" />
-        <input id="vit" type="number" value="5" min="5" onfocusout="checkAttributeLimit(this)" />
+        <label>Charisma (CHR)</label>
+        <input id="chr-mod" type="number" value="0" onfocusout="updateTraits(this)" />
+        <input id="chr" type="number" value="5" min="5" onfocusout="checkAttributeLimit(this)" />
       </div>
       <div class="character-attribute">
         <label>Intelligence (INT)</label>
@@ -100,40 +100,43 @@
         <input id="int" type="number" value="5" min="5" onfocusout="checkAttributeLimit(this)" />
       </div>
       <div class="character-attribute">
-        <label>Wisdom (WIS)</label>
-        <input id="wis-mod" type="number" value="0" onfocusout="updateTraits(this)" />
-        <input id="wis" type="number" value="5" min="5" onfocusout="checkAttributeLimit(this)" />
+        <label>Perception (PER)</label>
+        <input id="per-mod" type="number" value="0" onfocusout="updateTraits(this)" />
+        <input id="per" type="number" value="5" min="5" onfocusout="checkAttributeLimit(this)" />
       </div>
       <div class="character-attribute">
-        <label>Charisma (CHR)</label>
-        <input id="chr-mod" type="number" value="0" onfocusout="updateTraits(this)" />
-        <input id="chr" type="number" value="5" min="5" onfocusout="checkAttributeLimit(this)" />
+        <label>Strength (STR)</label>
+        <input id="str-mod" type="number" value="0" onfocusout="updateTraits(this)" />
+        <input id="str" type="number" value="5" min="5" onfocusout="checkAttributeLimit(this)" />
       </div>
       <div class="character-attribute">
-        <label>Spirit (SPI)</label>
-        <input id="spi-mod" type="number" value="0" onfocusout="updateTraits(this)" />
-        <input id="spi" type="number" value="5" min="5" onfocusout="checkAttributeLimit(this)" />
+        <label>Willpower (WILL)</label>
+        <input id="will-mod" type="number" value="0" onfocusout="updateTraits(this)" />
+        <input id="will" type="number" value="5" min="5" onfocusout="checkAttributeLimit(this)" />
       </div>
+      </br>
       <div class="character-attribute">
         <label>Remaining Attribute Points:</label>
-        <label id="remaining_pts">10</label>
+        <label id="remaining_pts">35</label>
+	<button class="character-buy-attribute-btn" onclick="buyAttributePoint(this)">Buy Attribute Point</button>
       </div>
+      </br>
     </div>
     <div class="character-traits">
       <label class="character-traits-title">Traits</label>
       <div class="character-trait">
         <div>
-          <label class="character-traits-label">Level</label>
-          <input id="lvl" type="number" class="character-traits-input-full" onfocusout="confirmAction(this)" value="1" min="1" />
-        </div>
-        <div>
           <label class="character-traits-label">Experience (EXP)</label>
-          <input id="exp" type="number" min="0" value="0" class="character-traits-input-full" />
+	  <label id="exp-used" class="display-label">0</label>
+	  <label class="display-label"> / </label>
+	  <label id="exp-total" class="display-label">50</label>
+	  <input id="exp-to-add" class="exp" type="number" min="0" value="0"/>
+	  <button class="character-add-exp-btn" onclick="confirmEXP(this)">Add Earned EXP</button>
         </div>
         <div>
           <label class="character-traits-label">Knowledge</label>
           <label id="knl" class="display-label-right"> / 1</label>
-          <input id="knl-used" class="character-traits-input" type="number" min="0" max="1" value="0" onfocusout="updateKnowledgeAndSkills(this)" />
+          <input id="knl-used" class="character-traits-input" type="number" min="0" max="1" value="0" onfocusout="updateKnowledge(this)" />
         </div>
         <div>
           <label class="character-traits-label">Health</label>
@@ -168,7 +171,7 @@
           <input id="survival-pts-used" class="character-traits-input" type="number" min="0" max="1" value="1" onfocusout="updateSurvivalPointsUsed(this)" />
         </div>
         <div>
-          <label class="character-traits-label">Stress/Sanity</label>
+          <label class="character-traits-label">Stress</label>
           <label id="stress-pts" class="display-label-right">/ 10 </label>
           <input id="stress-pts-used" class="character-traits-input" type="number" min="0" value="0" onfocusout="updateStressPointsUsed(this)" />
         </div>
@@ -178,10 +181,11 @@
 
   <button id="character-skills-btn" class="collapsible" onclick="collapseExpand('character-skills-btn', 'character-skills')">- Skills -</button>
   <div id="character-skills" class="character-skills">
-    <label class="character-skills-pts">Remaining Skill Points: </label>
-    <label id="skill_pts" class="character-skills-pts-label">5</label>
-    <label class="character-skills-pts-assigned-label">Assigned Skill Points: </label>
-    <label id="skill_pts_assigned" class="character-skills-pts-assigned">0</label>
+      <label class="character-skills-pts">Remaining Skill Points: </label>
+      <label id="skill_pts" class="character-skills-pts-label">0</label>
+      <button class="character-buy-skill-pt-btn" onclick="buySkillPoint(this)">Buy Skill Point</button>
+      <label class="character-skills-pts-assigned-label">Assigned Skill Points: </label>
+      <label id="skill_pts_assigned" class="character-skills-pts-assigned">0</label>
     <div>
       <label class="character-skill">Acrobatics (AGI)</label>
       <input id="acrobatics" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
@@ -218,11 +222,6 @@
       <input id="blade-mod" type="number" value="0" />
     </div>
     <div>
-      <label class="character-skill">Block (STR)</label>
-      <input id="block" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
-      <input id="block-mod" type="number" value="0" />
-    </div>
-    <div>
       <label class="character-skill">Blunt (STR)</label>
       <input id="blunt" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="blunt-mod" type="number" value="0" />
@@ -238,17 +237,17 @@
       <input id="carpentry-mod" type="number" value="0" />
     </div>
     <div>
-      <label class="character-skill">Catalyst (INT/SPI)</label>
+      <label class="character-skill">Catalyst (INT/WILL)</label>
       <input id="catalyst" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="catalyst-mod" type="number" value="0" />
     </div>
     <div>
-      <label class="character-skill">Communing Arts (SPI)</label>
+      <label class="character-skill">Communing Arts (WILL)</label>
       <input id="communing-arts" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="communing-arts-mod" type="number" value="0" />
     </div>
     <div>
-      <label class="character-skill">Cryokinesis (SPI)</label>
+      <label class="character-skill">Cryokinesis (WILL)</label>
       <input id="cryokinesis" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="cryokinesis-mod" type="number" value="0" />
     </div>
@@ -263,14 +262,9 @@
       <input id="deception-mod" type="number" value="0" />
     </div>
     <div>
-      <label class="character-skill">Discipline (STR/SPI)</label>
+      <label class="character-skill">Discipline (STR/WILL)</label>
       <input id="discipline" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="discipline-mod" type="number" value="0" />
-    </div>
-    <div>
-      <label class="character-skill">Dodge (AGI)</label>
-      <input id="dodge" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
-      <input id="dodge-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Duel Wield (AGI)</label>
@@ -278,7 +272,7 @@
       <input id="duel-wield-mod" type="number" value="0" />
     </div>
     <div>
-      <label class="character-skill">Enchantment (INT/SPI)</label>
+      <label class="character-skill">Enchantment (INT/WILL)</label>
       <input id="enchantment" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="enchantment-mod" type="number" value="0" />
     </div>
@@ -296,11 +290,6 @@
       <label class="character-skill">Herbalism (INT)</label>
       <input id="herbalism" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="herbalism-mod" type="number" value="0" />
-    </div>
-    <div>
-      <label class="character-skill">Literacy (INT)</label>
-      <input id="literacy" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
-      <input id="literacy-mod" type="number" value="0" />
     </div>
     <div>
       <label class="character-skill">Lore (INT)</label>
@@ -338,7 +327,7 @@
       <input id="persuasion-mod" type="number" value="0" />
     </div>
     <div>
-      <label class="character-skill">Psionics (SPI)</label>
+      <label class="character-skill">Psionics (WILL)</label>
       <input id="psionics" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="psionics-mod" type="number" value="0" />
     </div>
@@ -348,7 +337,7 @@
       <input id="pyromancy-mod" type="number" value="0" />
     </div>
     <div>
-      <label class="character-skill">Resilience (STR/SPI)</label>
+      <label class="character-skill">Resilience (STR/WILL)</label>
       <input id="resilience" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="resilience-mod" type="number" value="0" />
     </div>
@@ -363,7 +352,7 @@
       <input id="sewing-mod" type="number" value="0" />
     </div>
     <div>
-      <label class="character-skill">Shamanism (SPI)</label>
+      <label class="character-skill">Shamanism (WILL)</label>
       <input id="shamanism" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="shamanism-mod" type="number" value="0" />
     </div>
@@ -383,7 +372,7 @@
       <input id="staff-mod" type="number" value="0" />
     </div>
     <div>
-      <label class="character-skill">Spellcraft (INT/SPI)</label>
+      <label class="character-skill">Spellcraft (INT/WILL)</label>
       <input id="spellcraft" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="3" />
       <input id="spellcraft-mod" type="number" value="0" />
     </div>
@@ -398,12 +387,12 @@
       <input id="throw-mod" type="number" value="0" />
     </div>
     <div>
-      <label class="character-skill">Vigilance (STR/SPI)</label>
+      <label class="character-skill">Vigilance (PER)</label>
       <input id="vigilance" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="vigilance-mod" type="number" value="0" />
     </div>
     <div>
-      <label class="character-skill">Void Scorcery (INT,SPI)</label>
+      <label class="character-skill">Void Scorcery (INT,WILL)</label>
       <input id="void-sorcery" type="number" onfocusout="updateSkillPoints(this)" value="0" min="0" max="5" />
       <input id="void-sorcery-mod" type="number" value="0" />
     </div>

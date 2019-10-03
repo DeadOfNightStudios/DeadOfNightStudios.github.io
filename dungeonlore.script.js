@@ -1,14 +1,5 @@
 /* Dungeon Lore Script contains all rule logic for the character sheet */
 
-function confirmAction(element) {
-  var result = confirm("Have you really leveled up?")
-  if (result) {
-    addAttributePoints(element);
-  } else {
-    element.value = element.defaultValue;
-  }
-}
-
 function addAttributePoints(element) {
   var remainingPts = document.getElementById("remaining_pts").innerHTML;
   var level = document.getElementById("remaining_pts").innerHTML;
@@ -44,15 +35,14 @@ function checkAttributeLimit(element) {
 }
 
 function updateTraits(element) {
-  if (element.id == "wis-mod" || element.id == "wis") {
-    updateKnowledgeAndSkills(element);
-  } else if (element.id == "vit-mod" || element.id == "vit") {
-    updateHealth(element);
+  if (element.id == "int-mod" || element.id == "int") {
+    updateKnowledge(element);
   } else if (element.id == "str-mod" || element.id == "str") {
     updateBodyWeightAndCapcity(element);
+    updateHealth(element);
   } else if (element.id == "agi-mod" || element.id == "agi") {
     updateSpeed(element);
-  } else if (element.id == "spi-mod" || element.id == "spi") {
+  } else if (element.id == "will-mod" || element.id == "will") {
     updateSurvivalPoints(element);
     updateStressPoints(element);
   }
@@ -141,9 +131,20 @@ function addSpellEntry(element, tableId, entryName) {
 
 /* Trait Update Functions  */
 
+function confirmEXP(element) {
+  var expToAdd = parseInt(document.getElementById("exp-to-add").value);
+  var result = confirm("Are you certain you want to add " + expToAdd  + " experience points?");
+  
+  if (result) {
+    var total = parseInt(document.getElementById("exp-total").innerHTML);
+    total = total + expToAdd;
+    document.getElementById("exp-total").innerHTML = total;
+  }
+}
+
 function updateHealth(element) {
-  var vitality = parseInt(document.getElementById("vit").value);
-  var vitMod = parseInt(document.getElementById("vit-mod").value);
+  var vitality = parseInt(document.getElementById("str").value);
+  var vitMod = parseInt(document.getElementById("str-mod").value);
   document.getElementById("health").innerHTML = " / " + (vitality + vitMod);
   document.getElementById("damage").value = vitality + vitMod;
   document.getElementById("damage").max = vitality + vitMod;
@@ -151,8 +152,8 @@ function updateHealth(element) {
 }
 
 function updateSurvivalPoints(element) {
-  var spirit = Math.floor(parseInt(document.getElementById("spi").value) / 5);
-  var spiMod = parseInt(document.getElementById("spi-mod").value / 5);
+  var spirit = Math.floor(parseInt(document.getElementById("will").value) / 3);
+  var spiMod = parseInt(document.getElementById("will-mod").value / 3);
   document.getElementById("survival-pts").innerHTML = " / " + (spirit + spiMod);
   document.getElementById("survival-pts-used").value = spirit + spiMod;
   document.getElementById("survival-pts-used").max = spirit + spiMod;
@@ -160,8 +161,8 @@ function updateSurvivalPoints(element) {
 }
 
 function updateStressPoints(element) {
-  var stressPts = parseInt(document.getElementById("spi").value) * 2;
-  var spiMod = parseInt(document.getElementById("spi-mod").value) * 2;
+  var stressPts = parseInt(document.getElementById("will").value) * 2;
+  var spiMod = parseInt(document.getElementById("will-mod").value) * 2;
   document.getElementById("stress-pts").innerHTML = " / " + (stressPts + spiMod);
   document.getElementById("stress-pts-used").value = 0;
   document.getElementById("stress-pts-used").min = 0;
@@ -172,7 +173,7 @@ function updateBodyWeightAndCapcity(element) {
   var strMod = parseInt(document.getElementById("str-mod").value);
   var totalStr = str + strMod;
 
-  document.getElementById("body-weight").innerHTML = (totalStr * 10) + 30;
+  document.getElementById("body-weight").innerHTML = (totalStr * 15) + 50;
   document.getElementById("capacity").innerHTML = "/ " + (totalStr * 20) + " lb " + calculateAGIModifier();
   document.getElementById("capacity-value").innerHTML = (totalStr * 20);
 }
@@ -180,21 +181,8 @@ function updateBodyWeightAndCapcity(element) {
 function updateSpeed(element) {
   var agi = document.getElementById("agi").value;
   var intAGI = parseInt(agi);
-  document.getElementById("speed").innerHTML = Math.floor(intAGI/4);
-  if (intAGI < 16) {
-    document.getElementById("quick-action-pts").innerHTML = 1;
-  } else if (intAGI < 31) {
-    document.getElementById("quick-action-pts").innerHTML = 2;
-  } else if (intAGI < 61) {
-    document.getElementById("quick-action-pts").innerHTML = 3;
-  } else if (intAGI >= 61) {
-    document.getElementById("quick-action-pts").innerHTML = 4;
-  }
-  if (intAGI > 20) {
-    document.getElementById("action-pts").innerHTML = Math.floor(intAGI/20) + 1;
-  } else {
-    document.getElementById("action-pts").innerHTML = 1;
-  }
+  document.getElementById("speed").innerHTML = Math.floor(intAGI/3);
+  document.getElementById("action-pts").innerHTML = Math.floor(intAGI/25) + 1;
 }
 
 function updateKnowledgeUsed(element) {
@@ -220,13 +208,13 @@ function updateDamage(element) {
 }
 
 function updateSurvivalPointsUsed(element) {
-  var spirit = Math.floor(parseInt(document.getElementById("spi").value) / 5);
-  if (parseInt(element.value) > spirit) {
+  var will = Math.floor(parseInt(document.getElementById("will").value) / 3);
+  if (parseInt(element.value) > will) {
     element.value = element.defaultValue;
   } else if (parseInt(element.value) < 0) {
     element.value = 0;
   }
-  document.getElementById("survival-pts-used").max = spirit;
+  document.getElementById("survival-pts-used").max = will;
   document.getElementById("survival-pts-used").min = 0;
 }
 
@@ -237,61 +225,33 @@ function updateStressPointsUsed(element) {
   document.getElementById("stress-pts-used").min = 0;
 }
 
-function updateKnowledgeAndSkills(element) {
-  var wisdom = document.getElementById("wis").value;
-  var wisdomMod = parseInt(document.getElementById("wis-mod").value);
-  var knowledge = (parseInt(wisdom) + wisdomMod) / 5;
+function updateKnowledge(element) {
+  var wisdom = document.getElementById("int").value;
+  var wisdomMod = parseInt(document.getElementById("int-mod").value);
+  var knowledge = (parseInt(wisdom) + wisdomMod) / 3;
   document.getElementById("knl").innerHTML = " / " + Math.floor(knowledge);
   document.getElementById("knl-used").max = knowledge;
   document.getElementById("knl-used").min = 0;
+}
 
-  var skillPtsRemaining = parseInt(document.getElementById("skill_pts").innerHTML);
-  var skillPtsAssigned = parseInt(document.getElementById("skill_pts_assigned").innerHTML);
-  var totalPts = skillPtsRemaining + skillPtsAssigned;
-
-  var skillPtsMax = wisdom;
-  var newSkillPts = 0;
-
-  if (totalPts > skillPtsMax) {
-    // Remove skill points path
-    document.getElementById("skill_pts").innerHTML = "0";
-    document.getElementById("skill_pts_assigned").innerHTML = skillPtsMax;
-    var pointsToRemove = totalPts - skillPtsMax;
-    if (skillPtsRemaining >= pointsToRemove) {
-      document.getElementById("skill_pts").innerHTML = skillPtsRemaining - pointsToRemove;
-    } else if (skillPtsRemaining < pointsToRemove) {
-      var remainingPtsToRemove = pointsToRemove - skillPtsRemaining;
-      document.getElementById("skill_pts").innerHTML = 0;
-      var characterSkills = document.getElementById("character-skills");
-      var index = 0;
-      var skillInputs = characterSkills.getElementsByTagName("input");
-      var limit = skillInputs.length;
-      while (remainingPtsToRemove > 0 & index < limit) {
-        var inputValue = skillInputs[index].value;
-        if (inputValue !== 0){
-          if (inputValue <= remainingPtsToRemove) {
-            skillInputs[index].value = 0;
-            skillInputs[index].defaultValue = 0;
-            remainingPtsToRemove = remainingPtsToRemove - inputValue;
-          } else if (inputValue > remainingPtsToRemove) {
-            skillInputs[index].value = inputValue - remainingPtsToRemove;
-            remainingPtsToRemove = 0;
-          }
-        }
-        index++;
-      }
-    }
-    skillPtsRemaining = parseInt(document.getElementById("skill_pts").innerHTML);
-    updateAllSkillProperties(skillPtsRemaining);
-  } else if (totalPts <= skillPtsMax) {
-    // Add skill points path
-    var difference = skillPtsMax - totalPts;
-    newSkillPts = skillPtsRemaining + difference;
-
-    document.getElementById("skill_pts").innerHTML = newSkillPts;
-    updateAllSkillProperties(newSkillPts);
+function buySkillPoint(element) {
+  var totalExp = parseInt(document.getElementById("exp-total").innerHTML);
+  var usedExp = parseInt(document.getElementById("exp-used").innerHTML) + 10;
+  if (usedExp <= totalExp) {	
+    document.getElementById("skill_pts").innerHTML = parseInt(document.getElementById("skill_pts").innerHTML) + 1;
+    document.getElementById("exp-used").innerHTML = usedExp;
   }
 }
+
+function buyAttributePoint(element) {
+  var totalExp = parseInt(document.getElementById("exp-total").innerHTML);
+  var usedExp = parseInt(document.getElementById("exp-used").innerHTML) + 10;
+  if (usedExp <= totalExp) {
+    document.getElementById("remaining_pts").innerHTML = parseInt(document.getElementById("remaining_pts").innerHTML) + 1;
+    document.getElementById("exp-used").innerHTML = usedExp;
+  }
+}
+
 
 /* Skill Update Functions  */
 
@@ -332,7 +292,6 @@ function updateAllSkillProperties(remainingPts) {
   updateSkillProperties("art", remainingPts);
   updateSkillProperties("atheltics", remainingPts);
   updateSkillProperties("blade", remainingPts);
-  updateSkillProperties("block", remainingPts);
   updateSkillProperties("blunt", remainingPts);
   updateSkillProperties("brawl", remainingPts);
   updateSkillProperties("carpentry", remainingPts);
@@ -342,7 +301,6 @@ function updateAllSkillProperties(remainingPts) {
   updateSkillProperties("cryokinesis", remainingPts);
   updateSkillProperties("deception", remainingPts);
   updateSkillProperties("discipline", remainingPts);
-  updateSkillProperties("dodge", remainingPts);
   updateSkillProperties("duel-wield", remainingPts);
   updateSkillProperties("enchantment", remainingPts);
   updateSkillProperties("grapple", remainingPts);
@@ -350,7 +308,6 @@ function updateAllSkillProperties(remainingPts) {
   updateSkillProperties("handle-animal", remainingPts);
   updateSkillProperties("herbalism", remainingPts);
   updateSkillProperties("lore", remainingPts);
-  updateSkillProperties("literacy", remainingPts);
   updateSkillProperties("magnemancy", remainingPts);
   updateSkillProperties("masonry", remainingPts);
   updateSkillProperties("medicine", remainingPts);

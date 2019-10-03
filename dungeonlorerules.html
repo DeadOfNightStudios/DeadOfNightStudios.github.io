@@ -2,7 +2,7 @@
 <script src="dungeonlore.script.js"></script>
 
 <div class="version-info">
-  <label>Dungeon Lore Rules V1.0.2 - 2018-2019</label>
+  <label>Dungeon Lore Rules V3.0.1 - 2018-2019</label>
 </div>
 <div class="mygm-border">
 
@@ -49,91 +49,74 @@
   <button id="action-rules-btn" class="collapsible" onclick="collapseExpand('action-rules-btn', 'action-rules')">- Character Action Rules -</button>
   <div id="action-rules" class="action-rules">
     <label class="title">Character Setup</label>
-    <label class="info">Each character is required to choose a backstory with a class and may describe their backstory during the game or choose not to depending on the game play.
-    Each character must first select from the base classes of Bard, Craftsman, Mage, Monk, Rouge, or Warrior and assign their modifiers as listed.
-    Each level a character will receive one talent points assignable to a reachable node in a characer's class talent tree.
-    When a player reaches level 5 they may start to choose from the prestige classes if avialble and their talent trees.
-    Some prestige classes require training by elite characters found in the game.
+    <label class="info">Each character is required to choose a backstory with a goal in mind for their character.
+    Each player will start with 50 experience points which they can spend on attribute points, abilities, or skills for 10 experience points.
+    No attribute may go higher than 15 at character creation, or lower than 5.
     </label>
     <label class="title">Character Rules</label>
     <label class="info">At the start of the game the Game Master (GM) introduces the characters in any order while also setting the environment.
-    Once a turn order is established, which can be determined by rolling dice, the actions occur and interaction with the GM is required to continue.
     Scenes of great wars, stories of lost treasure, socities constructed of complex characters, and many other things will be described by the GM.
     Players will need to use their creativity, cunning, and charisma to express their actions and moves to receive bonuses from the GM or prevent careless actions.
-    Be wary of traps, spies, lying characters, excessive generosity, and sheeps in wolves clothing.
-    Be curious of enchanted items, devices, allies, and lore of the land.
-    As your character's actions are what determine how long you live.
-    If a plyaer has a sword that requires 15 strength to use and they have 19 strength, they receive an additional damage point for every four attribute points above the sword requirement.
-    Character experience (EXP) per level increases by a factor of three starting at ten.
-    To reach level 2 a player will require 10 EXP and for level 3 the player will require 30 EXP. 
-    EXP is not reset after leveing up.
-    Skills are used to add points to rolls of various various actions.
-    Every point added to a skill that is over the main requirement for a given action, weapon, or spell is a single point added towards your roll.</label>
+    Be wary of traps, spies, curses, lying characters, excessive generosity, and sheeps in wolves clothing.
+    Be curious of enchanted items, devices, overly friendly allies, and legends.
+    As your character's actions are what determine how long you survive.
+    Every point added to a skill that is over the main requirement for a given action, weapon, or spell is a 1d2 chance added to your succes check.</label>
     <label class="title">Charisma Rules</label>
     <label class="info">Players may wish to persuade, intimidate, haggle, or use diplomacy as they see fit and their CHR attribute is used as a modifier against their targets.
-    Each player rolls a 1d20, adds their skill dice modifiers for success chance, adds their attribute modifier. 
+    Each player rolls a 1d20, adds their skill dice modifiers for success chance, along with their attribute modifier. 
     Skill dice modifiers are 1d2 per skill points assigned, so if a player has three they will have a +1d6 chance to their 1d20 roll. 
-    Skill dice modifiers are 1d2 per skill points assigned, so if a player have two they will have a +1d4 chance to their 1d20 roll. 
-    For every four attribute points above the opposing character's charisma is had, an additional point of sucess is added to the 1d20 roll. 
-    When performing actions such as intimidate other player attributes can be compared and modifiers taken based on their attacking modifier such as Strength (STR) or Intelligence (INT).
+    The roll's threshold is determined by taking 20 - your-attribute-point-value - (your-attribute-point-value - their-attribute-point-value). 
+    If a bard were to have 10 Charisma and charming someone with only 15 points in Willpower, they will receive a +5 to your threshold which places it at 15 as 20 - 10 - (10 - 15) = 15. 
     </label>
     <label class="title">Crafting Rules</label>
     <label class="info">When a player is attempting to create armor, weapons, or items first an idea or instructions for the object are needed.
       If a player is attempting to create a custom weapon please use as much detail as possible, including aimed for stats of the object.
-      Once a object has been choosen and the wanted attribute modifier selected for the object the Game Master (GM) will inform you of all skill rolls required.
-      If the object being created has several materials in it that span a range of skills such as building a catapult which requires both smithing and carpentry.
-      The player who is creating the catapult will roll both a 1d20 for their smith and carpentry skill checked against the catapult's requirements.
-      If it requires 15 Strength (STR) check and 16 Intelligence (INT) check then those are the base scores to beat with your roll.
-      The player will receive bonuses to their rolls based on their attribute minus the attribute check score.
-      Example of this would be if a player had 18 STR and 20 INT they would receive a bonus of +3 on the STR check roll and a +4 on the INT check roll, using the 15 STR and 16 INT catapult above.
+      Once an object has been choosen and the wanted attribute modifier selected for the object the Game Master (GM) will inform you of all skill rolls required.
+      If the object being created has several materials in it that span a range of skills, such as building a catapult which requires both smithing and carpentry, the player will make multiple rolls.
+      The player who is creating the catapult will roll both a 1d20 for their smith and carpentry skill checks against the catapult's requirements.
+      Your check threshold will be calculated by your Intelligence for crafting based on 20 - your-attribute-point-value - (your-attribute-point-value - their-attribute-point-value).
+      Example of this would be if a player had 15 Intelligence and received a plus 3 as Catapult as a requirement of 18 Intelligence to create. 
+      This would then give us 20 - 15 - (15 - 18) = 20 - 15 - (-3) = 5 + 3 = 8.
     </label>
     <label class="title">Combat Rules</label>
     <label class="info">Once players enter combat a grid based map or a unit of measurement with terrian is used to determine movement and attacking angles.
-    Each player first rolls a 1d20 for initiative and highest player moves first, initiative bonus of speed trait.
+    Player order is determined by their agility and then their perception.
     If players describe their actions the Game Master may apply additional bonuses to help or hinder you as wanted.
-    When a player attacks an enemy they shift to an engaged status, meaning that they cannot move away from their enemy without possible being attacked.
-    An action point is also required to disenage an opponent in order to flee, as you will have to dodge or block their attack.   
-    Back stabs are critical hits and deal twice as much damage. When a player attacks at minimum two dice are rolled.
-    One to determine if the attack succeds based on their weapon, spell, item, or device against the opponents Block or Dodge skill.
-    And one to determine the amount of damage dealt, with four attribute points above attacking weapon's requirement adds one attack.
+    When a player attacks an enemy they shift to an engaged status, meaning that they cannot move away from their enemy without possibly being attacked.
+    An action point is also required to disenage an opponent in order to flee, as you will have to successfully dodge or block their attack.   
+    Whenever a player attacks they will roll a 1d20 using their Accuracy attirbute for their threshold calculations.
+    If that attack succeeds, then a damage dice roll is made and an armor roll is made for the defender. 
+    Example of a ranger with 14 Accuracy attacking a bandit with 13 Agility would be 20 - 14 - (14 - 13) = 5.  
     A player will need to role more dice depending their or their opponents' talents, skills, techniques, and abilities.
-    If a player attempts to dodge or block an attack the player's additional dice are added to the 1d20 roll based on their skill level.
-    For each skill point added to a skill that player may add one dice equal to their skill points assigned. 
-    If a player has one skill point assigned to their Blade skill they receive a 1d2 bonus on all attack hit rolls.
-    If a player has two skill points assigned to their Blade skill they receive a 1d4 bonus, 1d6 for three, 1d8 for four, and so on.
-    If a player has 16 AGI and their weapon only requires 12, since they have four additional attribute points they receive a modifier of plus one to all attack rolls.   
-    If a player wishes to wield a two-handed weapon in one hand, two times as much STR is required based on the weapons requirements.
-    Two point five times as much if the player wishses to duel wield the weapons.
-    When duel wielding attacks strike, they strike with both weapons in hand at once for one action point.
     Quick action points are used for drawing weapons, taking or tossing potions/items, some sorcery spells, and various other small actions approved by the GM.
-    When a player reaches zero or negative health, that player becomes unconsious and wounded.
-    That player may spend one survival points to roll a 1d20 to stay alive, stress is increased by 25% when successfully saved by rolling above a 15.
+    When a player reaches zero or negative health, that player becomes unconsious and dangerously injured.
+    That player may spend one survival points to roll a 1d20 to stay alive, stress is increased by 25% when successfully saved by rolling above a their calculated threshold.
     If they are performing a saving throw and it failed, they remain unconsious until one of their allies can assit them. 
     Additional rest time is required, and sometimes medical attention, for wounds or afflictions dealt to characters. 
     </label>
     <label class="title">Sorcery Rules</label>
-    <label class="info">If a player wishes to use sorcery they either need an enchanted device which has built in sorcery functions or enough intelligence/spirit, skill, and wisdom to
-      learn and cast the spell using their spirit ability, catalyst, or gathered materials.
+    <label class="info">If a player wishes to use sorcery they either need an enchanted device which has built in sorcery functions or enough intelligence/willpower, skill, and knowledge to
+      learn and cast the spell using their internal abilities, catalyst, or gathered materials.
       If a player has a catalyst they only need materials to replenish their spell usage during a rest.
       Otherwise to cast a spell once the player will need the corresponding materials such as arcane power dust, flint and powder, blood and bone, etc...
     </label>
     <label class="title">Stealth Rules</label>
     <label class="info">When a player is attempting to use stealth to achieve their goals that player will have to role against the Game Master who is acting as the opponent(s).
-    Agility (AGI) is the counter stat against Spirit (SPI) when a player is sneaking.
-    If a guard has 2 Vigilance skill and a character has 3 Sneak skill the character receives a +1d6 against the opponent's +1d4 on their 1d20 roll.
+    If a guard has 7 Perception and a character has 10 Agility with 1 Sneak skill that character receives a bonus +1d2 for their check.
+    20 - 10 - (10 - 7) = 20 - 10 - 3 = 7 threshold to roll at or above along with their 1d2 plus chance.
     This is done for each opponent within the area that the player is using stealth and a separate roll is needed for each guard.
     </label>
   </div>
 
   <button id="attribute-rules-btn" class="collapsible" onclick="collapseExpand('attribute-rules-btn', 'attribute-rules')">- Attribute Rules -</button>
   <div id="attribute-rules" class="gm-rules">
-    <label>Strength (STR) is used to use weapons, determine base attack power, and carry equipment</label>
-    <label>Agility (AGI) is used to use weapons, determine movement per turn, determine actions per turn, use weapons, sneak, and dodge attacks or spells.</label>
-    <label>Vitality (VIT) is used to determine health.</label>
-    <label>Intelligence (INT) is used to determine ability to cast spells, use catalysts, use devices, and build special items or spells.</label>
-    <label>Wisdom (WIS) is used to determine skill points, knowledge of spells, and use various craftsman tools.</label>
+    <label>Accuracy (ACC) is used to determine hit success with all weapons or spells.</label>
+    <label>Agility (AGI) is used to determine movement per turn, actions per turn, weapon requirements, discrete actions, and defense.</label>
     <label>Charisma (CHR) is used to gather support, trade, communicate, perform some actions or events, and use some spells.</label>
-    <label>Spirit (SPI) is used to determine ability to live without food or water, cast spells, and deal with stress to maintain sanity.</label>
+    <label>Intelligence (INT) is used to determine ability to cast spells, use catalysts, use devices, and craft items.</label>
+    <label>Perception (PER) is used to determine if someone is sneaking up on your, search the area, and identify items.</label>
+    <label>Strength (STR) is used to determine health, pain threshold, armor requirements, weapon requirements, and weight capacity</label>
+    <label>Willpower (WILL) is used to determine ability to live without food or water, cast spells, and deal with stress to maintain stress.</label>
   </div>
 
   <button id="trait-rules-btn" class="collapsible" onclick="collapseExpand('trait-rules-btn', 'trait-rules')">- Trait Rules -</button>
@@ -146,8 +129,8 @@
     <label>Speed will increase every 4 Agility (AGI) points. Movement is equivalent to Speed, an Action Point used reduces the movement that turn by one point.</label>
     <label>Action Points will increase every 20 Agility (AGI) points. One Action Point is used per action meaning an attack, item use, environment interaction, or spell cast.</label>
     <label>Quick Action Points will increase every 15 to 20 Agility (AGI) points. One Action Point is used per action meaning select items, environment interactions, or select spells.</label>
-    <label>One Survival Point is equal to one day (24h) with no penalty to perception, health, hunger, or thirst. Can also be used for additional saving throws.</label>
-    <label>If a character's Stress/Sanity level has exceeded their maximum that character will roll to take damage based on the amount over the limit. For every two points over the stress limit, that character will take one damage.</label>
+    <label>Survival Points are calculated by taking the player's Willpower (WILL) and dividing by 3. One Survival Point is equal to one day (24h) with no penalty to perception, health, hunger, or thirst. Can also be used for additional saving throws.</label>
+    <label>If a character's Stress level has exceeded their maximum that character will roll to take damage based on the amount over the limit. 1d4 damage for each point over the limit.</label>
   </div>
 
   <button id="ancestry-btn" class="collapsible" onclick="collapseExpand('ancestry-btn', 'ancestry')">- Ancestry -</button>
