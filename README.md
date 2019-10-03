@@ -1,5 +1,5 @@
 ## Dead Of Night Studios
-Dead Of Night Studios is an independently run operation that focuses on software development and art. All content is custom made by Dead Of Night Studios team members.
+Dead Of Night Studios is an independently run studio, created by Nathanial Heard, that focuses on software development and design. All content is custom made by Dead Of Night Studios.
 
 ## Projects
 - Dungeon Lore (Interactive Role Playing Game Character & Equipment Sheets)
