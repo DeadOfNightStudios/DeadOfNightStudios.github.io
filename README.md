@@ -2,4 +2,4 @@
 Dead Of Night Studios is an independently run studio, created by Nathanial Heard, that focuses on software development and design. All content is custom made by Dead Of Night Studios.
 
 ## Projects
-- Menu, a simple Spring Boot microservice for the YouTube tutorials 
+- Gun Range Companion, an Android app which can track your shooting range drills via sound and score your targets via picture
